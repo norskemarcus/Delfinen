@@ -5,18 +5,27 @@ import java.util.Scanner;
 public class UI {
   Scanner sc = new Scanner(System.in);
 
-  public String inputEmail() {
+  public void searchMemberOptions(){
+    System.out.println();
+    System.out.println("1. Søg ud fra e-Mail");
+    System.out.println("2. Søg ud fra navn");
+    System.out.println("3. Søg ud fra medlemsnummer");
+    System.out.println("4. Tilbage til forrige menu");
+
+  }
+
+  public String inputMemberEmail() {
     System.out.print("\nIndtast e-mail på medlem: ");
     String memberEmail = sc.nextLine();
     return memberEmail;
   }
 
   public int inputNumber() {
-
+    System.out.println("Vælg et tal fra menuen:");
     String numberString = sc.nextLine();
     int number = 15;
+
     try {
-      System.out.println("Vælg et tal fra menuen:");
       number = Integer.parseInt(numberString);
     } catch (NumberFormatException n) {
       System.err.println("Kun tal");

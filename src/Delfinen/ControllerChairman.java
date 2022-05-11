@@ -1,7 +1,7 @@
 package Delfinen;
 
 public class ControllerChairman {
-  private  UI ui = new UI();
+  private UI ui = new UI();
   private MemberList memberList = new MemberList();
 
   public void menuChairman() {
@@ -10,7 +10,6 @@ public class ControllerChairman {
     while (running) {
 
       ui.showMenuOptionsChairman();
-
 
 
       switch (ui.inputNumber()) {
@@ -40,9 +39,25 @@ public class ControllerChairman {
   }
 
   private void searchMember() {
-    String memberEmail = ui.inputEmail();
-    Member foundMember = memberList.findSpecifikMember(memberEmail);
-    ui.displayMember(foundMember);
+    ui.searchMemberOptions();
+    int number = ui.inputNumber();
+
+    Member foundMember = null;
+
+    switch (number) {
+      case 1 -> foundMember = searchMemberByEmail();
+      case 4 -> System.out.println();
+      default -> searchMember();
+    }
+
+    if (number != 4) {
+      ui.displayMember(foundMember);
+    }
+  }
+
+  private Member searchMemberByEmail() {
+    String memberEmail = ui.inputMemberEmail();
+    return memberList.findSpecifikMember(memberEmail);
   }
 
   private void addMember() {

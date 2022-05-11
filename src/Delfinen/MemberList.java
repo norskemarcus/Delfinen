@@ -19,7 +19,6 @@ public class MemberList {
         return member;
       }
     }
-
     return null;
   }
 
