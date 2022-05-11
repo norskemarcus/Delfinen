@@ -46,8 +46,10 @@ public class ControllerChairman {
 
     switch (number) {
       case 1 -> foundMember = searchMemberByEmail();
+      case 2 -> System.out.println();
+      case 3 -> System.out.println();
       case 4 -> System.out.println();
-      default -> searchMember();
+      default -> System.out.println();
     }
 
     if (number != 4) {
@@ -57,7 +59,8 @@ public class ControllerChairman {
 
   private Member searchMemberByEmail() {
     String memberEmail = ui.inputMemberEmail();
-    return memberList.findSpecifikMember(memberEmail);
+    Member foundMember = memberList.findSpecifikMember(memberEmail);
+    return foundMember;
   }
 
   private void addMember() {
