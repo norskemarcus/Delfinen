@@ -1,6 +1,6 @@
 package Delfinen;
 
-public class MainController {
+public class ControllerMain {
   private ControllerChairman cf = new ControllerChairman();
 
   public void run() {
