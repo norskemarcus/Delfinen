@@ -9,6 +9,7 @@ public class ControllerChairman {
 
     while (running) {
 
+      ui.forsideTekst("Formand");
       ui.showMenuOptionsChairman();
 
 

@@ -53,6 +53,22 @@ public class UI {
     System.out.println("5: Gå tilbage til hovedmenu");
   }
 
+  public void showMenuOptionsKasserer() {
+    System.out.println("1: Se forventeligt kontingentbudget");
+    System.out.println("2: Medlemmer i restance");
+    System.out.println("3: Gå tilbage til hovedmenu");
+  }
+
+  public void showMenuOptionsCoach() {
+    System.out.println("1: Top 5 præstationer junior");
+    System.out.println("2: Top 5 præstationer senior");
+    System.out.println("3: Gå tilbage til hovedmenu");
+  }
+
+  public void forsideTekst(String s){
+    System.out.println("*** " + s + "s forside***");
+  }
+
   public void errorMessage() {
     System.out.println("Ugyldig indtastning - indtast et tal fra menuen.");
   }
