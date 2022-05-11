@@ -10,17 +10,24 @@ public class ControllerMain {
     mainMenu();
   }
 
-  private void mainMenu() {
-    ui.mainMenuPrint();
-    int test = ui.inputNumber();
+  private void mainMenu() { //TODO: har lige lavet den public - skal den skiftes tilbage til private?
 
-    switch (test) {
-      case 1 -> cf.menuChairman();
-      case 2 -> ck.menuKasserer();
-      case 3 -> ct.menuCoach();
-      case 4 -> exit();
+    boolean running = true;
+
+    while (running) {
+
+      ui.mainMenuPrint();
+      int test = ui.inputNumber(); //Er træt - kan dette laves smartere? Nyt navn i stedet for test uanset
+
+      switch (test) {
+        case 1 -> cf.menuChairman();
+        case 2 -> ck.menuKasserer();
+        case 3 -> ct.menuCoach();
+        case 4 -> exit();
+        default -> ui.errorMessage();
+      }
+
     }
-
   }
 
   public void exit(){ //Anden Klasse?

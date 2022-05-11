@@ -15,7 +15,8 @@ public class UI {
   }
 
   public void mainMenuPrint(){
-    System.out.println("***DELFINS MEDLEMSDATABASE***");
+    System.out.println();
+    System.out.println("***DELFINENS MEDLEMSDATABASE***");
     System.out.println();
     System.out.println("Vælg log-in person");
     System.out.println("1. Formand");
@@ -66,7 +67,7 @@ public class UI {
   }
 
   public void forsideTekst(String s){
-    System.out.println("*** " + s + "s forside***");
+    System.out.println("*** " + s + "s forside ***");
   }
 
   public void errorMessage() {
