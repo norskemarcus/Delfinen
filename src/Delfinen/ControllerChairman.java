@@ -58,7 +58,7 @@ public class ControllerChairman {
   }
 
   private Member searchMemberByEmail() {
-    String memberEmail = ui.inputMemberEmail();
+    String memberEmail = ui.inputStringOfSearchCritiria("E-mail");
     Member foundMember = memberList.findSpecifikMember(memberEmail);
     return foundMember;
   }

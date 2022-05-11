@@ -14,8 +14,8 @@ public class UI {
 
   }
 
-  public String inputMemberEmail() {
-    System.out.print("\nIndtast e-mail på medlem: ");
+  public String inputStringOfSearchCritiria(String descriptionOfWhat) {
+    System.out.print("\nIndtast " + descriptionOfWhat + " på medlem: ");
     String memberEmail = sc.nextLine();
     return memberEmail;
   }
@@ -48,7 +48,7 @@ public class UI {
   public void displayMember(Member member) {
 
     if (member == null) {
-      System.out.println("\nMedlem blev ikke fundet ud indtastede oplysninger.\n");
+      System.out.println("\nIntet medlem blev ikke fundet ud indtastede oplysninger.\n");
     } else {
       System.out.printf("""
           
