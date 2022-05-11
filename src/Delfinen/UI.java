@@ -14,6 +14,18 @@ public class UI {
 
   }
 
+  public void mainMenuPrint(){
+    System.out.println("***DELFINS MEDLEMSDATABASE***");
+    System.out.println();
+    System.out.println("Vælg log-in person");
+    System.out.println("1. Formand");
+    System.out.println("2. Kasserer");
+    System.out.println("3. Træner");
+    System.out.println("4. Luk programmet");
+
+
+  }
+
   public String inputStringOfSearchCritiria(String descriptionOfWhat) {
     System.out.print("\nIndtast " + descriptionOfWhat + " på medlem: ");
     String memberEmail = sc.nextLine();
