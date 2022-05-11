@@ -2,6 +2,7 @@ package Delfinen;
 
 public class ControllerChairman {
   private  UI ui = new UI();
+  private MemberList memberList = new MemberList();
 
   public void menuChairman() {
     boolean running = true;
@@ -39,6 +40,9 @@ public class ControllerChairman {
   }
 
   private void searchMember() {
+    String memberEmail = ui.inputEmail();
+    Member foundMember = memberList.findSpecifikMember(memberEmail);
+    ui.displayMember(foundMember);
   }
 
   private void addMember() {

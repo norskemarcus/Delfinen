@@ -12,6 +12,17 @@ public class MemberList {
     allCompetitors = new ArrayList<>();
   }
 
+  public Member findSpecifikMember(String memberEmail) {
+
+    for (Member member: allMembers) {
+      if(member.getEmail().equals(memberEmail)){
+        return member;
+      }
+    }
+
+    return null;
+  }
+
   public ArrayList<Member> getAllMembers() {
     return allMembers;
   }

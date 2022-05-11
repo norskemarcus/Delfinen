@@ -15,4 +15,24 @@ public abstract class Member {
     this.email = email;
     this.isMembershipPaid = isMembershipPaid;
   }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public Integer getMemberNumber() {
+    return memberNumber;
+  }
+
+  public Integer getAge() {
+    return age;
+  }
+
+  public boolean isMembershipPaid() {
+    return isMembershipPaid;
+  }
 }

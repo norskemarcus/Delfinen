@@ -5,6 +5,12 @@ import java.util.Scanner;
 public class UI {
   Scanner sc = new Scanner(System.in);
 
+  public String inputEmail() {
+    System.out.print("\nIndtast e-mail på medlem: ");
+    String memberEmail = sc.nextLine();
+    return memberEmail;
+  }
+
   public int inputNumber() {
 
     String numberString = sc.nextLine();
@@ -28,5 +34,20 @@ public class UI {
 
   public void errorMessage() {
     System.out.println("Ugyldig indtastning - indtast et tal fra menuen.");
+  }
+
+  public void displayMember(Member member) {
+
+    if (member == null) {
+      System.out.println("\nMedlem blev ikke fundet ud indtastede oplysninger.\n");
+    } else {
+      System.out.printf("""
+          
+          Fundet medlem:
+          Navn:   %s  Medlemsnummer: %d Email: %s
+          Alder:  %d år  restance: %s 
+          
+          """, member.getName(),member.getMemberNumber(),member.getEmail(),member.getAge(),member.isMembershipPaid());
+    }
   }
 }
