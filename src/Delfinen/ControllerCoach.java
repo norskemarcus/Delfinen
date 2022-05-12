@@ -7,8 +7,8 @@ public class ControllerCoach {
 
     while (running) {
 
-      uiCoach.headerText();
-      uiCoach.showMenuOptionsCoach();
+      uiCoach.printHeader();
+      uiCoach.printMenuOptions();
 
 
       switch (uiCoach.inputNumber()) {

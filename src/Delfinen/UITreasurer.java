@@ -2,29 +2,16 @@ package Delfinen;
 
 import java.util.Scanner;
 
-public class UITreasurer {
+public class UITreasurer extends UIMain implements PrintMenuInterface {
   private Scanner sc = new Scanner(System.in);
 
-  public void showMenuOptionsTreasurer() {
+  public void printMenuOptions() {
     System.out.println("1: Se forventeligt kontingentbudget");
     System.out.println("2: Medlemmer i restance");
     System.out.println("3: Gå tilbage til hovedmenu");
   }
 
-  public int inputNumber() {
-    System.out.println("Vælg et tal fra menuen:");
-    String numberString = sc.nextLine();
-    int number = 15;
-
-    try {
-      number = Integer.parseInt(numberString);
-    } catch (NumberFormatException n) {
-      System.err.println("Kun tal");
-    }
-    return number;
-  }
-
-  public void headerText(){
+  public void printHeader(){
     System.out.println("*** Kassererens forside ***");
   }
 

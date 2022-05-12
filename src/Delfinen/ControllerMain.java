@@ -17,7 +17,7 @@ public class ControllerMain {
 
     while (running) {
 
-      uiMain.mainMenuPrint();
+      uiMain.printMenuOptions();
       int userChoice = uiMain.inputNumber();
 
       switch (userChoice) {

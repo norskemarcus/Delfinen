@@ -2,12 +2,12 @@ package Delfinen;
 
 import java.util.Scanner;
 
-public class UIMain {
+public class UIMain implements PrintMenuInterface {
   Scanner sc = new Scanner(System.in);
 
 
 
-  public void mainMenuPrint(){
+  public void printMenuOptions(){
     System.out.println();
     System.out.println("***DELFINENS MEDLEMSDATABASE***");
     System.out.println();
@@ -33,7 +33,7 @@ public class UIMain {
     return number;
   }
 
-  public void headerText(){
+  public void printHeader(){
     System.out.println("*** Velkommen til Svømmeklubben Delfinens administrative system ***");
   }
 

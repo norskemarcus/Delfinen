@@ -10,8 +10,8 @@ public class ControllerChairman {
 
     while (running) {
 
-      uiChairman.headerText();
-      uiChairman.showMenuOptionsChairman();
+      uiChairman.printHeader();
+      uiChairman.printMenuOptions();
 
 
       switch (uiChairman.inputNumber()) {

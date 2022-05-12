@@ -2,12 +2,12 @@ package Delfinen;
 
 public class ControllerTreasurer {
   private UITreasurer uiTreasurer = new UITreasurer();
-  public void menuKasserer() {//222
+  public void menuKasserer() {
     boolean running = true;
 
     while (running) {
-      uiTreasurer.headerText();
-      uiTreasurer.showMenuOptionsTreasurer();
+      uiTreasurer.printHeader();
+      uiTreasurer.printMenuOptions();
 
       switch (uiTreasurer.inputNumber()) {
         case 1 -> System.out.println("Viser kontingent"); //Skal være metoder til UI
