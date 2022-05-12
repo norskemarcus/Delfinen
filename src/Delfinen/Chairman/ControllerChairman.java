@@ -6,6 +6,8 @@ import Delfinen.Member.MemberList;
 import Delfinen.Member.NonCompetitor;
 import Delfinen.Persistence.FileHandler;
 
+import java.util.ArrayList;
+
 public class ControllerChairman {
   private UIChairman uiChairman = new UIChairman();
   private MemberList memberLists = new MemberList();
@@ -55,10 +57,8 @@ public class ControllerChairman {
     uiChairman.searchMemberOptions();
     int number = uiChairman.inputNumber();
 
-    Member foundMember = null;
-
     switch (number) {
-      case 1 -> foundMember = searchMemberByEmail();
+      case 1 -> searchMemberByEmail();
       case 2 -> System.out.println();
       case 3 -> System.out.println();
       case 4 -> System.out.println();
@@ -66,14 +66,14 @@ public class ControllerChairman {
     }
 
     if (number != 4) {
-      uiChairman.displayMember(foundMember);
+     // uiChairman.displayMember(foundMember);
     }
   }
 
-  private Member searchMemberByEmail() {
+  private void searchMemberByEmail() {
     String memberEmail = uiChairman.inputStringOfSearchCritiria("E-mail");
-    Member foundMember = memberLists.findSpecifikMember(memberEmail);
-    return foundMember;
+    ArrayList <Member> foundMembers = memberLists.findSpecifikMembersByMail(memberEmail);
+    uiChairman.printFoundMembersBySearch(foundMembers);
   }
 
 // motionssvømmer

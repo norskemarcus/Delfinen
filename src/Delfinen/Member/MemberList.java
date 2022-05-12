@@ -1,7 +1,5 @@
 package Delfinen.Member;
 
-import Delfinen.Member.Member;
-
 import java.util.ArrayList;
 
 public class MemberList {
@@ -14,14 +12,22 @@ public class MemberList {
     allCompetitors = new ArrayList<>();
   }
 
-  public Member findSpecifikMember(String memberEmail) {
+  public ArrayList<Member> findSpecifikMembersByMail(String memberEmail) {
 
-    for (Member member: allNonCompetitors) {
-      if(member.getEmail().equals(memberEmail)){
-        return member;
+    ArrayList<Member> foundMembers = new ArrayList<>();
+
+    for (Member member : allNonCompetitors) {
+      if (member.getEmail().contains(memberEmail)) {
+        foundMembers.add(member);
       }
     }
-    return null;
+
+    for (Member member : allCompetitors) {
+      if (member.getEmail().contains(memberEmail)) {
+        foundMembers.add(member);
+      }
+    }
+    return foundMembers;
   }
 
   public ArrayList<Member> getAllNonCompetitors() {

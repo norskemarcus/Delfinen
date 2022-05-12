@@ -21,7 +21,7 @@ public class UIMain implements PrintMenuInterface {
   }
 
   public int inputNumber() {
-    System.out.println("Vælg et tal fra menuen:");
+    System.out.print("Vælg et tal fra menuen:");
     String numberString = sc.nextLine();
     int number = 15;
 
