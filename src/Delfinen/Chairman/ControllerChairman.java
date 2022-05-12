@@ -9,8 +9,8 @@ import Delfinen.Persistence.FileHandler;
 import java.util.ArrayList;
 
 public class ControllerChairman {
-  private UIChairman uiChairman = new UIChairman();
-  private MemberList memberLists = new MemberList();
+  private final UIChairman uiChairman = new UIChairman();
+  private final MemberList memberLists = new MemberList();
   boolean running = true;
 
   public void menuChairman() {
@@ -58,37 +58,42 @@ public class ControllerChairman {
     int number = uiChairman.inputNumber();
 
     switch (number) {
-      case 1 -> searchMemberByEmail();
-      case 2 -> System.out.println();
+      case 1 -> searchMembersByString("e-mail");
+      case 2 -> searchMembersByString("navn");
       case 3 -> System.out.println();
       case 4 -> System.out.println();
       default -> System.out.println();
     }
 
     if (number != 4) {
-     // uiChairman.displayMember(foundMember);
+      // uiChairman.displayMember(foundMember);
     }
   }
 
-  private void searchMemberByEmail() {
-    String memberEmail = uiChairman.inputStringOfSearchCritiria("E-mail");
-    ArrayList <Member> foundMembers = memberLists.findSpecifikMembersByMail(memberEmail);
+  private void searchMembersByString(String descriptionWord) {
+    String memberDescription = uiChairman.inputStringOfSearchCritiria(descriptionWord);
+    ArrayList<Member> foundMembers;
+    if (descriptionWord.equals("e-mail")) {
+      foundMembers = memberLists.findSpecifikMembersByEmail(memberDescription);
+    } else {
+      foundMembers = memberLists.findSpecifikMembersByName(memberDescription);
+    }
     uiChairman.printFoundMembersBySearch(foundMembers);
   }
 
-// motionssvømmer
-  public void addNonCompetitorMember(){
+  // motionssvømmer
+  public void addNonCompetitorMember() {
     NonCompetitor newNonCompetitorMember = uiChairman.addNonCompetitorMember();
     memberLists.getAllNonCompetitors().add(newNonCompetitorMember);
   }
 
-//konkurrencesvømmer
-  public void addCompetitorMember(){
+  //konkurrencesvømmer
+  public void addCompetitorMember() {
     Competitor newCompetitorMember = uiChairman.addCompetitorMember();
     memberLists.getAllCompetitors().add(newCompetitorMember);
   }
 
-  public void changeMemberToCompetitor(NonCompetitor nonCompetitor){
+  public void changeMemberToCompetitor(NonCompetitor nonCompetitor) {
     //Competitor(String name, Integer memberNumber, Integer age, String email, boolean isMembershipPaid, String gender)
     String name = nonCompetitor.getName();
     Integer memberNumber = nonCompetitor.getMemberNumber();

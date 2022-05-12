@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class UIChairman extends UIMain implements PrintMenuInterface {
 
-  private Scanner sc = new Scanner(System.in);
+  private final Scanner sc = new Scanner(System.in);
 
   public void searchMemberOptions() {
     System.out.println();
