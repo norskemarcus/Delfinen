@@ -1,5 +1,7 @@
 package Delfinen;
 
+import java.util.ArrayList;
+
 public class ControllerChairman {
   private UIChairman uiChairman = new UIChairman();
 
@@ -15,11 +17,12 @@ public class ControllerChairman {
 
 
       switch (uiChairman.inputNumber()) {
-        case 1 -> addMember();
-        case 2 -> searchMember();
-        case 3 -> showMembers();
-        case 4 -> editMembers();
-        case 5 -> returnToMainMenu();
+        case 1 -> addNonCompetitorMember();
+        case 2 -> addCompetitorMember();
+        case 3 -> searchMember();
+        case 4 -> showMembers();
+        case 5 -> editMembers();
+        case 6 -> returnToMainMenu();
         default -> errorMessage();
       }
     }
@@ -37,7 +40,8 @@ public class ControllerChairman {
   private void editMembers() {
   }
 
-  private void showMembers() {
+  private ArrayList<Member> showMembers() { //TODO: Skal den kaldes herfra eller fra UI?
+   return memberList.getAllMembers();
   }
 
   private void searchMember() {
@@ -65,7 +69,20 @@ public class ControllerChairman {
     return foundMember;
   }
 
-  private void addMember() {
+
+  public void addNonCompetitorMember(){
+    //NonCompetitor newNonCompetitorMember = ui.addNonCompetitorMember();
+    //memberList.getAllMembers().add(newNonCompetitorMember);
   }
 
+
+  public void addCompetitorMember(){
+    //Competitor newCompetitorMember = uiChairman.addCompetitorMember();
+    //memberList.getAllCompetitors().add(newCompetitorMember);
+    //memberList.getAllMembers().add(newCompetitorMember); // Hele medlemslisten
+  }
+
+  public MemberList getMemberList() {
+    return memberList;
+  }
 }
