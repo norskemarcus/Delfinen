@@ -2,8 +2,9 @@ package Delfinen;
 
 import java.util.Scanner;
 
-public class UI {
-  Scanner sc = new Scanner(System.in);
+public class UIChairman {
+
+  private Scanner sc = new Scanner(System.in);
 
   public void searchMemberOptions(){
     System.out.println();
@@ -14,23 +15,18 @@ public class UI {
 
   }
 
-  public void mainMenuPrint(){
-    System.out.println();
-    System.out.println("***DELFINENS MEDLEMSDATABASE***");
-    System.out.println();
-    System.out.println("Vælg log-in person");
-    System.out.println("1. Formand");
-    System.out.println("2. Kasserer");
-    System.out.println("3. Træner");
-    System.out.println("4. Luk programmet");
-
-
-  }
-
   public String inputStringOfSearchCritiria(String descriptionOfWhat) {
     System.out.print("\nIndtast " + descriptionOfWhat + " på medlem: ");
     String memberEmail = sc.nextLine();
     return memberEmail;
+  }
+
+  public void showMenuOptionsChairman() {
+    System.out.println("1: Tilføj medlem");
+    System.out.println("2: Søg på medlem");
+    System.out.println("3: Vis medlemmer");
+    System.out.println("4: Rediger medlemsoplysninger");
+    System.out.println("5: Gå tilbage til hovedmenu");
   }
 
   public int inputNumber() {
@@ -46,35 +42,15 @@ public class UI {
     return number;
   }
 
-  public void showMenuOptionsChairman() {
-    System.out.println("1: Tilføj medlem");
-    System.out.println("2: Søg på medlem");
-    System.out.println("3: Vis medlemmer");
-    System.out.println("4: Rediger medlemsoplysninger");
-    System.out.println("5: Gå tilbage til hovedmenu");
-  }
-
-  public void showMenuOptionsKasserer() {
-    System.out.println("1: Se forventeligt kontingentbudget");
-    System.out.println("2: Medlemmer i restance");
-    System.out.println("3: Gå tilbage til hovedmenu");
-  }
-
-  public void showMenuOptionsCoach() {
-    System.out.println("1: Top 5 præstationer junior");
-    System.out.println("2: Top 5 præstationer senior");
-    System.out.println("3: Gå tilbage til hovedmenu");
-  }
-
-  public void forsideTekst(String s){
-    System.out.println("*** " + s + "s forside ***");
+  public void headerText(){
+    System.out.println("*** Formandens forside ***");
   }
 
   public void errorMessage() {
     System.out.println("Ugyldig indtastning - indtast et tal fra menuen.");
   }
 
-  public void displayMember(Member member) {
+  public void displayMember(Member member) { //TODO: Skal denne fremvisning differentieres afhængig af, om man er kasserer og formand?
 
     if (member == null) {
       System.out.println("\nIntet medlem blev ikke fundet ud indtastede oplysninger.\n");
@@ -88,4 +64,5 @@ public class UI {
           """, member.getName(),member.getMemberNumber(),member.getEmail(),member.getAge(),member.isMembershipPaid());
     }
   }
+
 }

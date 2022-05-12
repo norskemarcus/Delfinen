@@ -1,22 +1,21 @@
 package Delfinen;
 
 public class ControllerCoach {
-  private UI ui = new UI();
-
+  private UICoach uiCoach = new UICoach();
   public void menuCoach() {
     boolean running = true;
 
     while (running) {
 
-      ui.forsideTekst("Træner");
-      ui.showMenuOptionsCoach();
+      uiCoach.headerText();
+      uiCoach.showMenuOptionsCoach();
 
 
-      switch (ui.inputNumber()) {
+      switch (uiCoach.inputNumber()) {
         case 1 -> System.out.println("Metode til top 5 junior"); //Skal være metoder til UI
         case 2 -> System.out.println("Metod til top 5 senior");
         case 3 -> System.out.println("Metode til hovedmenu"); //Evt log ud
-        default -> ui.errorMessage();
+        default -> uiCoach.errorMessage();
       }
     }
   }

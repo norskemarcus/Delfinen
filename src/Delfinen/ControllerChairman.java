@@ -1,7 +1,8 @@
 package Delfinen;
 
 public class ControllerChairman {
-  private UI ui = new UI();
+  private UIChairman uiChairman = new UIChairman();
+
   private MemberList memberList = new MemberList();
 
   public void menuChairman() {
@@ -9,11 +10,11 @@ public class ControllerChairman {
 
     while (running) {
 
-      ui.forsideTekst("Formand");
-      ui.showMenuOptionsChairman();
+      uiChairman.headerText();
+      uiChairman.showMenuOptionsChairman();
 
 
-      switch (ui.inputNumber()) {
+      switch (uiChairman.inputNumber()) {
         case 1 -> addMember();
         case 2 -> searchMember();
         case 3 -> showMembers();
@@ -25,7 +26,7 @@ public class ControllerChairman {
   }
 
   private void errorMessage() {
-    ui.errorMessage();
+    uiChairman.errorMessage();
   }
 
   //Kald metode fra member/memberlist-klasse via nedenstående metoder:
@@ -40,8 +41,8 @@ public class ControllerChairman {
   }
 
   private void searchMember() {
-    ui.searchMemberOptions();
-    int number = ui.inputNumber();
+    uiChairman.searchMemberOptions();
+    int number = uiChairman.inputNumber();
 
     Member foundMember = null;
 
@@ -54,12 +55,12 @@ public class ControllerChairman {
     }
 
     if (number != 4) {
-      ui.displayMember(foundMember);
+      uiChairman.displayMember(foundMember);
     }
   }
 
   private Member searchMemberByEmail() {
-    String memberEmail = ui.inputStringOfSearchCritiria("E-mail");
+    String memberEmail = uiChairman.inputStringOfSearchCritiria("E-mail");
     Member foundMember = memberList.findSpecifikMember(memberEmail);
     return foundMember;
   }

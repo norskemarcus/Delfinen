@@ -1,36 +1,37 @@
 package Delfinen;
 
 public class ControllerMain {
-  private ControllerChairman cf = new ControllerChairman();
-  private ControllerCashier ck = new ControllerCashier();
-  private ControllerCoach ct = new ControllerCoach();
-  private UI ui = new UI();
+  private ControllerChairman cChairman = new ControllerChairman();
+  private ControllerTreasurer cTreasurer = new ControllerTreasurer();
+  private ControllerCoach cCoach = new ControllerCoach();
+  private UIMain uiMain = new UIMain();
+  private boolean running = true;
+
 
   public void run() {
     mainMenu();
   }
 
-  private void mainMenu() { //TODO: har lige lavet den public - skal den skiftes tilbage til private?
+  private void mainMenu() {
 
-    boolean running = true;
 
     while (running) {
 
-      ui.mainMenuPrint();
-      int test = ui.inputNumber(); //Er træt - kan dette laves smartere? Nyt navn i stedet for test uanset
+      uiMain.mainMenuPrint();
+      int userChoice = uiMain.inputNumber();
 
-      switch (test) {
-        case 1 -> cf.menuChairman();
-        case 2 -> ck.menuKasserer();
-        case 3 -> ct.menuCoach();
+      switch (userChoice) {
+        case 1 -> cChairman.menuChairman();
+        case 2 -> cTreasurer.menuKasserer();
+        case 3 -> cCoach.menuCoach();
         case 4 -> exit();
-        default -> ui.errorMessage();
+        default -> uiMain.errorMessage();
       }
 
     }
   }
 
-  public void exit(){ //Anden Klasse?
-    System.exit(0);
+  public void exit(){
+    running = false;
   }
 }
