@@ -25,7 +25,7 @@ public class ControllerMain {
         case 2 -> cTreasurer.menuKasserer();
         case 3 -> cCoach.menuCoach();
         case 4 -> exit();
-        default -> uiMain.errorMessage();
+        default -> uiMain.printErrorMessage();
       }
 
     }

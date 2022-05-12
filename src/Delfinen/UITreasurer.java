@@ -15,10 +15,6 @@ public class UITreasurer extends UIMain implements PrintMenuInterface {
     System.out.println("*** Kassererens forside ***");
   }
 
-  public void errorMessage() {
-    System.out.println("Ugyldig indtastning - indtast et tal fra menuen.");
-  }
-
   public void displayMember(Member member) { //TODO: Skal denne fremvisning differentieres afhængig af, om man er kasserer og formand?
 
     if (member == null) {

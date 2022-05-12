@@ -14,7 +14,7 @@ public class ControllerTreasurer {
         case 2 -> System.out.println("Viser restancemedlemmer");
         case 3 -> System.out.println("Tilbage til hovedmenu");
         case 4 -> System.out.println("Afslut program"); // set running til false
-        default -> uiTreasurer.errorMessage();
+        default -> uiTreasurer.printErrorMessage();
       }
     }
   }

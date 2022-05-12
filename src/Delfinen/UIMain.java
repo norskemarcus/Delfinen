@@ -37,7 +37,7 @@ public class UIMain implements PrintMenuInterface {
     System.out.println("*** Velkommen til Svømmeklubben Delfinens administrative system ***");
   }
 
-  public void errorMessage() {
+  public void printErrorMessage() {
     System.out.println("Ugyldig indtastning - indtast et tal fra menuen.");
   }
 

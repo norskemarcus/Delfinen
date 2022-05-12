@@ -26,7 +26,7 @@ public class ControllerChairman {
   }
 
   private void errorMessage() {
-    uiChairman.errorMessage();
+    uiChairman.printErrorMessage();
   }
 
   //Kald metode fra member/memberlist-klasse via nedenstående metoder:

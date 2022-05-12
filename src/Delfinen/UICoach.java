@@ -11,10 +11,6 @@ public class UICoach extends UIMain implements PrintMenuInterface {
     System.out.println("*** Trænerens forside ***");
   }
 
-  public void errorMessage() {
-    System.out.println("Ugyldig indtastning - indtast et tal fra menuen.");
-  }
-
   @Override
   public void printMenuOptions() {
     System.out.println("1: Top 5 præstationer junior");
