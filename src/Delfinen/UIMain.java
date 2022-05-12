@@ -33,7 +33,7 @@ public class UIMain {
     return number;
   }
 
-  public void headerText(String s){
+  public void headerText(){
     System.out.println("*** Velkommen til Svømmeklubben Delfinens administrative system ***");
   }
 
