@@ -12,7 +12,7 @@ class ControllerChairmanTest {
     Competitor sebastian = new Competitor("Sebastian", 20220001, 19, "seb@gmail.com", true, "M");
     MemberList memberList = new MemberList();
     //act
-    memberList.getAllMembers().add(sebastian);
+    memberList.getAllNonCompetitors().add(sebastian);
     memberList.getAllCompetitors().add(sebastian);
     //assert
     Member testMember = memberList.findSpecifikMember("test");
@@ -25,7 +25,7 @@ class ControllerChairmanTest {
     Competitor sebastian = new Competitor("Sebastian", 20220001, 19, "seb@gmail.com", true, "M");
     MemberList memberList = new MemberList();
     //act
-    memberList.getAllMembers().add(sebastian);
+    memberList.getAllNonCompetitors().add(sebastian);
     memberList.getAllCompetitors().add(sebastian);
     //assert
     Member testMember = memberList.findSpecifikMember("seb@gmail.com");

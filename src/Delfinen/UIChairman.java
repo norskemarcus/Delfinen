@@ -52,7 +52,7 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
   }
 
   public NonCompetitor addNonCompetitorMember() {
-    System.out.println("Opret ny konkurrencesvømmer. Tast ind stamoplysninger:");
+    System.out.println("Opret ny motionssvømmer. Tast ind stamoplysninger:");
     System.out.println("Navn:");
     String name = sc.nextLine();
     System.out.println("Alder");
@@ -93,12 +93,41 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
     }
   }
 
-/*
+
   public Competitor addCompetitorMember() {
+      System.out.println("Opret ny konkurrencesvømmer. Tast ind stamoplysninger:");
+      System.out.println("Navn:");
+      String name = sc.nextLine();
+      System.out.println("Alder");
+      String ageString = sc.nextLine();
+      System.out.println("Køn (M/K)");
+      //TODO: if sætninger hvis ikke M eller K og mærkelig alder etc
+      String gender = sc.nextLine();
+      int age = Integer.parseInt(ageString);
+      System.out.println("Email:");
+      String email = sc.nextLine();
+      System.out.println("Er kontingent betalt? (j/n)");
+
+      String answer = "";
+      boolean isMembershipPaid = true;
+      while(!answer.equals("j") && !answer.equals("n") ){
+        answer = sc.nextLine();
+        if (answer.equals("j")){
+          isMembershipPaid = true;
+        } else if (answer.equals("n")){
+          isMembershipPaid = false;
+        } else System.out.println("Indtast j for ja eller n for nej");
+      }
+
+      Integer memberNumber = 0; //TODO hardcoded
+
+      // String name, Integer memberNumber, Integer age, String email, boolean isMembershipPaid, String gender)
+      return new Competitor(name, memberNumber, age, email, isMembershipPaid, gender);
+    }
   }
 
 
- */
 
 
-}
+
+

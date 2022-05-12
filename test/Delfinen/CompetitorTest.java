@@ -16,10 +16,10 @@ class CompetitorTest {
     Competitor sebastian = new Competitor("Sebastian", 20220001, 19, "seb@gmail.com", true, "M");
     MemberList memberList = new MemberList();
     //act
-    memberList.getAllMembers().add(sebastian);
+    memberList.getAllNonCompetitors().add(sebastian);
     memberList.getAllCompetitors().add(sebastian);
     //assert
-    assertTrue(memberList.getAllMembers().size() == 1);
+    assertTrue(memberList.getAllNonCompetitors().size() == 1);
     assertTrue(memberList.getAllCompetitors().size() == 1);
 
   }

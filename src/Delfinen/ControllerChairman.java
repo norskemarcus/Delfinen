@@ -1,28 +1,26 @@
 package Delfinen;
 
-import java.util.ArrayList;
+import Delfinen.Persistence.FileHandler;
 
 public class ControllerChairman {
   private UIChairman uiChairman = new UIChairman();
-
-  private MemberList memberList = new MemberList();
+  private MemberList memberLists = new MemberList();
+  boolean running = true;
 
   public void menuChairman() {
-    boolean running = true;
 
     while (running) {
 
       uiChairman.printHeader();
       uiChairman.printMenuOptions();
 
-
       switch (uiChairman.inputNumber()) {
         case 1 -> addNonCompetitorMember();
-        //case 2 -> addCompetitorMember();
+        case 2 -> addCompetitorMember();
         case 3 -> searchMember();
         case 4 -> showMembers();
         case 5 -> editMembers();
-        case 6 -> returnToMainMenu();
+        case 6 -> saveAndReturnToMainMenu();
         default -> errorMessage();
       }
     }
@@ -34,14 +32,17 @@ public class ControllerChairman {
 
   //Kald metode fra member/memberlist-klasse via nedenstående metoder:
 
-  private void returnToMainMenu() {
+  private void saveAndReturnToMainMenu() {
+    FileHandler fileHandler = new FileHandler();
+    fileHandler.saveAllNonCompetitorsToFile(memberLists.getAllNonCompetitors());
+    running = false;
   }
 
   private void editMembers() {
   }
 
   private void showMembers() {
-    uiChairman.printAllMembers(memberList.getAllMembers());
+    uiChairman.printAllMembers(memberLists.getAllNonCompetitors());
 
   }
 
@@ -66,26 +67,26 @@ public class ControllerChairman {
 
   private Member searchMemberByEmail() {
     String memberEmail = uiChairman.inputStringOfSearchCritiria("E-mail");
-    Member foundMember = memberList.findSpecifikMember(memberEmail);
+    Member foundMember = memberLists.findSpecifikMember(memberEmail);
     return foundMember;
   }
 
 // motionssvømmer
   public void addNonCompetitorMember(){
     NonCompetitor newNonCompetitorMember = uiChairman.addNonCompetitorMember();
-    memberList.getAllMembers().add(newNonCompetitorMember);
+    memberLists.getAllNonCompetitors().add(newNonCompetitorMember);
   }
-/*
+
 //konkurrencesvømmer
   public void addCompetitorMember(){
     Competitor newCompetitorMember = uiChairman.addCompetitorMember();
-    memberList.getAllCompetitors().add(newCompetitorMember);
-    memberList.getAllMembers().add(newCompetitorMember); // Hele medlemslisten
+    memberLists.getAllCompetitors().add(newCompetitorMember);
+    memberLists.getAllNonCompetitors().add(newCompetitorMember);
   }
 
- */
 
-  public MemberList getMemberList() {
-    return memberList;
+
+  public MemberList getMemberLists() {
+    return memberLists;
   }
 }
