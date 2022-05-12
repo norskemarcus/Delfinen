@@ -35,4 +35,5 @@ public abstract class Member {
   public boolean isMembershipPaid() {
     return isMembershipPaid;
   }
+
 }

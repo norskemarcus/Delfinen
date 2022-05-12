@@ -1,5 +1,6 @@
 package Delfinen.Persistence;
 
+import Delfinen.Competitor;
 import Delfinen.Member;
 
 import java.io.File;
@@ -35,6 +36,34 @@ public class FileHandler {
 
   }
 
+
+  public void saveAllCompetitorsToFile(ArrayList<Competitor> listOfCompetitors)  {
+
+    try{
+      PrintStream out = new PrintStream(new File("medlemsliste_konkurrencesvømmer.csv"));
+
+      for (Competitor competitor: listOfCompetitors) {
+        out.print(competitor.getName());
+        out.print(";");
+        out.print(competitor.getMemberNumber());
+        out.print(";");
+        out.print(competitor.getGender());
+        out.print(";");
+        out.print(competitor.getAge());
+        out.print(";");
+        out.print(competitor.getEmail());
+        out.print(";");
+        out.print(competitor.isMembershipPaid());
+        out.print("\n");
+      }
+
+    } catch (FileNotFoundException fnfe){
+      System.err.println("Fil ikke fundet");
+    }
+
+
+
+  }
 
 
 }

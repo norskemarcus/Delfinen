@@ -35,6 +35,7 @@ public class ControllerChairman {
   private void saveAndReturnToMainMenu() {
     FileHandler fileHandler = new FileHandler();
     fileHandler.saveAllNonCompetitorsToFile(memberLists.getAllNonCompetitors());
+    fileHandler.saveAllCompetitorsToFile(memberLists.getAllCompetitors());
     running = false;
   }
 
@@ -81,7 +82,6 @@ public class ControllerChairman {
   public void addCompetitorMember(){
     Competitor newCompetitorMember = uiChairman.addCompetitorMember();
     memberLists.getAllCompetitors().add(newCompetitorMember);
-    memberLists.getAllNonCompetitors().add(newCompetitorMember);
   }
 
 

@@ -9,4 +9,10 @@ public class Competitor extends Member {
     this.gender = gender;
 
   }
+
+
+
+  public String getGender() {
+    return gender;
+  }
 }

@@ -33,6 +33,7 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
 
 
   public void printHeader(){
+    System.out.println(" ");
     System.out.println("*** Formandens forside ***");
   }
 
@@ -75,12 +76,16 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
 
     Integer memberNumber = 0; //TODO hardcoded
 
-    // (String name, Integer memberNumber, Integer age, String email, boolean isMembershipPaid){
-    return new NonCompetitor(name,memberNumber, age, email, isMembershipPaid);
+    NonCompetitor nonCompetitor = new NonCompetitor(name,memberNumber, age, email, isMembershipPaid);
+
+    System.out.println("Ny motionssvømmer lagt ind i systemet:");
+    printMember(nonCompetitor);
+
+    return nonCompetitor;
   }
 
   public void printAllMembers(ArrayList<Member> memberList) {
-
+//TODO: ændre til at det nu er 2 lister
     for (Member member: memberList) {
       System.out.printf("""
           
@@ -93,6 +98,21 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
     }
   }
 
+  public void printMember(Member member){
+
+    if(member instanceof Competitor competitor){
+      System.out.printf("""
+          Navn: %s  Medlemsnummer: %d Køn: %s  Email: %s  Alder:  %d år  restance: %s      
+          """, member.getName(),member.getMemberNumber(),competitor.getGender(),member.getEmail(),member.getAge(),member.isMembershipPaid());
+    } else {
+      System.out.printf("""
+          Navn: %s  Medlemsnummer: %d  Email: %s  Alder:  %d år  restance: %s      
+          """, member.getName(),member.getMemberNumber(),member.getEmail(),member.getAge(),member.isMembershipPaid());
+    }
+
+
+
+  }
 
   public Competitor addCompetitorMember() {
       System.out.println("Opret ny konkurrencesvømmer. Tast ind stamoplysninger:");
@@ -119,11 +139,19 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
         } else System.out.println("Indtast j for ja eller n for nej");
       }
 
+
+
       Integer memberNumber = 0; //TODO hardcoded
 
+      Competitor competitor = new Competitor(name, memberNumber, age, email, isMembershipPaid, gender);
+      System.out.println("Ny konkurrencesvømmer lagt ind i systemet:");
+      printMember(competitor);
       // String name, Integer memberNumber, Integer age, String email, boolean isMembershipPaid, String gender)
-      return new Competitor(name, memberNumber, age, email, isMembershipPaid, gender);
+      return competitor;
     }
+
+
+
   }
 
 
