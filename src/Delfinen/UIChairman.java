@@ -54,14 +54,14 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
 
   public NonCompetitor addNonCompetitorMember() {
     System.out.println("Opret ny motionssvømmer. Tast ind stamoplysninger:");
-    System.out.println("Navn:");
+    System.out.print("Navn: ");
     String name = sc.nextLine();
-    System.out.println("Alder");
+    System.out.print("Alder: ");
     String ageString = sc.nextLine();
     int age = Integer.parseInt(ageString);
-    System.out.println("Email:");
+    System.out.print("Email: ");
     String email = sc.nextLine();
-    System.out.println("Er kontingent betalt? (j/n)");
+    System.out.print("Er kontingent betalt (j/n): ");
 
     String answer = "";
     boolean isMembershipPaid = true;
@@ -116,17 +116,17 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
 
   public Competitor addCompetitorMember() {
       System.out.println("Opret ny konkurrencesvømmer. Tast ind stamoplysninger:");
-      System.out.println("Navn:");
+      System.out.print("Navn: ");
       String name = sc.nextLine();
-      System.out.println("Alder");
+      System.out.print("Alder: ");
       String ageString = sc.nextLine();
-      System.out.println("Køn (M/K)");
+      System.out.print("Køn (M/K): ");
       //TODO: if sætninger hvis ikke M eller K og mærkelig alder etc
       String gender = sc.nextLine();
       int age = Integer.parseInt(ageString);
-      System.out.println("Email:");
+      System.out.print("Email: ");
       String email = sc.nextLine();
-      System.out.println("Er kontingent betalt? (j/n)");
+      System.out.print("Er kontingent betalt (j/n): ");
 
       String answer = "";
       boolean isMembershipPaid = true;
