@@ -1,5 +1,6 @@
 package Delfinen;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UIChairman extends UIMain implements PrintMenuInterface {
@@ -22,11 +23,12 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
   }
 
   public void printMenuOptions() {
-    System.out.println("1: Tilføj medlem");
-    System.out.println("2: Søg på medlem");
-    System.out.println("3: Vis medlemmer");
-    System.out.println("4: Rediger medlemsoplysninger");
-    System.out.println("5: Gå tilbage til hovedmenu");
+    System.out.println("1: Tilføj motionssvømmer");
+    System.out.println("2: Tilføj konkurrencemedlem");
+    System.out.println("3: Søg på medlem");
+    System.out.println("4: Vis medlemmer");
+    System.out.println("5: Rediger medlemsoplysninger");
+    System.out.println("6: Gå tilbage til hovedmenu");
   }
 
 
@@ -52,5 +54,55 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
           """, member.getName(),member.getMemberNumber(),member.getEmail(),member.getAge(),member.isMembershipPaid());
     }
   }
+
+  public NonCompetitor addNonCompetitorMember() {
+    System.out.println("Opret ny konkurrencesvømmer. Tast ind stamoplysninger:");
+    System.out.println("Navn:");
+    String name = sc.nextLine();
+    System.out.println("Alder");
+    String ageString = sc.nextLine();
+    int age = Integer.parseInt(ageString);
+    System.out.println("Email:");
+    String email = sc.nextLine();
+    System.out.println("Er kontingent betalt? (j/n)");
+
+    String answer = "";
+    boolean isMembershipPaid = true;
+    while(!answer.equals("j") && !answer.equals("n") ){
+    answer = sc.nextLine();
+      if (answer.equals("j")){
+         isMembershipPaid = true;
+      } else if (answer.equals("n")){
+         isMembershipPaid = false;
+      } else System.out.println("Indtast j for ja eller n for nej");
+    }
+
+    Integer memberNumber = 0; //TODO hardcoded
+
+    // (String name, Integer memberNumber, Integer age, String email, boolean isMembershipPaid){
+    return new NonCompetitor(name,memberNumber, age, email, isMembershipPaid);
+  }
+
+  public void printAllMembers(ArrayList<Member> memberList) {
+
+    for (Member member: memberList) {
+      System.out.printf("""
+          
+          Fundet medlem:
+          Navn:   %s  Medlemsnummer: %d Email: %s
+          Alder:  %d år  restance: %s 
+          
+          """, member.getName(),member.getMemberNumber(),member.getEmail(),member.getAge(),member.isMembershipPaid());
+
+    }
+  }
+
+/*
+  public Competitor addCompetitorMember() {
+  }
+
+
+ */
+
 
 }

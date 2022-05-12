@@ -18,7 +18,7 @@ public class ControllerChairman {
 
       switch (uiChairman.inputNumber()) {
         case 1 -> addNonCompetitorMember();
-        case 2 -> addCompetitorMember();
+        //case 2 -> addCompetitorMember();
         case 3 -> searchMember();
         case 4 -> showMembers();
         case 5 -> editMembers();
@@ -40,8 +40,9 @@ public class ControllerChairman {
   private void editMembers() {
   }
 
-  private ArrayList<Member> showMembers() { //TODO: Skal den kaldes herfra eller fra UI?
-   return memberList.getAllMembers();
+  private void showMembers() {
+    uiChairman.printAllMembers(memberList.getAllMembers());
+
   }
 
   private void searchMember() {
@@ -69,18 +70,20 @@ public class ControllerChairman {
     return foundMember;
   }
 
-
+// motionssvømmer
   public void addNonCompetitorMember(){
-    //NonCompetitor newNonCompetitorMember = ui.addNonCompetitorMember();
-    //memberList.getAllMembers().add(newNonCompetitorMember);
+    NonCompetitor newNonCompetitorMember = uiChairman.addNonCompetitorMember();
+    memberList.getAllMembers().add(newNonCompetitorMember);
   }
-
-
+/*
+//konkurrencesvømmer
   public void addCompetitorMember(){
-    //Competitor newCompetitorMember = uiChairman.addCompetitorMember();
-    //memberList.getAllCompetitors().add(newCompetitorMember);
-    //memberList.getAllMembers().add(newCompetitorMember); // Hele medlemslisten
+    Competitor newCompetitorMember = uiChairman.addCompetitorMember();
+    memberList.getAllCompetitors().add(newCompetitorMember);
+    memberList.getAllMembers().add(newCompetitorMember); // Hele medlemslisten
   }
+
+ */
 
   public MemberList getMemberList() {
     return memberList;
