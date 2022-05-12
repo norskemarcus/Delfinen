@@ -1,4 +1,6 @@
-package Delfinen;
+package Delfinen.Member;
+
+import Delfinen.Member.Member;
 
 public class NonCompetitor extends Member {
 

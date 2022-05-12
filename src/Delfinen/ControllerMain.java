@@ -1,5 +1,9 @@
 package Delfinen;
 
+import Delfinen.Chairman.ControllerChairman;
+import Delfinen.Coach.ControllerCoach;
+import Delfinen.Treasurer.ControllerTreasurer;
+
 public class ControllerMain {
   private ControllerChairman cChairman = new ControllerChairman();
   private ControllerTreasurer cTreasurer = new ControllerTreasurer();

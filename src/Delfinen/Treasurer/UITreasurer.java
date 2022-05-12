@@ -1,4 +1,8 @@
-package Delfinen;
+package Delfinen.Treasurer;
+
+import Delfinen.Member.Member;
+import Delfinen.PrintMenuInterface;
+import Delfinen.UIMain;
 
 import java.util.Scanner;
 

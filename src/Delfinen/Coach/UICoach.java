@@ -1,4 +1,7 @@
-package Delfinen;
+package Delfinen.Coach;
+
+import Delfinen.PrintMenuInterface;
+import Delfinen.UIMain;
 
 import java.util.Scanner;
 

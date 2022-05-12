@@ -1,4 +1,4 @@
-package Delfinen;
+package Delfinen.Coach;
 
 public class ControllerCoach {
   private UICoach uiCoach = new UICoach();

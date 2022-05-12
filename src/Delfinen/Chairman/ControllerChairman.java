@@ -1,5 +1,9 @@
-package Delfinen;
+package Delfinen.Chairman;
 
+import Delfinen.Member.Competitor;
+import Delfinen.Member.Member;
+import Delfinen.Member.MemberList;
+import Delfinen.Member.NonCompetitor;
 import Delfinen.Persistence.FileHandler;
 
 public class ControllerChairman {

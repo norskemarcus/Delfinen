@@ -1,4 +1,4 @@
-package Delfinen;
+package Delfinen.Member;
 
 public class Competitor extends Member {
 

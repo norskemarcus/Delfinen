@@ -1,4 +1,4 @@
-package Delfinen;
+package Delfinen.Member;
 
 public abstract class Member {
 

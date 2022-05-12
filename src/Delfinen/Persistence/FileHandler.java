@@ -1,7 +1,7 @@
 package Delfinen.Persistence;
 
-import Delfinen.Competitor;
-import Delfinen.Member;
+import Delfinen.Member.Competitor; //TODO: Peter?
+import Delfinen.Member.Member;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -31,9 +31,6 @@ public class FileHandler {
     } catch (FileNotFoundException fnfe){
       System.err.println("Fil ikke fundet");
     }
-
-
-
   }
 
 

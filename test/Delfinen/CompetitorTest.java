@@ -4,6 +4,8 @@ package Delfinen;
 
 //import static org.junit.jupiter.api.Assertions.*;
 
+import Delfinen.Member.Competitor;
+import Delfinen.Member.MemberList;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;

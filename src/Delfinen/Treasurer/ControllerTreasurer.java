@@ -1,4 +1,4 @@
-package Delfinen;
+package Delfinen.Treasurer;
 
 public class ControllerTreasurer {
   private UITreasurer uiTreasurer = new UITreasurer();
