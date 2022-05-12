@@ -54,21 +54,20 @@ public class ControllerChairman {
   }
 
   private void searchMember() {
-    uiChairman.searchMemberOptions();
-    int number = uiChairman.inputNumber();
+    boolean running = true;
 
-    switch (number) {
-      case 1 -> searchMembersByString("e-mail");
-      case 2 -> searchMembersByString("navn");
-      case 3 -> System.out.println();
-      case 4 -> System.out.println();
-      default -> System.out.println();
-    }
-
-    if (number != 4) {
-      // uiChairman.displayMember(foundMember);
+    while (running) {
+      uiChairman.searchMemberOptions();
+      int number = uiChairman.inputNumber();
+      switch (number) {
+        case 1 -> searchMembersByString("e-mail");
+        case 2 -> searchMembersByString("navn");
+        case 3 -> System.out.println("\nDenne kan søge ud fra medlemsnummeret, snart klar.");
+        case 4 -> running = false;
+      }
     }
   }
+
 
   private void searchMembersByString(String descriptionWord) {
     String memberDescription = uiChairman.inputStringOfSearchCritiria(descriptionWord);
