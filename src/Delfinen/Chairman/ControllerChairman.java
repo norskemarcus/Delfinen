@@ -23,7 +23,7 @@ public class ControllerChairman {
         case 2 -> addCompetitorMember();
         case 3 -> searchMember();
         case 4 -> showMembers();
-        case 5 -> editMembers();
+        case 5 -> editMembers(); // Er det formanden som skal ændre en motionssvømmer til konkurrencesvømmer eller træneren?
         case 6 -> saveAndReturnToMainMenu();
         default -> errorMessage();
       }
@@ -88,7 +88,21 @@ public class ControllerChairman {
     memberLists.getAllCompetitors().add(newCompetitorMember);
   }
 
+  public void changeMemberToCompetitor(NonCompetitor nonCompetitor){
+    //Competitor(String name, Integer memberNumber, Integer age, String email, boolean isMembershipPaid, String gender)
+    String name = nonCompetitor.getName();
+    Integer memberNumber = nonCompetitor.getMemberNumber();
+    Integer age = nonCompetitor.getAge();
+    String email = nonCompetitor.getEmail();
+    boolean isMembershipPaid = nonCompetitor.isMembershipPaid();
+    String gender = uiChairman.addGenderToNewCompetitor();
 
+    Competitor competitor = new Competitor(name, memberNumber, age, email, isMembershipPaid, gender);
+    memberLists.getAllCompetitors().add(competitor);
+    //TODO: remove nonCompetitor from the other memberlist
+
+
+  }
 
   public MemberList getMemberLists() {
     return memberLists;
