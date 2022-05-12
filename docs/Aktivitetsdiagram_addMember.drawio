@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-05-12T13:48:03.382Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36" etag="FHmBZ4Gj_fjIjdDbCqQf" version="17.4.6" type="github">
+<mxfile host="app.diagrams.net" modified="2022-05-12T16:51:41.714Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36" etag="P3tMmwA15Ml1bWlyFTv-" version="17.4.6" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="903" dy="716" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1081" dy="659" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -84,13 +84,13 @@
         <mxCell id="IRePbEhJJhgFrzdcHoTZ-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=12;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="IRePbEhJJhgFrzdcHoTZ-26" target="IRePbEhJJhgFrzdcHoTZ-31">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="IRePbEhJJhgFrzdcHoTZ-26" value="&lt;div style=&quot;font-size: 12px; background-color: rgb(255, 255, 255);&quot;&gt;email&lt;/div&gt;" style="html=1;shape=mxgraph.infographic.ribbonSimple;notch1=20;notch2=0;align=center;verticalAlign=middle;fontSize=14;fontStyle=0;fillColor=#FFFFFF;flipH=0;spacingRight=0;spacingLeft=14;shadow=0;fontFamily=Lucida Console;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="152.5" y="677.5" width="95" height="40" as="geometry" />
+        <mxCell id="IRePbEhJJhgFrzdcHoTZ-26" value="&lt;div style=&quot;font-size: 12px ; background-color: rgb(255 , 255 , 255)&quot;&gt;isMembershipPaid&lt;br&gt;&lt;/div&gt;" style="html=1;shape=mxgraph.infographic.ribbonSimple;notch1=20;notch2=0;align=center;verticalAlign=middle;fontSize=14;fontStyle=0;fillColor=#FFFFFF;flipH=0;spacingRight=0;spacingLeft=14;shadow=0;fontFamily=Lucida Console;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="126.25" y="677.5" width="147.5" height="40" as="geometry" />
         </mxCell>
         <mxCell id="IRePbEhJJhgFrzdcHoTZ-29" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fontFamily=Lucida Console;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="220" y="717.5" width="10" height="10" as="geometry" />
         </mxCell>
-        <mxCell id="IRePbEhJJhgFrzdcHoTZ-30" value="&lt;font style=&quot;font-size: 12px&quot;&gt;String&amp;nbsp;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;fontFamily=Lucida Console;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="IRePbEhJJhgFrzdcHoTZ-30" value="&lt;font style=&quot;font-size: 12px&quot;&gt;boolean&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;fontFamily=Lucida Console;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="230" y="717.5" width="70" height="30" as="geometry" />
         </mxCell>
         <mxCell id="IRePbEhJJhgFrzdcHoTZ-78" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=12;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="IRePbEhJJhgFrzdcHoTZ-31" target="IRePbEhJJhgFrzdcHoTZ-77">
@@ -185,13 +185,13 @@
         <mxCell id="IRePbEhJJhgFrzdcHoTZ-59" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=12;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="IRePbEhJJhgFrzdcHoTZ-60" target="IRePbEhJJhgFrzdcHoTZ-63">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="IRePbEhJJhgFrzdcHoTZ-60" value="&lt;div style=&quot;font-size: 12px; background-color: rgb(255, 255, 255);&quot;&gt;email&lt;/div&gt;" style="html=1;shape=mxgraph.infographic.ribbonSimple;notch1=20;notch2=0;align=center;verticalAlign=middle;fontSize=14;fontStyle=0;fillColor=#FFFFFF;flipH=0;spacingRight=0;spacingLeft=14;shadow=0;fontFamily=Lucida Console;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="492.5" y="790" width="95" height="40" as="geometry" />
+        <mxCell id="IRePbEhJJhgFrzdcHoTZ-60" value="&lt;div style=&quot;font-size: 12px ; background-color: rgb(255 , 255 , 255)&quot;&gt;isMembershipPaid&lt;/div&gt;" style="html=1;shape=mxgraph.infographic.ribbonSimple;notch1=20;notch2=0;align=center;verticalAlign=middle;fontSize=14;fontStyle=0;fillColor=#FFFFFF;flipH=0;spacingRight=0;spacingLeft=14;shadow=0;fontFamily=Lucida Console;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="461.25" y="790" width="157.5" height="40" as="geometry" />
         </mxCell>
         <mxCell id="IRePbEhJJhgFrzdcHoTZ-61" value="" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;fontFamily=Lucida Console;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="560" y="830" width="10" height="10" as="geometry" />
         </mxCell>
-        <mxCell id="IRePbEhJJhgFrzdcHoTZ-62" value="&lt;font style=&quot;font-size: 12px&quot;&gt;String&amp;nbsp;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;fontFamily=Lucida Console;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="IRePbEhJJhgFrzdcHoTZ-62" value="&lt;font style=&quot;font-size: 12px&quot;&gt;boolean&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;fontFamily=Lucida Console;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="570" y="830" width="70" height="30" as="geometry" />
         </mxCell>
         <mxCell id="IRePbEhJJhgFrzdcHoTZ-63" value="&lt;font style=&quot;font-size: 12px&quot;&gt;Print: Stamoplysninger medlem lagt til&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;fontFamily=Lucida Console;fillColor=#FFFFFF;fontStyle=0;spacingRight=0;spacingLeft=14;shadow=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
