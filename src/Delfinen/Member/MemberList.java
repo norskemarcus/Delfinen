@@ -17,12 +17,12 @@ public class MemberList {
     ArrayList<Member> foundMembers = new ArrayList<>();
 
     for (Member member : allNonCompetitors) {
-      if (member.getEmail().contains(memberEmail)) {
+      if (member.getEmail().toLowerCase().contains(memberEmail)) {
         foundMembers.add(member);
       }
     }
     for (Member member : allCompetitors) {
-      if (member.getEmail().contains(memberEmail)) {
+      if (member.getEmail().toLowerCase().contains(memberEmail)) {
         foundMembers.add(member);
       }
     }
@@ -33,12 +33,12 @@ public class MemberList {
     ArrayList<Member> foundMembers = new ArrayList<>();
 
     for (Member member : allNonCompetitors) {
-      if (member.getName().contains(memberName)) {
+      if (member.getName().toLowerCase().contains(memberName)) {
         foundMembers.add(member);
       }
     }
     for (Member member : allCompetitors) {
-      if (member.getName().contains(memberName)) {
+      if (member.getName().toLowerCase().contains(memberName)) {
         foundMembers.add(member);
       }
     }

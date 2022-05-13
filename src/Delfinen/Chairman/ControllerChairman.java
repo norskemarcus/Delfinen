@@ -7,6 +7,7 @@ import Delfinen.Member.NonCompetitor;
 import Delfinen.Persistence.FileHandler;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ControllerChairman {
   private final UIChairman uiChairman = new UIChairman();
@@ -73,9 +74,9 @@ public class ControllerChairman {
     String memberDescription = uiChairman.inputStringOfSearchCritiria(descriptionWord);
 
     if (descriptionWord.equals("e-mail")) {
-      foundMembers = memberLists.findSpecifikMembersByEmail(memberDescription);
+      foundMembers = memberLists.findSpecifikMembersByEmail(memberDescription.toLowerCase());
     } else {
-      foundMembers = memberLists.findSpecifikMembersByName(memberDescription);
+      foundMembers = memberLists.findSpecifikMembersByName(memberDescription.toLowerCase());
     }
     uiChairman.printFoundMembersBySearch(foundMembers);
   }
