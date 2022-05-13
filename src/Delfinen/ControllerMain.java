@@ -26,7 +26,7 @@ public class ControllerMain {
 
       switch (userChoice) {
         case 1 -> cChairman.menuChairman();
-        case 2 -> cTreasurer.menuKasserer();
+        case 2 -> cTreasurer.menuTreasurer();
         case 3 -> cCoach.menuCoach();
         case 4 -> exit();
         default -> uiMain.printErrorMessage();

@@ -50,7 +50,6 @@ public class ControllerChairman {
 
   private void showMembers() {
     uiChairman.printAllMembers(memberLists.getAllNonCompetitors());
-
   }
 
   private void searchMember() {
@@ -70,8 +69,9 @@ public class ControllerChairman {
 
 
   private void searchMembersByString(String descriptionWord) {
-    String memberDescription = uiChairman.inputStringOfSearchCritiria(descriptionWord);
     ArrayList<Member> foundMembers;
+    String memberDescription = uiChairman.inputStringOfSearchCritiria(descriptionWord);
+
     if (descriptionWord.equals("e-mail")) {
       foundMembers = memberLists.findSpecifikMembersByEmail(memberDescription);
     } else {

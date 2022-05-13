@@ -2,7 +2,7 @@ package Delfinen.Treasurer;
 
 public class ControllerTreasurer {
   private UITreasurer uiTreasurer = new UITreasurer();
-  public void menuKasserer() {
+  public void menuTreasurer() {
     boolean running = true;
 
     while (running) {
