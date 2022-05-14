@@ -16,7 +16,7 @@ public class UITreasurer extends UIMain implements PrintMenuInterface {
   }
 
   public void printHeader(){
-    System.out.println("*** Kassererens forside ***");
+    System.out.println("\n*** Kassererens forside ***");
   }
 
   public void displayMember(Member member) { //TODO: Skal denne fremvisning differentieres afhængig af, om man er kasserer og formand?

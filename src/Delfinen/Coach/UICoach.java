@@ -11,7 +11,7 @@ public class UICoach extends UIMain implements PrintMenuInterface {
 
 
   public void printHeader(){
-    System.out.println("*** Trænerens forside ***");
+    System.out.println("\n*** Trænerens forside ***");
   }
 
   @Override

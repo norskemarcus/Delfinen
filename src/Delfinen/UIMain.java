@@ -10,7 +10,6 @@ public class UIMain implements PrintMenuInterface {
   public void printMenuOptions(){
     System.out.println();
     System.out.println("***DELFINENS MEDLEMSDATABASE***");
-    System.out.println();
     System.out.println("Vælg log-in person");
     System.out.println("1. Formand");
     System.out.println("2. Kasserer");

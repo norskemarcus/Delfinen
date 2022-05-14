@@ -13,6 +13,20 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
 
   private final Scanner sc = new Scanner(System.in);
 
+  public void printHeader() {
+    System.out.println(" ");
+    System.out.println("*** Formandens forside ***");
+  }
+
+  public void printMenuOptions() {
+    System.out.println("1: Tilføj motionssvømmer");
+    System.out.println("2: Tilføj konkurrencemedlem");
+    System.out.println("3: Søg efter medlem");
+    System.out.println("4: Vis medlemmer");
+    System.out.println("5: Rediger medlemsoplysninger");
+    System.out.println("6: Gem ændringer og gå tilbage til hovedmenu");
+  }
+
   public void searchMemberOptions() {
     System.out.println();
     System.out.println("1. Søg ud fra e-Mail");
@@ -28,19 +42,17 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
     return memberInfo;
   }
 
-  public void printMenuOptions() {
-    System.out.println("1: Tilføj motionssvømmer");
-    System.out.println("2: Tilføj konkurrencemedlem");
-    System.out.println("3: Søg på medlem");
-    System.out.println("4: Vis medlemmer");
-    System.out.println("5: Rediger medlemsoplysninger");
-    System.out.println("6: Gem ændringer og gå tilbage til hovedmenu");
-  }
+  public int inputMembernumber() {
+    System.out.print("\nIndtast medlemsnummer på medlem: ");
+    String memberNumberString = sc.nextLine();
+    int number = 0;
 
-
-  public void printHeader() {
-    System.out.println(" ");
-    System.out.println("*** Formandens forside ***");
+    try {
+      number = Integer.parseInt(memberNumberString);
+    } catch (NumberFormatException n) {
+      System.err.println("Kun tal");
+    }
+    return number;
   }
 
   public void displayMember(Member member) { //TODO: Skal denne fremvisning differentieres afhængig af, om man er kasserer og formand?
@@ -58,31 +70,27 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
     }
   }
 
-
   public void printFoundMembersBySearch(ArrayList<Member> members) {
 
-    boolean anyOneFound = false;
-    System.out.println("fundne medlemmer ud fra søgekriterier:");
-    for (Member member : members) {
+    if (members.isEmpty()) {
+      System.out.println("Ingen medlemmer fundet ud fra søgekriterier.");
+    } else {
+      System.out.println("fundne medlemmer ud fra søgekriterier:");
 
-      if (member instanceof Competitor competitor) {
-        System.out.printf("""
-            Navn: %s  Medlemsnummer: %d Køn: %s  Email: %s  Alder:  %d år  restance: %s
-            """, competitor.getName(), competitor.getMemberNumber(), competitor.getGender(), competitor.getEmail(), competitor.getAge(), competitor.isMembershipPaid());
-        anyOneFound = true;
-      } else {
-        System.out.printf("""
-            Navn: %s  Medlemsnummer: %d  Email: %s  Alder:  %d år  restance: %s
-            """, member.getName(), member.getMemberNumber(), member.getEmail(), member.getAge(), member.isMembershipPaid());
-        anyOneFound = true;
+      for (Member member : members) {
+
+        if (member instanceof Competitor competitor) {
+          System.out.printf("""
+              Navn: %s  Medlemsnummer: %d Køn: %s  Email: %s  Alder:  %d år  restance: %s
+              """, competitor.getName(), competitor.getMemberNumber(), competitor.getGender(), competitor.getEmail(), competitor.getAge(), competitor.isMembershipPaid());
+        } else {
+          System.out.printf("""
+              Navn: %s  Medlemsnummer: %d  Email: %s  Alder:  %d år  restance: %s
+              """, member.getName(), member.getMemberNumber(), member.getEmail(), member.getAge(), member.isMembershipPaid());
+        }
       }
     }
-    if (!anyOneFound) {
-      System.out.println("- Ingen medlemmer fundet.");
-    }
   }
-
-
 
   public void printAllMembers(ArrayList<Member> memberList) {
 //TODO: ændre til at det nu er 2 lister
@@ -111,7 +119,6 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
     }
 
   }
-
 
   public NonCompetitor addNonCompetitorMember() {
     System.out.println("\nOpret ny motionssvømmer. Tast ind stamoplysninger:");
@@ -144,7 +151,6 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
 
     return nonCompetitor;
   }
-
 
   public Competitor addCompetitorMember() {
     System.out.println("\nOpret ny konkurrencesvømmer. Tast ind stamoplysninger:");
@@ -185,7 +191,30 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
     String gender = sc.nextLine();
     return gender;
   }
+
+  public void printMemberFoundByMembernumber(Member member) {
+    if (member == null) {
+      System.out.println("Intet medlemmer fundet ud fra søgekriteriet.");
+    } else {
+      System.out.println("fundet medlem ud fra søgekriteriet:");
+
+      if (member instanceof Competitor competitor) {
+        System.out.printf("""
+            Navn: %s  Medlemsnummer: %d Køn: %s  Email: %s  Alder:  %d år  restance: %s
+            """, competitor.getName(), competitor.getMemberNumber(), competitor.getGender(), competitor.getEmail(), competitor.getAge(), competitor.isMembershipPaid());
+      } else {
+        System.out.printf("""
+            Navn: %s  Medlemsnummer: %d  Email: %s  Alder:  %d år  restance: %s
+            """, member.getName(), member.getMemberNumber(), member.getEmail(), member.getAge(), member.isMembershipPaid());
+      }
+    }
+  }
+
+
 }
+
+
+
 
 
 

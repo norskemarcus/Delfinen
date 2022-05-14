@@ -7,7 +7,7 @@ public class MemberList {
   private final ArrayList<Member> allNonCompetitors;
   private final ArrayList<Competitor> allCompetitors;
 
-  public MemberList(){
+  public MemberList() {
     allNonCompetitors = new ArrayList<>();
     allCompetitors = new ArrayList<>();
   }
@@ -43,6 +43,23 @@ public class MemberList {
       }
     }
     return foundMembers;
+  }
+
+  public Member findSpecifikMemberByMemberNumber(int memberNumber) {
+
+    ArrayList<Delfinen.Member.Member> foundMembers = new ArrayList<>();
+
+    for (Delfinen.Member.Member member : allNonCompetitors) {
+      if (member.getMemberNumber() == memberNumber) {
+        return member;
+      }
+    }
+    for (Delfinen.Member.Member member : allCompetitors) {
+      if (member.getMemberNumber() == memberNumber) {
+        return member;
+      }
+    }
+    return null;
   }
 
   public ArrayList<Member> getAllNonCompetitors() {

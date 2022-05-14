@@ -7,7 +7,6 @@ import Delfinen.Member.NonCompetitor;
 import Delfinen.Persistence.FileHandler;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class ControllerChairman {
   private final UIChairman uiChairman = new UIChairman();
@@ -24,7 +23,7 @@ public class ControllerChairman {
       switch (uiChairman.inputNumber()) {
         case 1 -> addNonCompetitorMember();
         case 2 -> addCompetitorMember();
-        case 3 -> searchMember();
+        case 3 -> searchForMember();
         case 4 -> showMembers();
         case 5 -> editMembers(); // Er det formanden som skal ændre en motionssvømmer til konkurrencesvømmer eller træneren?
         case 6 -> saveAndReturnToMainMenu();
@@ -53,7 +52,7 @@ public class ControllerChairman {
     uiChairman.printAllMembers(memberLists.getAllNonCompetitors());
   }
 
-  private void searchMember() {
+  private void searchForMember() {
     boolean running = true;
 
     while (running) {
@@ -62,7 +61,7 @@ public class ControllerChairman {
       switch (number) {
         case 1 -> searchMembersByString("e-mail");
         case 2 -> searchMembersByString("navn");
-        case 3 -> System.out.println("\nDenne kan søge ud fra medlemsnummeret, snart klar.");
+        case 3 -> searchMembersByMemberNumber();
         case 4 -> running = false;
       }
     }
@@ -80,6 +79,14 @@ public class ControllerChairman {
     }
     uiChairman.printFoundMembersBySearch(foundMembers);
   }
+
+  private void searchMembersByMemberNumber() {
+    
+    int memberNumber = uiChairman.inputMembernumber();
+    Member foundMember = memberLists.findSpecifikMemberByMemberNumber(memberNumber);
+    uiChairman.printMemberFoundByMembernumber(foundMember);
+  }
+  
 
   // motionssvømmer
   public void addNonCompetitorMember() {
