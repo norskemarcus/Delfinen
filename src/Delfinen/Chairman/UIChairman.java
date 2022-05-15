@@ -92,17 +92,13 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
     }
   }
 
-  public void printAllMembers(ArrayList<Member> memberList) {
-//TODO: ændre til at det nu er 2 lister
-    for (Member member : memberList) {
-      System.out.printf("""
-                    
-          Fundet medlem:
-          Navn:   %s  Medlemsnummer: %d Email: %s
-          Alder:  %d år  restance: %s
-                    
-          """, member.getName(), member.getMemberNumber(), member.getEmail(), member.getAge(), member.isMembershipPaid());
-
+  public void printAllMembers(ArrayList<Member> memberListNonCompetitor, ArrayList<Competitor> memberListCompetitor) {
+    System.out.println("\nAlle klubbens medlemmer er:");
+    for (Member member : memberListNonCompetitor) {
+      printMember(member);
+    }
+    for (Competitor competitor : memberListCompetitor) {
+      printMember(competitor);
     }
   }
 

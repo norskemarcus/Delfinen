@@ -49,7 +49,7 @@ public class ControllerChairman {
   }
 
   private void showMembers() {
-    uiChairman.printAllMembers(memberLists.getAllNonCompetitors());
+    uiChairman.printAllMembers(memberLists.getAllNonCompetitors(), memberLists.getAllCompetitors());
   }
 
   private void searchForMember() {
