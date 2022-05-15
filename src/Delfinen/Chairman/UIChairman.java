@@ -125,17 +125,16 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
     int age = Integer.parseInt(ageString);
     System.out.print("Email: ");
     String email = sc.nextLine();
-    System.out.print("Er kontingent betalt (j/n): ");
 
-    String answer = "";
+
+    String membershipAnswer = "";
     boolean isMembershipPaid = true;
-    while (!answer.equals("j") && !answer.equals("n")) {
-      answer = sc.nextLine();
-      if (answer.equals("j")) {
-        isMembershipPaid = true;
-      } else if (answer.equals("n")) {
+    while (!membershipAnswer.equals("j") && !membershipAnswer.equals("n")) {
+      System.out.print("Er kontingent betalt (j/n): ");
+      membershipAnswer = sc.nextLine();
+if (membershipAnswer.equals("n")) {
         isMembershipPaid = false;
-      } else System.out.println("Indtast j for ja eller n for nej");
+      }
     }
 
     Integer memberNumber = 0; //TODO hardcoded
@@ -154,23 +153,23 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
     String name = sc.nextLine();
     System.out.print("Alder: ");
     String ageString = sc.nextLine();
-    System.out.print("Køn (M/K): ");
-    //TODO: if sætninger hvis ikke M eller K og mærkelig alder etc
-    String gender = sc.nextLine();
+    String gender = "";
+    while (!gender.equals("M") && !gender.equals("K")) {
+      System.out.print("Køn (M/K): ");
+      gender = sc.nextLine();
+    }
     int age = Integer.parseInt(ageString);
     System.out.print("Email: ");
     String email = sc.nextLine();
-    System.out.print("Er kontingent betalt (j/n): ");
 
-    String answer = "";
+    String membershipAnswer = "";
     boolean isMembershipPaid = true;
-    while (!answer.equals("j") && !answer.equals("n")) {
-      answer = sc.nextLine();
-      if (answer.equals("j")) {
-        isMembershipPaid = true;
-      } else if (answer.equals("n")) {
+    while (!membershipAnswer.equals("j") && !membershipAnswer.equals("n")) {
+      System.out.print("Er kontingent betalt (j/n): ");
+      membershipAnswer = sc.nextLine();
+      if (membershipAnswer.equals("n")) {
         isMembershipPaid = false;
-      } else System.out.println("Indtast j for ja eller n for nej");
+      }
     }
 
     Integer memberNumber = 0; //TODO hardcoded
