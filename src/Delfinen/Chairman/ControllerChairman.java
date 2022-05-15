@@ -7,6 +7,7 @@ import Delfinen.Member.NonCompetitor;
 import Delfinen.Persistence.FileHandler;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ControllerChairman {
   private final UIChairman uiChairman = new UIChairman();
@@ -46,7 +47,37 @@ public class ControllerChairman {
   }
 
   private void editMembers() {
+    editEmail();
+
   }
+
+  private void editEmail(){
+
+    System.out.println("Indtast mail der skal ændres");
+    Scanner input = new Scanner(System.in);
+    String answer = input.nextLine();
+    System.out.println("Indtast den nye mail");
+    String newMail = input.nextLine();
+
+    for(Member customer : getMemberLists().getAllCompetitors()) {
+      if(customer!=null && answer.equals(customer.getEmail())) {
+        customer.setEmail(newMail);
+        System.out.println("Mail er blevet ændret for " + customer.getName() + " til " + customer.getEmail());
+        break;
+      }
+    }
+
+    for(Member customer : getMemberLists().getAllNonCompetitors()) {
+      if(customer!=null && answer.equals(customer.getEmail())) {
+        customer.setEmail(newMail);
+        System.out.println("Mail er blevet ændret for " + customer.getName() + " til " + customer.getEmail());
+        break;
+      }
+    }
+
+  }
+
+
 
   private void showMembers() {
     uiChairman.printAllMembers(memberLists.getAllNonCompetitors(), memberLists.getAllCompetitors());
@@ -112,7 +143,6 @@ public class ControllerChairman {
     Competitor competitor = new Competitor(name, memberNumber, age, email, isMembershipPaid, gender);
     memberLists.getAllCompetitors().add(competitor);
     //TODO: remove nonCompetitor from the other memberlist
-
 
   }
 

@@ -36,4 +36,7 @@ public abstract class Member {
     return isMembershipPaid;
   }
 
+  public void setEmail(String email) {
+    this.email = email;
+  }
 }

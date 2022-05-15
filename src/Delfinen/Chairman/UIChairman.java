@@ -205,6 +205,10 @@ if (membershipAnswer.equals("n")) {
     }
   }
 
+  public void editMemberText(){
+    System.out.println("");
+  }
+
 
 }
 
