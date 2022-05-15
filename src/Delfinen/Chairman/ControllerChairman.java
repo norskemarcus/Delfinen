@@ -25,7 +25,7 @@ public class ControllerChairman {
         case 2 -> addCompetitorMember();
         case 3 -> searchForMember();
         case 4 -> showMembers();
-        case 5 -> editMembers(); // Er det formanden som skal ændre en motionssvømmer til konkurrencesvømmer eller træneren?
+        case 5 -> editMembers(); //TODO: Er det formanden som skal ændre en motionssvømmer til konkurrencesvømmer eller træneren? Ind i egen menu ind under editMembers()
         case 6 -> saveAndReturnToMainMenu();
         default -> errorMessage();
       }
@@ -102,6 +102,7 @@ public class ControllerChairman {
 
   public void changeMemberToCompetitor(NonCompetitor nonCompetitor) {
     //Competitor(String name, Integer memberNumber, Integer age, String email, boolean isMembershipPaid, String gender)
+   // Finde objektet ved at søge på medlemsnummer?
     String name = nonCompetitor.getName();
     Integer memberNumber = nonCompetitor.getMemberNumber();
     Integer age = nonCompetitor.getAge();
