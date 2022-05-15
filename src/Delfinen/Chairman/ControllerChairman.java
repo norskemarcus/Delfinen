@@ -48,16 +48,16 @@ public class ControllerChairman {
 
   private void editMembers() {
     editEmail();
-
   }
 
-  private void editEmail(){
+  public void editEmail(){
 
     System.out.println("Indtast mail der skal ændres");
     Scanner input = new Scanner(System.in);
     String answer = input.nextLine();
     System.out.println("Indtast den nye mail");
     String newMail = input.nextLine();
+
 
     for(Member customer : getMemberLists().getAllCompetitors()) {
       if(customer!=null && answer.equals(customer.getEmail())) {
@@ -76,7 +76,6 @@ public class ControllerChairman {
     }
 
   }
-
 
 
   private void showMembers() {

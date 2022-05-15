@@ -2,6 +2,7 @@ package Delfinen.Chairman;
 
 import Delfinen.Member.Competitor;
 import Delfinen.Member.Member;
+import Delfinen.Member.MemberList;
 import Delfinen.Member.NonCompetitor;
 import Delfinen.PrintMenuInterface;
 import Delfinen.UIMain;
@@ -203,10 +204,6 @@ if (membershipAnswer.equals("n")) {
             """, member.getName(), member.getMemberNumber(), member.getEmail(), member.getAge(), member.isMembershipPaid());
       }
     }
-  }
-
-  public void editMemberText(){
-    System.out.println("");
   }
 
 
