@@ -23,6 +23,7 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
     System.out.println("3: Søg efter medlem");
     System.out.println("4: Vis medlemmer");
     System.out.println("5: Rediger medlemsoplysninger");
+    System.out.println("6: Slet medlem");
     System.out.println("0: Gem ændringer og gå tilbage til hovedmenu");
   }
 

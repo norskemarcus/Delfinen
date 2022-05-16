@@ -27,6 +27,7 @@ public class ControllerChairman {
         case 3 -> searchForMember();
         case 4 -> showMembers();
         case 5 -> editMembers(); //TODO: Er det formanden som skal ændre en motionssvømmer til konkurrencesvømmer eller træneren? Ind i egen menu ind under editMembers()
+        case 6 -> deleteMember();
         case 0 -> saveAndReturnToMainMenu();
         default -> errorMessage();
       }
@@ -116,6 +117,31 @@ public class ControllerChairman {
     Member foundMember = memberLists.findSpecifikMemberByMemberNumber(memberNumber);
     uiChairman.printMemberFoundByMembernumber(foundMember);
   }
+
+  public void deleteMember() {
+
+      System.out.println("Indtast medlemsnummer på det medlem, der ønskes slettet");
+      Scanner input = new Scanner(System.in);
+      int answer = input.nextInt();
+
+      for(Member customer : getMemberLists().getAllCompetitors()) {
+        if(customer!=null && answer == customer.getMemberNumber()) {
+          memberLists.getAllCompetitors().remove(customer);
+          System.out.println("Medlem " + customer.getName() + " : " + customer.getMemberNumber() + " er blevet slettet fra systemet");
+          break;
+        }
+      }
+
+      for(Member customer : getMemberLists().getAllNonCompetitors()) {
+        if(customer!=null && answer == customer.getMemberNumber()) {
+          memberLists.getAllNonCompetitors().remove(customer);
+          System.out.println("Medlem " + customer.getName() + " : " + customer.getMemberNumber() + " er blevet slettet fra systemet");
+          break;
+        }
+      }
+
+    }
+
   
 
   // motionssvømmer
