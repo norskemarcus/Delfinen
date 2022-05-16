@@ -14,7 +14,7 @@ public class UIMain implements PrintMenuInterface {
     System.out.println("1. Formand");
     System.out.println("2. Kasserer");
     System.out.println("3. Træner");
-    System.out.println("4. Luk programmet");
+    System.out.println("0. Luk programmet");
 
 
   }

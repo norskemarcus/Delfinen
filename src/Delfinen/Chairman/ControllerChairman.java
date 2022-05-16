@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class ControllerChairman {
   private final UIChairman uiChairman = new UIChairman();
   private final MemberList memberLists = new MemberList();
-  boolean running = true;
+  private boolean running = true;
 
   public void menuChairman() {
 
@@ -27,7 +27,7 @@ public class ControllerChairman {
         case 3 -> searchForMember();
         case 4 -> showMembers();
         case 5 -> editMembers(); //TODO: Er det formanden som skal ændre en motionssvømmer til konkurrencesvømmer eller træneren? Ind i egen menu ind under editMembers()
-        case 6 -> saveAndReturnToMainMenu();
+        case 0 -> saveAndReturnToMainMenu();
         default -> errorMessage();
       }
     }
@@ -55,7 +55,7 @@ public class ControllerChairman {
     System.out.println("Indtast mail der skal ændres");
     Scanner input = new Scanner(System.in);
     String answer = input.nextLine();
-    System.out.println("Indtast den nye mail");
+    System.out.println("Indtast den nye mail"); //TODO: Skal der checkes om det er en @ i Stringen?
     String newMail = input.nextLine();
 
 
@@ -100,7 +100,7 @@ public class ControllerChairman {
 
   private void searchMembersByString(String descriptionWord) {
     ArrayList<Member> foundMembers;
-    String memberDescription = uiChairman.inputStringOfSearchCritiria(descriptionWord);
+    String memberDescription = uiChairman.inputStringOfSearchCriteria(descriptionWord);
 
     if (descriptionWord.equals("e-mail")) {
       foundMembers = memberLists.findSpecifikMembersByEmail(memberDescription.toLowerCase());

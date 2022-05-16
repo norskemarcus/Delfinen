@@ -11,7 +11,6 @@ public class Competitor extends Member {
   }
 
 
-
   public String getGender() {
     return gender;
   }

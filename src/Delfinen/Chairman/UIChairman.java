@@ -1,9 +1,6 @@
 package Delfinen.Chairman;
 
-import Delfinen.Member.Competitor;
-import Delfinen.Member.Member;
-import Delfinen.Member.MemberList;
-import Delfinen.Member.NonCompetitor;
+import Delfinen.Member.*;
 import Delfinen.PrintMenuInterface;
 import Delfinen.UIMain;
 
@@ -13,6 +10,7 @@ import java.util.Scanner;
 public class UIChairman extends UIMain implements PrintMenuInterface {
 
   private final Scanner sc = new Scanner(System.in);
+  // TODO: Hvor skal "private MembershipTypes membershipTypes" ligge?
 
   public void printHeader() {
     System.out.println(" ");
@@ -25,7 +23,7 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
     System.out.println("3: Søg efter medlem");
     System.out.println("4: Vis medlemmer");
     System.out.println("5: Rediger medlemsoplysninger");
-    System.out.println("6: Gem ændringer og gå tilbage til hovedmenu");
+    System.out.println("0: Gem ændringer og gå tilbage til hovedmenu");
   }
 
   public void searchMemberOptions() {
@@ -37,7 +35,7 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
 
   }
 
-  public String inputStringOfSearchCritiria(String descriptionOfWhat) {
+  public String inputStringOfSearchCriteria(String descriptionOfWhat) {
     System.out.print("\nIndtast hel eller delvis " + descriptionOfWhat + " på medlem: ");
     String memberInfo = sc.nextLine();
     return memberInfo;
@@ -136,6 +134,7 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
 
       if (isActiveAnswer.equals("p")) {
         isActive = false;
+        //TODO: koble til enum i stedet for boolean?
 
       }
     }

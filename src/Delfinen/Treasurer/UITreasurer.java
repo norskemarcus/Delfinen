@@ -12,7 +12,7 @@ public class UITreasurer extends UIMain implements PrintMenuInterface {
   public void printMenuOptions() {
     System.out.println("1: Se forventeligt kontingentbudget");
     System.out.println("2: Medlemmer i restance");
-    System.out.println("3: Gå tilbage til hovedmenu");
+    System.out.println("0: Gå tilbage til hovedmenu");
   }
 
   public void printHeader(){
