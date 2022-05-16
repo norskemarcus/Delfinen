@@ -2,6 +2,7 @@ package Delfinen.Persistence;
 
 import Delfinen.Member.Competitor; //TODO: Peter?
 import Delfinen.Member.Member;
+import Delfinen.Member.NonCompetitor;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,7 +13,7 @@ import java.util.Scanner;
 
 public class FileHandler {
 
-  public void saveAllNonCompetitorsToFile(ArrayList<Member> listOfNonCompetitors)  {
+  public void saveAllNonCompetitorsToFile(ArrayList<NonCompetitor> listOfNonCompetitors)  {
 
     try{
       PrintStream out = new PrintStream(new File("medlemsliste_motionist.csv"));

@@ -12,5 +12,8 @@ public class NonCompetitor extends Member {
 
   }
 
+  public boolean isActive() {
+    return isActive;
+  }
 }
 

@@ -92,7 +92,7 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
     }
   }
 
-  public void printAllMembers(ArrayList<Member> memberListNonCompetitor, ArrayList<Competitor> memberListCompetitor) {
+  public void printAllMembers(ArrayList<NonCompetitor> memberListNonCompetitor, ArrayList<Competitor> memberListCompetitor) {
     System.out.println("\nAlle klubbens medlemmer er:");
     for (Member member : memberListNonCompetitor) {
       printMember(member);

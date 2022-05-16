@@ -6,6 +6,7 @@ package Delfinen;
 
 import Delfinen.Member.Competitor;
 import Delfinen.Member.MemberList;
+import Delfinen.Member.NonCompetitor;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -18,7 +19,7 @@ class CompetitorTest {
     Competitor sebastian = new Competitor("Sebastian", 20220001, 19, "seb@gmail.com", true, "M");
     MemberList memberList = new MemberList();
     //act
-    memberList.getAllNonCompetitors().add(sebastian);
+    //memberList.getAllNonCompetitors().add(sebastian);
     memberList.getAllCompetitors().add(sebastian);
     //assert
     assertTrue(memberList.getAllNonCompetitors().size() == 1);
