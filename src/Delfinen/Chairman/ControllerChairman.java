@@ -19,6 +19,8 @@ public class ControllerChairman {
   public void menuChairman() {
 
     memberNumber = fileHandler.loadMemberNumber();
+    memberLists.getAllNonCompetitors().addAll(fileHandler.loadNonCompetitors());
+    //TODO Det samme for competitor
 
     running = true;
 

@@ -29,6 +29,9 @@ public class FileHandler {
     int age = Integer.parseInt(line.next());
     String email = line.next();
     boolean isMembershipPaid = Boolean.parseBoolean(line.next());
+    boolean isActive = Boolean.parseBoolean(line.next());
+    NonCompetitor nonCompetitor = new NonCompetitor(name, memberNumber, age, email, isMembershipPaid, isActive);
+    nonCompetitorList.add(nonCompetitor);
       }
     } catch (FileNotFoundException fnfe) {
       System.err.println("File not found");
@@ -36,6 +39,32 @@ public class FileHandler {
 
     return nonCompetitorList;
   }
+
+  public ArrayList<Competitor> loadCompetitors() {
+
+    ArrayList<Competitor> competitorList = new ArrayList<>();
+
+    try {
+      Scanner fileScanner = new Scanner(new File("medlemsliste_konkurrencesvømmer.csv"));
+
+      while (fileScanner.hasNextLine()) {
+        String lineInput = fileScanner.nextLine();
+        Scanner line = new Scanner(lineInput).useDelimiter(";").useLocale(Locale.ENGLISH);
+        String name = line.next();
+        int memberNumber = Integer.parseInt(line.next());
+        int age = Integer.parseInt(line.next());
+        String email = line.next();
+        boolean isMembershipPaid = Boolean.parseBoolean(line.next());
+        boolean isActive = Boolean.parseBoolean(line.next());
+
+      }
+    } catch (FileNotFoundException fnfe) {
+      System.err.println("File not found");
+    }
+
+    return competitorList;
+  }
+
 
   public void saveAllNonCompetitorsToFile(ArrayList<NonCompetitor> listOfNonCompetitors) {
 
