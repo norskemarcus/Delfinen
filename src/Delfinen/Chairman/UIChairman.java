@@ -76,7 +76,7 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
     if (members.isEmpty()) {
       System.out.println("Ingen medlemmer fundet ud fra søgekriterier.");
     } else {
-      System.out.println("fundne medlemmer ud fra søgekriterier:");
+      System.out.println("Fundne medlemmer ud fra søgekriterier:");
 
       for (Member member : members) {
 
@@ -136,6 +136,7 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
 
       if (isActiveAnswer.equals("p")) {
         isActive = false;
+
       }
     }
 
