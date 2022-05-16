@@ -52,10 +52,13 @@ public class FileHandler {
         Scanner line = new Scanner(lineInput).useDelimiter(";").useLocale(Locale.ENGLISH);
         String name = line.next();
         int memberNumber = Integer.parseInt(line.next());
+        String gender = line.next();
         int age = Integer.parseInt(line.next());
         String email = line.next();
         boolean isMembershipPaid = Boolean.parseBoolean(line.next());
-        boolean isActive = Boolean.parseBoolean(line.next());
+//        boolean isActive = Boolean.parseBoolean(line.next());
+        Competitor competitor = new Competitor(name,memberNumber,age,email,isMembershipPaid,gender);
+        competitorList.add(competitor);
 
       }
     } catch (FileNotFoundException fnfe) {

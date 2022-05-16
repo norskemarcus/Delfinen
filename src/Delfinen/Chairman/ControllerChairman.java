@@ -16,11 +16,14 @@ public class ControllerChairman {
   private boolean running = true;
   private Integer memberNumber;
 
-  public void menuChairman() {
-
+  public void loadAndThenRunMain (){
     memberNumber = fileHandler.loadMemberNumber();
-    memberLists.getAllNonCompetitors().addAll(fileHandler.loadNonCompetitors());
-    //TODO Det samme for competitor
+    memberLists.setAllNonCompetitors(fileHandler.loadNonCompetitors());
+    memberLists.setAllCompetitors(fileHandler.loadCompetitors());
+    menuChairman();
+  }
+
+  private void menuChairman() {
 
     running = true;
 
@@ -30,7 +33,7 @@ public class ControllerChairman {
       uiChairman.printMenuOptions();
 
       switch (uiChairman.inputNumber()) {
-        case 1 -> addMemberMenu();
+        case 1 -> addMemberMenu(); //TODO: noget skal lige ændres når man har oprettet nyt medlem ifht mulighedsprint
         case 2 -> searchForMember();
         case 3 -> showMembers();
         case 4 -> editMembers(); //TODO: Er det formanden som skal ændre en motionssvømmer til konkurrencesvømmer eller træneren? Ind i egen menu ind under editMembers()

@@ -25,7 +25,7 @@ public class ControllerMain {
       int userChoice = uiMain.inputNumber();
 
       switch (userChoice) {
-        case 1 -> cChairman.menuChairman();
+        case 1 -> cChairman.loadAndThenRunMain();
         case 2 -> cTreasurer.menuTreasurer();
         case 3 -> cCoach.menuCoach();
         case 0 -> exit();

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class MemberList {
 
-  private final ArrayList<NonCompetitor> allNonCompetitors;
-  private final ArrayList<Competitor> allCompetitors;
+  private ArrayList<NonCompetitor> allNonCompetitors;
+  private ArrayList<Competitor> allCompetitors;
 
   public MemberList() {
     allNonCompetitors = new ArrayList<>();
@@ -70,7 +70,13 @@ public class MemberList {
     return allCompetitors;
   }
 
+  public void setAllNonCompetitors (ArrayList<NonCompetitor> theNewListOfNonCompetitors) {
+    this.allNonCompetitors = theNewListOfNonCompetitors;
+  }
 
+  public void setAllCompetitors (ArrayList<Competitor> theNewListOfCompetitors) {
+    this.allCompetitors = theNewListOfCompetitors;
+  }
 
 
 
