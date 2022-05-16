@@ -1,7 +1,10 @@
 package Delfinen.Coach;
 
 public class ControllerCoach {
+
   private UICoach uiCoach = new UICoach();
+
+
   public void menuCoach() {
     boolean running = true;
 
@@ -21,5 +24,5 @@ public class ControllerCoach {
       }
     }
   }
-  }
+}
 

@@ -10,8 +10,8 @@ public class UITreasurer extends UIMain implements PrintMenuInterface {
   private Scanner sc = new Scanner(System.in);
 
   public void printMenuOptions() {
-    System.out.println("1: Se forventeligt kontingentbudget");
-    System.out.println("2: Medlemmer i restance");
+    System.out.println("1: Se forventeligt kontingentbudget - to be implemented");
+    System.out.println("2: Medlemmer i restance - to be implemented");
     System.out.println("0: Gå tilbage til hovedmenu");
   }
 
