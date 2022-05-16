@@ -6,7 +6,9 @@ import Delfinen.Member.Member;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
+import java.io.Serial;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class FileHandler {
 
@@ -37,7 +39,7 @@ public class FileHandler {
   public void saveAllCompetitorsToFile(ArrayList<Competitor> listOfCompetitors)  {
 
     try{
-      PrintStream out = new PrintStream(new File("medlemsliste_konkurrencesvømmer.csv"));
+      PrintStream out = new PrintStream("medlemsliste_konkurrencesvømmer.csv");
 
       for (Competitor competitor: listOfCompetitors) {
         out.print(competitor.getName());
@@ -57,9 +59,31 @@ public class FileHandler {
     } catch (FileNotFoundException fnfe){
       System.err.println("Fil ikke fundet");
     }
+  }
 
+  public int loadMemberNumber(){
+    Integer memberNumber = 0;
 
+    try{
+      Scanner fileScanner = new Scanner(new File ("medlemsnummer.txt"));
+      String line = fileScanner.nextLine();
+      memberNumber = Integer.parseInt(line);
 
+    } catch (FileNotFoundException fnfe){
+      System.err.println("Fil ikke fundet");
+    }
+    return memberNumber;
+  }
+
+  public void saveMemberNumberToFile(Integer memberNumber)  {
+
+    try{
+      PrintStream out = new PrintStream("medlemsnummer.txt");
+      out.print(memberNumber);
+
+    } catch (FileNotFoundException fnfe){
+      System.err.println("Fil ikke fundet");
+    }
   }
 
 

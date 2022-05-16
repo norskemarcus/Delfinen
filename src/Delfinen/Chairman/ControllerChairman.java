@@ -12,9 +12,15 @@ import java.util.Scanner;
 public class ControllerChairman {
   private final UIChairman uiChairman = new UIChairman();
   private final MemberList memberLists = new MemberList();
+  private final FileHandler fileHandler = new FileHandler();
   private boolean running = true;
+  private Integer memberNumber;
 
   public void menuChairman() {
+
+    memberNumber = fileHandler.loadMemberNumber();
+
+    running = true;
 
     while (running) {
 
@@ -22,7 +28,7 @@ public class ControllerChairman {
       uiChairman.printMenuOptions();
 
       switch (uiChairman.inputNumber()) {
-        case 1 -> addNonCompetitorMember();
+        case 1 -> addNonCompetitorMember(); //TODO: Dele op
         case 2 -> addCompetitorMember();
         case 3 -> searchForMember();
         case 4 -> showMembers();
@@ -44,6 +50,7 @@ public class ControllerChairman {
     FileHandler fileHandler = new FileHandler();
     fileHandler.saveAllNonCompetitorsToFile(memberLists.getAllNonCompetitors());
     fileHandler.saveAllCompetitorsToFile(memberLists.getAllCompetitors());
+    fileHandler.saveMemberNumberToFile(memberNumber);
     running = false;
   }
 
@@ -146,14 +153,20 @@ public class ControllerChairman {
 
   // motionssvømmer
   public void addNonCompetitorMember() {
-    NonCompetitor newNonCompetitorMember = uiChairman.addNonCompetitorMember();
+    NonCompetitor newNonCompetitorMember = uiChairman.addNonCompetitorMember(memberNumber);
     memberLists.getAllNonCompetitors().add(newNonCompetitorMember);
+    membershipCounter();
+  }
+
+  private void membershipCounter(){
+    memberNumber++;
   }
 
   //konkurrencesvømmer
   public void addCompetitorMember() {
-    Competitor newCompetitorMember = uiChairman.addCompetitorMember();
+    Competitor newCompetitorMember = uiChairman.addCompetitorMember(memberNumber);
     memberLists.getAllCompetitors().add(newCompetitorMember);
+    membershipCounter();
   }
 
   public void changeMemberToCompetitor(NonCompetitor nonCompetitor) {

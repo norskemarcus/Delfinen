@@ -116,7 +116,7 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
 
   }
 
-  public NonCompetitor addNonCompetitorMember() {
+  public NonCompetitor addNonCompetitorMember(Integer memberNumber) {
     System.out.println("\nOpret ny motionssvømmer. Tast ind stamoplysninger:");
     System.out.print("Navn: ");
     String name = sc.nextLine();
@@ -150,7 +150,7 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
         isMembershipPaid = false;
       }
     }
-      Integer memberNumber = 0; //TODO hardcoded memberNumber. Should be replaced by reading from a csv file
+
 
       NonCompetitor nonCompetitor = new NonCompetitor(name, memberNumber, age, email, isMembershipPaid, isActive);
 
@@ -161,7 +161,7 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
   }
 
 
-  public Competitor addCompetitorMember() {
+  public Competitor addCompetitorMember(Integer memberNumber) {
     System.out.println("\nOpret ny konkurrencesvømmer. Tast ind stamoplysninger:");
     System.out.print("Navn: ");
     String name = sc.nextLine();
@@ -186,7 +186,6 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
       }
     }
 
-    Integer memberNumber = 0; //TODO hardcoded
 
     Competitor competitor = new Competitor(name, memberNumber, age, email, isMembershipPaid, gender);
     System.out.println("\nNy konkurrencesvømmer lagt ind i systemet:");
