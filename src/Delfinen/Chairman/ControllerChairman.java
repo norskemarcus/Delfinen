@@ -16,7 +16,7 @@ public class ControllerChairman {
   private boolean running = true;
   private Integer memberNumber;
 
-  public void loadAndThenRunMain (){
+  public void loadAndThenRunMain() {
     memberNumber = fileHandler.loadMemberNumber();
     memberLists.setAllNonCompetitors(fileHandler.loadNonCompetitors());
     memberLists.setAllCompetitors(fileHandler.loadCompetitors());
@@ -45,14 +45,14 @@ public class ControllerChairman {
   }
 
 
-  private void addMemberMenu(){
+  private void addMemberMenu() {
 
     System.out.println("");
     uiChairman.addMemberMenu();
 
-    while (running){
+    while (running) {
 
-      switch (uiChairman.inputNumber()){
+      switch (uiChairman.inputNumber()) {
         case 1 -> addNonCompetitorMember();
         case 2 -> addCompetitorMember();
         case 3 -> menuChairman();
@@ -61,7 +61,6 @@ public class ControllerChairman {
       }
     }
   }
-
 
 
   private void errorMessage() {
@@ -82,28 +81,43 @@ public class ControllerChairman {
     editEmail();
   }
 
-  public void editEmail(){
-
-    System.out.println("Indtast mail der skal ændres");
+  public void editEmail() {
+    System.out.println("Indtast medlemsnummer på personen som skal ændres mail på");
     Scanner input = new Scanner(System.in);
-    String answer = input.nextLine();
-    System.out.println("Indtast den nye mail"); //TODO: Skal der checkes om det er en @ i Stringen?
-    String newMail = input.nextLine();
+    int answer = input.nextInt();
+    input.nextLine();
 
 
-    for(Member customer : getMemberLists().getAllCompetitors()) {
-      if(customer!=null && answer.equals(customer.getEmail())) {
-        customer.setEmail(newMail);
-        System.out.println("Mail er blevet ændret for " + customer.getName() + " til " + customer.getEmail());
-        break;
+    for (Member customer : getMemberLists().getAllCompetitors()) {
+      if (customer != null && (answer == customer.getMemberNumber())) {
+        System.out.println("Du er ved at ændre mail på " + customer.getName());
+        System.out.println("Ønsker du at fortsætte - indtast 1 - ellers indtast 0 for at komme tilbage til hovedmenuen");
+        int svar = input.nextInt();
+        if (svar == 1) {
+          System.out.println("Indtast den nye mail"); //TODO: Skal der checkes om det er en @ i Stringen?
+          input.nextLine();
+          String newMail = input.nextLine();
+          customer.setEmail(newMail);
+          System.out.println("Mail er blevet ændret for " + customer.getName() + " til " + customer.getEmail());
+          break;
+        } else break;
       }
     }
 
-    for(Member customer : getMemberLists().getAllNonCompetitors()) {
-      if(customer!=null && answer.equals(customer.getEmail())) {
-        customer.setEmail(newMail);
-        System.out.println("Mail er blevet ændret for " + customer.getName() + " til " + customer.getEmail());
-        break;
+
+    for (Member customer : getMemberLists().getAllNonCompetitors()) {
+      if (customer != null && (answer == customer.getMemberNumber())) {
+        System.out.println("Du er ved at ændre mail på " + customer.getName());
+        System.out.println("Ønsker du at fortsætte - indtast 1 - ellers indtast 0 for at komme tilbage til hovedmenuen");
+        int svar = input.nextInt();
+        if (svar == 1) {
+          System.out.println("Indtast den nye mail"); //TODO: Skal der checkes om det er en @ i Stringen?
+          input.nextLine();
+          String newMail = input.nextLine();
+          customer.setEmail(newMail);
+          System.out.println("Mail er blevet ændret for " + customer.getName() + " til " + customer.getEmail());
+          break;
+        } else break;
       }
     }
 
@@ -143,7 +157,7 @@ public class ControllerChairman {
   }
 
   private void searchMembersByMemberNumber() {
-    
+
     int memberNumber = uiChairman.inputMembernumber();
     Member foundMember = memberLists.findSpecifikMemberByMemberNumber(memberNumber);
     uiChairman.printMemberFoundByMembernumber(foundMember);
@@ -196,9 +210,8 @@ public class ControllerChairman {
       }
     }
 
-    }
+  }
 
-  
 
   // motionssvømmer
   public void addNonCompetitorMember() {
@@ -207,7 +220,7 @@ public class ControllerChairman {
     membershipCounter();
   }
 
-  private void membershipCounter(){
+  private void membershipCounter() {
     memberNumber++;
   }
 
@@ -220,7 +233,7 @@ public class ControllerChairman {
 
   public void changeMemberToCompetitor(NonCompetitor nonCompetitor) {
     //Competitor(String name, Integer memberNumber, Integer age, String email, boolean isMembershipPaid, String gender)
-   // Finde objektet ved at søge på medlemsnummer?
+    // Finde objektet ved at søge på medlemsnummer?
     String name = nonCompetitor.getName();
     Integer memberNumber = nonCompetitor.getMemberNumber();
     Integer age = nonCompetitor.getAge();
