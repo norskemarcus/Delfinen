@@ -129,25 +129,50 @@ public class ControllerChairman {
 
   public void deleteMember() {
 
-      System.out.println("Indtast medlemsnummer på det medlem, der ønskes slettet");
-      Scanner input = new Scanner(System.in);
-      int answer = input.nextInt();
+    boolean running = true;
 
-      for(Member customer : getMemberLists().getAllCompetitors()) {
-        if(customer!=null && answer == customer.getMemberNumber()) {
-          memberLists.getAllCompetitors().remove(customer);
-          System.out.println("Medlem " + customer.getName() + " : " + customer.getMemberNumber() + " er blevet slettet fra systemet");
-          break;
-        }
-      }
+    while (running) {
+      System.out.println("0 for at gå tilbage til menuen..."); // TODO: Skal slettes, når gruppen har set det
+      int answer = uiChairman.inputMembernumber();
 
-      for(Member customer : getMemberLists().getAllNonCompetitors()) {
-        if(customer!=null && answer == customer.getMemberNumber()) {
-          memberLists.getAllNonCompetitors().remove(customer);
-          System.out.println("Medlem " + customer.getName() + " : " + customer.getMemberNumber() + " er blevet slettet fra systemet");
-          break;
+      if (answer != 0) {
+
+        for (Member customer : getMemberLists().getAllCompetitors()) {
+          if (customer != null && answer == customer.getMemberNumber()) {
+
+            String areYouSure = UIChairman.confirmMemberDeletion(); // TODO: HVORFOR STATIC??
+
+            if (areYouSure.equals("j")) {
+              memberLists.getAllCompetitors().remove(customer);
+              uiChairman.printInfoOfDeletedMember(customer.getName(), customer.getMemberNumber());
+              running = false;
+            } else {
+              UIChairman.noMemberHasBeenDeleted(); //TODO: HVORFOR STATIC??
+              running = false;
+            }
+          }
         }
+
+        for (Member customer : getMemberLists().getAllNonCompetitors()) {
+          if (customer != null && answer == customer.getMemberNumber()) {
+
+            String areYouSure = UIChairman.confirmMemberDeletion(); //TODO: HVORFOR STATIC??
+
+            if (areYouSure.equals("j")) {
+              memberLists.getAllNonCompetitors().remove(customer);
+              uiChairman.printInfoOfDeletedMember(customer.getName(), customer.getMemberNumber());
+              running = false;
+            } else {
+              UIChairman.noMemberHasBeenDeleted(); //TODO: HVORFOR STATIC??
+              running = false;
+            }
+          }
+        }
+      } else {
+        System.out.println("0 valgt..."); // TODO: Skal slettes, når gruppen har set det
+        running = false;
       }
+    }
 
     }
 
