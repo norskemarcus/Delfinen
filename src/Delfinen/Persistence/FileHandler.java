@@ -42,7 +42,7 @@ public class FileHandler {
     try {
       PrintStream out = new PrintStream(new File("medlemsliste_motionist.csv"));
 
-      for (Member member : listOfNonCompetitors) {
+      for (NonCompetitor member : listOfNonCompetitors) {
         out.print(member.getName());
         out.print(";");
         out.print(member.getMemberNumber());
