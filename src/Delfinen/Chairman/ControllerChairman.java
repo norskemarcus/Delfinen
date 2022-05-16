@@ -30,17 +30,36 @@ public class ControllerChairman {
       uiChairman.printMenuOptions();
 
       switch (uiChairman.inputNumber()) {
-        case 1 -> addNonCompetitorMember(); //TODO: Dele op
-        case 2 -> addCompetitorMember();
-        case 3 -> searchForMember();
-        case 4 -> showMembers();
-        case 5 -> editMembers(); //TODO: Er det formanden som skal ændre en motionssvømmer til konkurrencesvømmer eller træneren? Ind i egen menu ind under editMembers()
-        case 6 -> deleteMember();
+        case 1 -> addMemberMenu();
+        case 2 -> searchForMember();
+        case 3 -> showMembers();
+        case 4 -> editMembers(); //TODO: Er det formanden som skal ændre en motionssvømmer til konkurrencesvømmer eller træneren? Ind i egen menu ind under editMembers()
+        case 5 -> deleteMember();
         case 0 -> saveAndReturnToMainMenu();
         default -> errorMessage();
       }
     }
   }
+
+
+  private void addMemberMenu(){
+
+    System.out.println("");
+    uiChairman.addMemberMenu();
+
+    while (running){
+
+      switch (uiChairman.inputNumber()){
+        case 1 -> addNonCompetitorMember();
+        case 2 -> addCompetitorMember();
+        case 3 -> menuChairman();
+        case 0 -> running = false;
+        default -> errorMessage();
+      }
+    }
+  }
+
+
 
   private void errorMessage() {
     uiChairman.printErrorMessage();

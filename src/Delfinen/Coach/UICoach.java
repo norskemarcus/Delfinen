@@ -19,7 +19,8 @@ public class UICoach extends UIMain implements PrintMenuInterface {
     System.out.println("1: Top 5 præstationer junior - to be implemented");
     System.out.println("2: Top 5 præstationer senior - to be implemented");
     System.out.println("3. Oprette et nyt stævne - to be implemented");
-    System.out.println("4: Gå tilbage til hovedmenu");
+    System.out.println("4: Opret en ny træning - to be implemented");
+    System.out.println("5: Gå tilbage til hovedmenu");
     System.out.println("0: Afslut program"); // tilføj til switch i controller
   }
 }

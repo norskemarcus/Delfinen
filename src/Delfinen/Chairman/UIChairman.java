@@ -18,12 +18,11 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
   }
 
   public void printMenuOptions() {
-    System.out.println("1: Tilføj motionssvømmer");
-    System.out.println("2: Tilføj konkurrencemedlem");
-    System.out.println("3: Søg efter medlem");
-    System.out.println("4: Vis medlemmer");
-    System.out.println("5: Rediger medlemsoplysninger");
-    System.out.println("6: Slet medlem");
+    System.out.println("1: Tilføj medlem");
+    System.out.println("2: Søg efter medlem");
+    System.out.println("3: Vis medlemmer");
+    System.out.println("4: Rediger medlemsoplysninger");
+    System.out.println("5: Slet medlem");
     System.out.println("0: Gem ændringer og gå tilbage til hovedmenu");
   }
 
@@ -114,6 +113,13 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
           """, member.getName(), member.getMemberNumber(), member.getEmail(), member.getAge(), member.isMembershipPaid());
     }
 
+  }
+
+  public void addMemberMenu(){
+    System.out.println("1: Tilføj ny motionssvømmer");
+    System.out.println("2: Tilføj ny konkurrencesvømmer");
+    System.out.println("3: Gå tilbage til formandens forside");
+    System.out.println("0: Gå tilbage til hovedmenu");
   }
 
   public NonCompetitor addNonCompetitorMember(Integer memberNumber) {
