@@ -2,6 +2,7 @@ package Delfinen.Chairman;
 
 import Delfinen.Member.Competitor;
 import Delfinen.Member.Member;
+import Delfinen.Member.MemberList;
 import Delfinen.Member.NonCompetitor;
 import Delfinen.PrintMenuInterface;
 import Delfinen.UIMain;
