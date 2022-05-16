@@ -127,25 +127,37 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
     String email = sc.nextLine();
 
 
+    String isActiveAnswer = "";
+    boolean isActive = true;
+    while (!isActiveAnswer.equals("a") && !isActiveAnswer.equals("p")) {
+      System.out.print("Er medlemskabet aktivt (a) eller passivt (p): ");
+      isActiveAnswer = sc.nextLine();
+
+      if (isActiveAnswer.equals("p")) {
+        isActive = false;
+      }
+    }
+
     String membershipAnswer = "";
     boolean isMembershipPaid = true;
     while (!membershipAnswer.equals("j") && !membershipAnswer.equals("n")) {
       System.out.print("Er kontingent betalt (j/n): ");
       membershipAnswer = sc.nextLine();
-if (membershipAnswer.equals("n")) {
+
+      if (membershipAnswer.equals("n")) {
         isMembershipPaid = false;
       }
     }
+      Integer memberNumber = 0; //TODO hardcoded memberNumber. Should be replaced by reading from a csv file
 
-    Integer memberNumber = 0; //TODO hardcoded
+      NonCompetitor nonCompetitor = new NonCompetitor(name, memberNumber, age, email, isMembershipPaid, isActive);
 
-    NonCompetitor nonCompetitor = new NonCompetitor(name, memberNumber, age, email, isMembershipPaid);
+      System.out.println("\nNy motionssvømmer lagt ind i systemet:");
+      printMember(nonCompetitor);
 
-    System.out.println("\nNy motionssvømmer lagt ind i systemet:");
-    printMember(nonCompetitor);
-
-    return nonCompetitor;
+      return nonCompetitor;
   }
+
 
   public Competitor addCompetitorMember() {
     System.out.println("\nOpret ny konkurrencesvømmer. Tast ind stamoplysninger:");

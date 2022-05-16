@@ -8,6 +8,7 @@ public abstract class Member {
   protected String email;
   protected boolean isMembershipPaid;
 
+
   public Member (String name, Integer memberNumber, Integer age, String email, boolean isMembershipPaid){
     this.name = name;
     this.memberNumber = memberNumber;
