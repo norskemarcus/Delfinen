@@ -1,10 +1,13 @@
 package Delfinen.Treasurer;
 
 import Delfinen.Member.Member;
+import Delfinen.Member.MemberList;
 import Delfinen.Member.NonCompetitor;
 
 public class ControllerTreasurer {
   private UITreasurer uiTreasurer = new UITreasurer();
+  private MemberList memberList = new MemberList();
+
   public void menuTreasurer() {
     boolean running = true;
 
@@ -13,7 +16,7 @@ public class ControllerTreasurer {
       uiTreasurer.printMenuOptions();
 
       switch (uiTreasurer.inputNumber()) {
-        case 1 -> System.out.println("Viser kontingent - to be implemented"); //Skal være metoder til UI
+        case 1 -> calculateExpectedAnnualIncome();
         case 2 -> System.out.println("Viser restancemedlemmer - to be implemented");
         case 0 -> running = false;
         //case 0 -> System.out.println("Afslut program"); // set running til false
@@ -22,8 +25,21 @@ public class ControllerTreasurer {
     }
   }
 
+  public void calculateExpectedAnnualIncome() {
+    double expectedSum = 0;
+    for (Member member : memberList.getAllNonCompetitors()) {
+      expectedSum += calculateMembershipCost(member);
+    }
 
-  public double calculateMembershipCost(Member member) {
+    for (Member member : memberList.getAllCompetitors()) {
+      expectedSum += calculateMembershipCost(member);
+    }
+
+    uiTreasurer.printExpectedAnnualSum(expectedSum);
+
+  }
+
+  protected double calculateMembershipCost(Member member) {
     double adultMembershipCost = 1600;
     double seniorDiscount = 0.75;
     int age = member.getAge();

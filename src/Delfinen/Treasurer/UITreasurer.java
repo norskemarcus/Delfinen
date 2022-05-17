@@ -34,4 +34,7 @@ public class UITreasurer extends UIMain implements PrintMenuInterface {
     }
   }
 
+  public void printExpectedAnnualSum(double expectedSum) {
+    System.out.println("Forventet årligt indkomst: " + expectedSum + " kr.");
+  }
 }
