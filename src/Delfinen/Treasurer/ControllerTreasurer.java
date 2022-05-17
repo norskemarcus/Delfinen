@@ -1,5 +1,8 @@
 package Delfinen.Treasurer;
 
+import Delfinen.Member.Member;
+import Delfinen.Member.NonCompetitor;
+
 public class ControllerTreasurer {
   private UITreasurer uiTreasurer = new UITreasurer();
   public void menuTreasurer() {
@@ -19,4 +22,24 @@ public class ControllerTreasurer {
     }
   }
 
+
+  public double calculateMembershipCost(Member member) {
+    double adultMembershipCost = 1600;
+    double seniorDiscount = 0.75;
+    int age = member.getAge();
+
+    if (member instanceof NonCompetitor) {
+      if (!((NonCompetitor) member).isActive()) {
+        return 500;
+      }
+    }
+
+    if (age < 18) {
+      return 1000;
+    } else if (age < 65) {
+      return adultMembershipCost;
+    } else {
+      return adultMembershipCost * seniorDiscount;
+    }
+  }
 }

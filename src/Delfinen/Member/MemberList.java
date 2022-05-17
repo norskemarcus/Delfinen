@@ -47,8 +47,6 @@ public class MemberList {
 
   public Member findSpecifikMemberByMemberNumber(int memberNumber) {
 
-    ArrayList<Delfinen.Member.Member> foundMembers = new ArrayList<>();
-
     for (Delfinen.Member.Member member : allNonCompetitors) {
       if (member.getMemberNumber() == memberNumber) {
         return member;

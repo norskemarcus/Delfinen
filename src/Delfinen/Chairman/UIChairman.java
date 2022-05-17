@@ -11,8 +11,8 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
 
   private final Scanner sc = new Scanner(System.in);
 
-  public String confirmMemberDeletion() { // IntelliJ VIL have, metoden skal være static
-    System.out.println("Er du sikker på, at du vil slette medlemmet? j/n");
+  public String confirmMemberDeletion(String name) { // IntelliJ VIL have, metoden skal være static
+    System.out.println("Er du sikker på, at du vil slette " + name + "? j/n");
     Scanner sc = new Scanner(System.in);
     String areYouSure = sc.nextLine();
     return areYouSure;
@@ -130,8 +130,7 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
   public void addMemberMenu(){
     System.out.println("1: Tilføj ny motionssvømmer");
     System.out.println("2: Tilføj ny konkurrencesvømmer");
-    System.out.println("3: Gå tilbage til formandens forside");
-    System.out.println("0: Gå tilbage til hovedmenu");
+    System.out.println("0: Gå tilbage til formandens forside");
   }
 
   public NonCompetitor addNonCompetitorMember(Integer memberNumber) {

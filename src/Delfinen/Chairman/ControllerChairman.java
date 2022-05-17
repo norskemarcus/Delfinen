@@ -50,13 +50,14 @@ public class ControllerChairman {
     System.out.println("");
     uiChairman.addMemberMenu();
 
-    while (running) {
+    boolean runningAddMember = true;
+
+    while (runningAddMember) {
 
       switch (uiChairman.inputNumber()) {
         case 1 -> addNonCompetitorMember();
         case 2 -> addCompetitorMember();
-        case 3 -> menuChairman();
-        case 0 -> running = false;
+        case 0 -> runningAddMember = false;
         default -> errorMessage();
       }
     }
@@ -165,52 +166,36 @@ public class ControllerChairman {
 
   public void deleteMember() {
 
-    boolean running = true;
+    boolean runningDeleteMember = true;
+    int answer = -1;
 
-    while (running) {
+    while (runningDeleteMember && answer != 0) {
       System.out.println("0 for at gå tilbage til menuen..."); // TODO: Skal slettes, når gruppen har set det
-      int answer = uiChairman.inputMembernumber();
+      answer = uiChairman.inputMembernumber();
+      Member member = memberLists.findSpecifikMemberByMemberNumber(answer);
 
-      if (answer != 0) {
+      if (member != null) {
+        String areYouSure = "";
+        while (!areYouSure.equals("j") && !areYouSure.equals("n")) {
+          areYouSure = uiChairman.confirmMemberDeletion(member.getName());
 
-        for (Member customer : getMemberLists().getAllCompetitors()) {
-          if (customer != null && answer == customer.getMemberNumber()) {
-
-            String areYouSure = uiChairman.confirmMemberDeletion();
-
-            if (areYouSure.equals("j")) {
-              memberLists.getAllCompetitors().remove(customer);
-              uiChairman.printInfoOfDeletedMember(customer.getName(), customer.getMemberNumber());
-              running = false;
+          if (areYouSure.equals("j")) {
+            if (member instanceof Competitor) {
+              memberLists.getAllCompetitors().remove(member);
             } else {
-              uiChairman.noMemberHasBeenDeleted();
-              running = false;
+              memberLists.getAllNonCompetitors().remove(member);
             }
+            uiChairman.printInfoOfDeletedMember(member.getName(), member.getMemberNumber());
+            runningDeleteMember = false;
+          } else if (areYouSure.equals("n")) {
+            uiChairman.noMemberHasBeenDeleted();
+            runningDeleteMember = false;
           }
         }
-
-        for (Member customer : getMemberLists().getAllNonCompetitors()) {
-          if (customer != null && answer == customer.getMemberNumber()) {
-
-            String areYouSure = uiChairman.confirmMemberDeletion();
-
-            if (areYouSure.equals("j")) {
-              memberLists.getAllNonCompetitors().remove(customer);
-              uiChairman.printInfoOfDeletedMember(customer.getName(), customer.getMemberNumber());
-              running = false;
-            } else {
-              uiChairman.noMemberHasBeenDeleted();
-              running = false;
-            }
-          }
-        }
-      } else {
-        System.out.println("0 valgt..."); // TODO: Skal slettes, når gruppen har set det
-        running = false;
       }
     }
-
   }
+
 
 
   // motionssvømmer
