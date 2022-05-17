@@ -41,4 +41,7 @@ public abstract class Member {
     this.email = email;
   }
 
+  public void setMembershipPaid(boolean membershipPaid) {
+    isMembershipPaid = membershipPaid;
+  }
 }

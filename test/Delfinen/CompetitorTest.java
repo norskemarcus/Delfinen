@@ -24,7 +24,6 @@ class CompetitorTest {
     //assert
     assertTrue(memberList.getAllNonCompetitors().size() == 1);
     assertTrue(memberList.getAllCompetitors().size() == 1);
-
   }
 
 }

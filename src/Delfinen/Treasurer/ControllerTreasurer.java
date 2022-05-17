@@ -34,6 +34,7 @@ public class ControllerTreasurer {
       switch (uiTreasurer.inputNumber()) {
         case 1 -> calculateExpectedAnnualIncome();
         case 2 -> System.out.println("Viser restancemedlemmer - to be implemented");
+        case 3 -> changeMembershipPaymentStatus();
         case 0 -> saveAndReturnToMainMenu();
         //case 0 -> System.out.println("Afslut program"); // set running til false
         default -> uiTreasurer.printErrorMessage();
@@ -74,4 +75,27 @@ public class ControllerTreasurer {
       return adultMembershipCost * seniorDiscount;
     }
   }
+
+  private void changeMembershipPaymentStatus() {
+    int membernumber = uiTreasurer.inputMembernumber();
+    Member memberToChange = memberList.findSpecifikMemberByMemberNumber(membernumber);
+
+    if (memberToChange == null) {
+      uiTreasurer.printMemberNotFound();
+    }
+
+    if (memberToChange != null) {
+      uiTreasurer.changePaymentOptions(memberToChange);
+      int choice = -1;
+      while (choice != 1 && choice != 2 && choice != 0) {
+        choice = uiTreasurer.inputchoicenumber();
+        if (choice == 1) {
+          memberToChange.setMembershipPaid(true);
+        } else if (choice == 2) {
+          memberToChange.setMembershipPaid(false);
+        }
+      }
+    }
+  }
+
 }
