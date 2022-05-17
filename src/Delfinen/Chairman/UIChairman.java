@@ -11,14 +11,14 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
 
   private final Scanner sc = new Scanner(System.in);
 
-  public static String confirmMemberDeletion() { // IntelliJ VIL have, metoden skal være static
+  public String confirmMemberDeletion() { // IntelliJ VIL have, metoden skal være static
     System.out.println("Er du sikker på, at du vil slette medlemmet? j/n");
     Scanner sc = new Scanner(System.in);
     String areYouSure = sc.nextLine();
     return areYouSure;
   }
 
-  public static void noMemberHasBeenDeleted() { // TODO: HVORFOR STATIC??
+  public void noMemberHasBeenDeleted() { // TODO: HVORFOR STATIC??
     System.out.println("Intet medlem er blevet slettet.");
   }
   // TODO: Hvor skal "private MembershipTypes membershipTypes" ligge?

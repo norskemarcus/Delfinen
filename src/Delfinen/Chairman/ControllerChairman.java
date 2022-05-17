@@ -176,14 +176,14 @@ public class ControllerChairman {
         for (Member customer : getMemberLists().getAllCompetitors()) {
           if (customer != null && answer == customer.getMemberNumber()) {
 
-            String areYouSure = UIChairman.confirmMemberDeletion(); // TODO: HVORFOR STATIC??
+            String areYouSure = uiChairman.confirmMemberDeletion();
 
             if (areYouSure.equals("j")) {
               memberLists.getAllCompetitors().remove(customer);
               uiChairman.printInfoOfDeletedMember(customer.getName(), customer.getMemberNumber());
               running = false;
             } else {
-              UIChairman.noMemberHasBeenDeleted(); //TODO: HVORFOR STATIC??
+              uiChairman.noMemberHasBeenDeleted();
               running = false;
             }
           }
@@ -192,14 +192,14 @@ public class ControllerChairman {
         for (Member customer : getMemberLists().getAllNonCompetitors()) {
           if (customer != null && answer == customer.getMemberNumber()) {
 
-            String areYouSure = UIChairman.confirmMemberDeletion(); //TODO: HVORFOR STATIC??
+            String areYouSure = uiChairman.confirmMemberDeletion();
 
             if (areYouSure.equals("j")) {
               memberLists.getAllNonCompetitors().remove(customer);
               uiChairman.printInfoOfDeletedMember(customer.getName(), customer.getMemberNumber());
               running = false;
             } else {
-              UIChairman.noMemberHasBeenDeleted(); //TODO: HVORFOR STATIC??
+              uiChairman.noMemberHasBeenDeleted();
               running = false;
             }
           }
