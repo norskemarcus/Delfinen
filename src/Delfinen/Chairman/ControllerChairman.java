@@ -83,45 +83,31 @@ public class ControllerChairman {
   }
 
   public void editEmail() {
-    System.out.println("Indtast medlemsnummer på personen som skal ændres mail på");
-    Scanner input = new Scanner(System.in);
-    int answer = input.nextInt();
-    input.nextLine();
+    boolean editEmailIsRunning = true;
+    int answer = -1;
+    while (editEmailIsRunning && answer != 0) {
+      answer = uiChairman.inputMembernumber();
+      Member member = memberLists.findSpecifikMemberByMemberNumber(answer);
+      if (member != null) {
+        String areYouSure = "";
+        while (!areYouSure.equals("j") && !areYouSure.equals("n")) {
+          areYouSure = uiChairman.confirmEditEmail(member.getName());
 
-
-    for (Member customer : getMemberLists().getAllCompetitors()) {
-      if (customer != null && (answer == customer.getMemberNumber())) {
-        System.out.println("Du er ved at ændre mail på " + customer.getName());
-        System.out.println("Ønsker du at fortsætte - indtast 1 - ellers indtast 0 for at komme tilbage til hovedmenuen");
-        int svar = input.nextInt();
-        if (svar == 1) {
-          System.out.println("Indtast den nye mail"); //TODO: Skal der checkes om det er en @ i Stringen?
-          input.nextLine();
-          String newMail = input.nextLine();
-          customer.setEmail(newMail);
-          System.out.println("Mail er blevet ændret for " + customer.getName() + " til " + customer.getEmail());
-          break;
-        } else break;
+          if (areYouSure.equals("j")) {
+            if (member instanceof Competitor) {
+              member.setEmail(uiChairman.newMail()); //TODO: ekstra feauture at tjekke om en mail allerede findes?
+            } else {
+              member.setEmail(uiChairman.newMail());
+            }
+            uiChairman.printInfoOfEditMail(member.getName(), member.getEmail());
+            editEmailIsRunning = false;
+          } else if (areYouSure.equals("n")) {
+            uiChairman.noEmailHasBeenChanged();
+            editEmailIsRunning = false;
+          }
+        }
       }
     }
-
-
-    for (Member customer : getMemberLists().getAllNonCompetitors()) {
-      if (customer != null && (answer == customer.getMemberNumber())) {
-        System.out.println("Du er ved at ændre mail på " + customer.getName());
-        System.out.println("Ønsker du at fortsætte - indtast 1 - ellers indtast 0 for at komme tilbage til hovedmenuen");
-        int svar = input.nextInt();
-        if (svar == 1) {
-          System.out.println("Indtast den nye mail"); //TODO: Skal der checkes om det er en @ i Stringen?
-          input.nextLine();
-          String newMail = input.nextLine();
-          customer.setEmail(newMail);
-          System.out.println("Mail er blevet ændret for " + customer.getName() + " til " + customer.getEmail());
-          break;
-        } else break;
-      }
-    }
-
   }
 
 
@@ -195,7 +181,6 @@ public class ControllerChairman {
       }
     }
   }
-
 
 
   // motionssvømmer

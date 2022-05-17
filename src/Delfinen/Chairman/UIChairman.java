@@ -18,6 +18,8 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
     return areYouSure;
   }
 
+
+
   public void noMemberHasBeenDeleted() { // TODO: HVORFOR STATIC??
     System.out.println("Intet medlem er blevet slettet.");
   }
@@ -233,6 +235,26 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
             """, member.getName(), member.getMemberNumber(), member.getEmail(), member.getAge(), member.isMembershipPaid());
       }
     }
+  }
+
+  public String confirmEditEmail(String name) {
+    System.out.println("Er du sikker på, at du vil ændre mail på " + name + "? j/n");
+    Scanner sc = new Scanner(System.in);
+    String areYouSure = sc.nextLine();
+    return areYouSure;
+  }
+
+  public void printInfoOfEditMail(String name, String email) {
+    System.out.println("Medlem " + name + " har ændret mail til " + email);
+  }
+  public void noEmailHasBeenChanged() { //Denne metode til flere steder måske
+    System.out.println("Ingen ændringer foretaget");
+  }
+
+  public String newMail(){
+    System.out.println("Indtast den nye mail du ønsker: ");
+    String newMail = sc.nextLine();
+    return newMail;
   }
 
 
