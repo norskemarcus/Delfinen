@@ -1,9 +1,6 @@
 package Delfinen.Chairman;
 
-import Delfinen.Member.Competitor;
-import Delfinen.Member.Member;
-import Delfinen.Member.MemberList;
-import Delfinen.Member.NonCompetitor;
+import Delfinen.Member.*;
 import Delfinen.Persistence.FileHandler;
 
 import java.util.ArrayList;
@@ -33,10 +30,10 @@ public class ControllerChairman {
       uiChairman.printMenuOptions();
 
       switch (uiChairman.inputNumber()) {
-        case 1 -> addMemberMenu(); //TODO: noget skal lige ændres når man har oprettet nyt medlem ifht mulighedsprint
+        case 1 -> addMemberMenu();
         case 2 -> searchForMember();
         case 3 -> showMembers();
-        case 4 -> editMembers(); //TODO: Er det formanden som skal ændre en motionssvømmer til konkurrencesvømmer eller træneren? Ind i egen menu ind under editMembers()
+        case 4 -> editMembers();
         case 5 -> deleteMember();
         case 0 -> saveAndReturnToMainMenu();
         default -> errorMessage();
@@ -47,12 +44,11 @@ public class ControllerChairman {
 
   private void addMemberMenu() {
 
-    System.out.println("");
-    uiChairman.addMemberMenu();
-
     boolean runningAddMember = true;
 
     while (runningAddMember) {
+      System.out.println(""); //TODO: Test om det virker - marcus
+      uiChairman.printMemberMenu();
 
       switch (uiChairman.inputNumber()) {
         case 1 -> addNonCompetitorMember();
@@ -210,8 +206,9 @@ public class ControllerChairman {
     String email = nonCompetitor.getEmail();
     boolean isMembershipPaid = nonCompetitor.isMembershipPaid();
     String gender = uiChairman.addGenderToNewCompetitor();
+    SwimmingDisciplins swimmingDisciplin = null; //TODO coach skal gøre dette?
 
-    Competitor competitor = new Competitor(name, memberNumber, age, email, isMembershipPaid, gender);
+    Competitor competitor = new Competitor(name, memberNumber, age, email, isMembershipPaid, gender, swimmingDisciplin);
     memberLists.getAllCompetitors().add(competitor);
     //TODO: remove nonCompetitor from the other memberlist
 

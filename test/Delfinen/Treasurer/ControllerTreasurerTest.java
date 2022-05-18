@@ -2,6 +2,7 @@ package Delfinen.Treasurer;
 
 import Delfinen.Member.Competitor;
 import Delfinen.Member.NonCompetitor;
+import Delfinen.Member.SwimmingDisciplins;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -54,7 +55,7 @@ class ControllerTreasurerTest {
   void testCompetitor() {
     // Arrange
     ControllerTreasurer controllerTreasurer = new ControllerTreasurer();
-    Competitor competitor = new Competitor("Daniel", 1009, 20, "dan@iel.dk", true, "M");
+    Competitor competitor = new Competitor("Daniel", 1009, 20, "dan@iel.dk", true, "M", SwimmingDisciplins.CRAWL);
 
     // Act
     double expected = 1600;

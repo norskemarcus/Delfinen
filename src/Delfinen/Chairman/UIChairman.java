@@ -11,7 +11,7 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
 
   private final Scanner sc = new Scanner(System.in);
 
-  public String confirmMemberDeletion(String name) { // IntelliJ VIL have, metoden skal være static
+  public String confirmMemberDeletion(String name) {
     System.out.println("Er du sikker på, at du vil slette " + name + "? j/n");
     Scanner sc = new Scanner(System.in);
     String areYouSure = sc.nextLine();
@@ -20,10 +20,10 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
 
 
 
-  public void noMemberHasBeenDeleted() { // TODO: HVORFOR STATIC??
+  public void noMemberHasBeenDeleted() {
     System.out.println("Intet medlem er blevet slettet.");
   }
-  // TODO: Hvor skal "private MembershipTypes membershipTypes" ligge?
+
 
   public void printHeader() {
     System.out.println(" ");
@@ -119,8 +119,8 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
 
     if (member instanceof Competitor competitor) {
       System.out.printf("""
-          Navn: %s  Medlemsnummer: %d Køn: %s  Email: %s  Alder:  %d år  restance: %s
-          """, member.getName(), member.getMemberNumber(), competitor.getGender(), member.getEmail(), member.getAge(), member.isMembershipPaid());
+          Navn: %s  Medlemsnummer: %d Køn: %s  Email: %s  Alder:  %d år  Restance: %s  Svømmedisciplin: %s
+          """, member.getName(), member.getMemberNumber(), competitor.getGender(), member.getEmail(), member.getAge(), member.isMembershipPaid(), competitor.getSwimmingDisciplin());
     } else {
       System.out.printf("""
           Navn: %s  Medlemsnummer: %d  Email: %s  Alder:  %d år  restance: %s
@@ -129,7 +129,7 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
 
   }
 
-  public void addMemberMenu(){
+  public void printMemberMenu(){
     System.out.println("1: Tilføj ny motionssvømmer");
     System.out.println("2: Tilføj ny konkurrencesvømmer");
     System.out.println("0: Gå tilbage til formandens forside");
@@ -154,8 +154,6 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
 
       if (isActiveAnswer.equals("p")) {
         isActive = false;
-        //TODO: koble til enum i stedet for boolean?
-
       }
     }
 
@@ -204,12 +202,31 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
         isMembershipPaid = false;
       }
     }
+    SwimmingDisciplins swimmingDisciplin = null;
+    int inputDisciplin = 0;
 
+    while (!(inputDisciplin > 0 && inputDisciplin < 5)) {
 
-    Competitor competitor = new Competitor(name, memberNumber, age, email, isMembershipPaid, gender);
+      System.out.println("Vælg svømmedisciplin: "); // egen printmetode
+      System.out.println("1: Bryst");
+      System.out.println("2: Crawl");
+      System.out.println("3: Rygcrawl");
+      System.out.println("4: Butterfly");
+
+      inputDisciplin = sc.nextInt();
+
+      switch (inputDisciplin){
+        case 1 -> swimmingDisciplin = SwimmingDisciplins.BRYST;
+        case 2 -> swimmingDisciplin = SwimmingDisciplins.CRAWL;
+        case 3 -> swimmingDisciplin = SwimmingDisciplins.RYGCRAWL;
+        case 4 -> swimmingDisciplin = SwimmingDisciplins.BUTTERFLY;
+        default -> printErrorMessage();
+      }
+    }
+
+    Competitor competitor = new Competitor(name, memberNumber, age, email, isMembershipPaid, gender, swimmingDisciplin);
     System.out.println("\nNy konkurrencesvømmer lagt ind i systemet:");
     printMember(competitor);
-    // String name, Integer memberNumber, Integer age, String email, boolean isMembershipPaid, String gender)
     return competitor;
   }
 
@@ -227,11 +244,11 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
 
       if (member instanceof Competitor competitor) {
         System.out.printf("""
-            Navn: %s  Medlemsnummer: %d Køn: %s  Email: %s  Alder:  %d år  restance: %s
-            """, competitor.getName(), competitor.getMemberNumber(), competitor.getGender(), competitor.getEmail(), competitor.getAge(), competitor.isMembershipPaid());
+            Navn: %s  Medlemsnummer: %d Køn: %s  Email: %s  Alder:  %d år  Restance: %s  Svømmedisciplin: %s 
+            """, competitor.getName(), competitor.getMemberNumber(), competitor.getGender(), competitor.getEmail(), competitor.getAge(), competitor.isMembershipPaid(), competitor.getSwimmingDisciplin());
       } else {
         System.out.printf("""
-            Navn: %s  Medlemsnummer: %d  Email: %s  Alder:  %d år  restance: %s
+            Navn: %s  Medlemsnummer: %d  Email: %s  Alder:  %d år  Restance: %s
             """, member.getName(), member.getMemberNumber(), member.getEmail(), member.getAge(), member.isMembershipPaid());
       }
     }
@@ -261,6 +278,8 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
   public void printInfoOfDeletedMember(String name, Integer memberNumber) {
     System.out.println("Medlem " + name + " med medlemsnummer " + memberNumber + " er blevet slettet fra systemet");
   }
+
+
 }
 
 

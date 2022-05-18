@@ -3,6 +3,7 @@ package Delfinen.Persistence;
 import Delfinen.Member.Competitor; //TODO: Peter?
 import Delfinen.Member.Member;
 import Delfinen.Member.NonCompetitor;
+import Delfinen.Member.SwimmingDisciplins;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -56,8 +57,9 @@ public class FileHandler {
         int age = Integer.parseInt(line.next());
         String email = line.next();
         boolean isMembershipPaid = Boolean.parseBoolean(line.next());
+        SwimmingDisciplins swimmingDisciplin = SwimmingDisciplins.valueOf(line.next());
 //        boolean isActive = Boolean.parseBoolean(line.next());
-        Competitor competitor = new Competitor(name,memberNumber,age,email,isMembershipPaid,gender);
+        Competitor competitor = new Competitor(name,memberNumber,age,email,isMembershipPaid,gender, swimmingDisciplin);
         competitorList.add(competitor);
 
       }
@@ -112,6 +114,8 @@ public class FileHandler {
         out.print(competitor.getEmail());
         out.print(";");
         out.print(competitor.isMembershipPaid());
+        out.print(";");
+        out.print(competitor.getSwimmingDisciplin());
         out.print("\n");
       }
 
