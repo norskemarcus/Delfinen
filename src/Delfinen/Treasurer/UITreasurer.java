@@ -1,9 +1,12 @@
 package Delfinen.Treasurer;
 
+import Delfinen.Member.Competitor;
 import Delfinen.Member.Member;
+import Delfinen.Member.NonCompetitor;
 import Delfinen.PrintMenuInterface;
 import Delfinen.UIMain;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UITreasurer extends UIMain implements PrintMenuInterface {
@@ -11,7 +14,7 @@ public class UITreasurer extends UIMain implements PrintMenuInterface {
 
   public void printMenuOptions() {
     System.out.println("1: Se forventeligt kontingentbudget");
-    System.out.println("2: Medlemmer i restance - to be implemented");
+    System.out.println("2: Medlemmer i restance");
     System.out.println("3: Ændre restance for medlem - to be implemented");
     System.out.println("0: Gem og gå tilbage til hovedmenu");
   }
@@ -75,5 +78,13 @@ public class UITreasurer extends UIMain implements PrintMenuInterface {
 
   public void printMemberNotFound() {
     System.out.println("Medlem blev ikke fundet.");
+  }
+
+  public void printMembersInDebtHeader() {
+    System.out.println("\nMedlemmer i restance:");
+  }
+
+  public void printMembersInDebt(String name, double debt) {
+    System.out.println(name + ": " + debt);
   }
 }

@@ -33,7 +33,7 @@ public class ControllerTreasurer {
 
       switch (uiTreasurer.inputNumber()) {
         case 1 -> calculateExpectedAnnualIncome();
-        case 2 -> System.out.println("Viser restancemedlemmer - to be implemented");
+        case 2 -> showMembersInDebt();
         case 3 -> changeMembershipPaymentStatus();
         case 0 -> saveAndReturnToMainMenu();
         //case 0 -> System.out.println("Afslut program"); // set running til false
@@ -54,6 +54,22 @@ public class ControllerTreasurer {
 
     uiTreasurer.printExpectedAnnualSum(expectedSum);
 
+  }
+
+  public void showMembersInDebt() {
+    uiTreasurer.printMembersInDebtHeader();
+
+    for (Member member : memberList.getAllNonCompetitors()) {
+      if (!member.isMembershipPaid()) {
+        uiTreasurer.printMembersInDebt(member.getName(), calculateMembershipCost(member));
+      }
+    }
+
+    for (Member member : memberList.getAllCompetitors()) {
+      if (!member.isMembershipPaid()) {
+        uiTreasurer.printMembersInDebt(member.getName(), calculateMembershipCost(member));
+      }
+    }
   }
 
   protected double calculateMembershipCost(Member member) {
