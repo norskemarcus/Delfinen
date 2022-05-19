@@ -58,8 +58,12 @@ public class FileHandler {
         String email = line.next();
         boolean isMembershipPaid = Boolean.parseBoolean(line.next());
         SwimmingDisciplins swimmingDisciplin = SwimmingDisciplins.valueOf(line.next());
+        Integer personalBestTrainingTimeMinutes = Integer.parseInt(line.next());
+        Integer personalBestTrainingTimeSeconds = Integer.parseInt(line.next());
+        Integer personalBestMonth = Integer.parseInt(line.next());
+        Integer personalBestYear = Integer.parseInt(line.next());
 //        boolean isActive = Boolean.parseBoolean(line.next());
-        Competitor competitor = new Competitor(name,memberNumber,age,email,isMembershipPaid,gender, swimmingDisciplin);
+        Competitor competitor = new Competitor(name,memberNumber,age,email,isMembershipPaid,gender, swimmingDisciplin, personalBestTrainingTimeMinutes, personalBestTrainingTimeSeconds, personalBestMonth, personalBestYear);
         competitorList.add(competitor);
 
       }
@@ -116,6 +120,14 @@ public class FileHandler {
         out.print(competitor.isMembershipPaid());
         out.print(";");
         out.print(competitor.getSwimmingDisciplin());
+        out.print(";");
+        out.print(competitor.getPersonalBestTrainingTimeMinutes());
+        out.print(";");
+        out.print(competitor.getPersonalBestTrainingTimeSeconds());
+        out.print(";");
+        out.print(competitor.getPersonalBestMonth());
+        out.print(";");
+        out.print(competitor.getPersonalBestYear());
         out.print("\n");
       }
 

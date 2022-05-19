@@ -55,7 +55,7 @@ class ControllerTreasurerTest {
   void testCompetitor() {
     // Arrange
     ControllerTreasurer controllerTreasurer = new ControllerTreasurer();
-    Competitor competitor = new Competitor("Daniel", 1009, 20, "dan@iel.dk", true, "M", SwimmingDisciplins.CRAWL);
+    Competitor competitor = new Competitor("Daniel", 1009, 20, "dan@iel.dk", true, "M", SwimmingDisciplins.CRAWL,null,null,null,null);
 
     // Act
     double expected = 1600;

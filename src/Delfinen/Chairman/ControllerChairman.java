@@ -208,7 +208,7 @@ public class ControllerChairman {
     String gender = uiChairman.addGenderToNewCompetitor();
     SwimmingDisciplins swimmingDisciplin = null; //TODO coach skal gøre dette?
 
-    Competitor competitor = new Competitor(name, memberNumber, age, email, isMembershipPaid, gender, swimmingDisciplin);
+    Competitor competitor = new Competitor(name, memberNumber, age, email, isMembershipPaid, gender, swimmingDisciplin,null,null,null,null);
     memberLists.getAllCompetitors().add(competitor);
     //TODO: remove nonCompetitor from the other memberlist
 
