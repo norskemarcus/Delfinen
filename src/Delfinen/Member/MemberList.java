@@ -60,6 +60,16 @@ public class MemberList {
     return null;
   }
 
+  public Competitor findSpecifikCompetitorByMemberNumber(int memberNumber) {
+
+    for (Competitor competitor : allCompetitors) {
+      if (competitor.getMemberNumber() == memberNumber) {
+        return competitor;
+      }
+    }
+    return null;
+  }
+
   public ArrayList<NonCompetitor> getAllNonCompetitors() {
     return allNonCompetitors;
   }

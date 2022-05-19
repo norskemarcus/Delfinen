@@ -1,8 +1,6 @@
 package Delfinen.Coach;
 
 import Delfinen.Member.Competitor;
-import Delfinen.Member.Member;
-import Delfinen.Member.NonCompetitor;
 import Delfinen.PrintMenuInterface;
 import Delfinen.UIMain;
 
@@ -47,13 +45,13 @@ public class UICoach extends UIMain implements PrintMenuInterface {
 
   public void createNewTrainingResult(Competitor competitor) {
     System.out.print("Indput resultatets minuttal: ");
-    Integer minutNumber = sc.nextInt();
+    Integer minutNumber = inputInteger();
     System.out.print("Indput resultatets sekundtal: ");
-    Integer secondNumber = sc.nextInt();
+    Integer secondNumber = inputInteger();
     System.out.print("Hvilken måned er resultatet opnået (1-12): ");
-    Integer month = sc.nextInt();
-    System.out.print("Hvilken år er resultatet opnået (fx.2022): ");
-    Integer year = sc.nextInt();
+    Integer month = inputInteger();
+    System.out.print("Hvilken år er resultatet opnået (fx.22): ");
+    Integer year = inputInteger();
     competitor.setPersonalBestTrainingTimeSeconds(secondNumber);
     competitor.setPersonalBestTrainingTimeMinutes(minutNumber);
     competitor.setPersonalBestMonth(month);
@@ -61,12 +59,30 @@ public class UICoach extends UIMain implements PrintMenuInterface {
     System.out.println("Nyt træningsresultat er registreret til " + competitor.getName());
   }
 
+  private Integer inputInteger() {
+    int number = -1;
+    while (number == -1) {
+      String memberNumberString = sc.nextLine();
+      while (memberNumberString.length() > 2 || memberNumberString.isEmpty()) {
+      System.out.print("Ugyldig indtastning. Indtast igen: ");
+      memberNumberString = sc.nextLine();
+    }
+
+    try {
+      number = Integer.parseInt(memberNumberString);
+    } catch (NumberFormatException n) {
+      System.out.print("Indtastning må kun være tal: ");
+    }
+    }
+    return number;
+  }
+
   public void printAllCompetitors(ArrayList<Competitor> memberListCompetitor) {
 
     System.out.println("\nKlubben konkurrencemedlemmer:");
     for (Competitor competitor : memberListCompetitor) {
       System.out.printf("""
-          Navn: %s MedlemsNummer: %s Bedste træningstid: %d:%d Dato: %d/%d
+          Navn: %s MedlemsNummer: %s Bedste træningstid: %d:%d Dato: %d/20%d
           """, competitor.getName(), competitor.getMemberNumber(), competitor.getPersonalBestTrainingTimeMinutes(), competitor.getPersonalBestTrainingTimeSeconds(), competitor.getPersonalBestMonth(), competitor.getPersonalBestYear());
     }
   }
