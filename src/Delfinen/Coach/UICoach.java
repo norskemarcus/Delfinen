@@ -45,13 +45,13 @@ public class UICoach extends UIMain implements PrintMenuInterface {
 
   public void createNewTrainingResult(Competitor competitor) {
     System.out.print("Indput resultatets minuttal: ");
-    Integer minutNumber = inputInteger();
+    Integer minutNumber = inputInteger(0,59);
     System.out.print("Indput resultatets sekundtal: ");
-    Integer secondNumber = inputInteger();
+    Integer secondNumber = inputInteger(0,59);
     System.out.print("Hvilken måned er resultatet opnået (1-12): ");
-    Integer month = inputInteger();
+    Integer month = inputInteger(1,12);
     System.out.print("Hvilken år er resultatet opnået (fx.22): ");
-    Integer year = inputInteger();
+    Integer year = inputInteger(0,99);
     competitor.setPersonalBestTrainingTimeSeconds(secondNumber);
     competitor.setPersonalBestTrainingTimeMinutes(minutNumber);
     competitor.setPersonalBestMonth(month);
@@ -59,9 +59,9 @@ public class UICoach extends UIMain implements PrintMenuInterface {
     System.out.println("Nyt træningsresultat er registreret til " + competitor.getName());
   }
 
-  private Integer inputInteger() {
+  private Integer inputInteger(int min, int max) {
     int number = -1;
-    while (number == -1) {
+    while (number < min || number > max) {
       String memberNumberString = sc.nextLine();
       while (memberNumberString.length() > 2 || memberNumberString.isEmpty()) {
       System.out.print("Ugyldig indtastning. Indtast igen: ");
@@ -73,6 +73,9 @@ public class UICoach extends UIMain implements PrintMenuInterface {
     } catch (NumberFormatException n) {
       System.out.print("Indtastning må kun være tal: ");
     }
+    if (number < min || number > max) {
+      System.out.print("Ugyldig indtastning. Prøv igen: ");
+    }
     }
     return number;
   }
@@ -81,9 +84,16 @@ public class UICoach extends UIMain implements PrintMenuInterface {
 
     System.out.println("\nKlubben konkurrencemedlemmer:");
     for (Competitor competitor : memberListCompetitor) {
-      System.out.printf("""
-          Navn: %s MedlemsNummer: %s Bedste træningstid: %d:%d Dato: %d/20%d
+      int year = 0;
+      if (competitor.getPersonalBestYear() < 10) {
+        System.out.printf("""
+          Navn: %s MedlemsNummer: %s Bedste træningstid: %d:%d Dato: %d/200%d
           """, competitor.getName(), competitor.getMemberNumber(), competitor.getPersonalBestTrainingTimeMinutes(), competitor.getPersonalBestTrainingTimeSeconds(), competitor.getPersonalBestMonth(), competitor.getPersonalBestYear());
+      } else {
+        System.out.printf("""
+            Navn: %s MedlemsNummer: %s Bedste træningstid: %d:%d Dato: %d/20%d
+            """, competitor.getName(), competitor.getMemberNumber(), competitor.getPersonalBestTrainingTimeMinutes(), competitor.getPersonalBestTrainingTimeSeconds(), competitor.getPersonalBestMonth(), competitor.getPersonalBestYear());
+      }
     }
   }
 
