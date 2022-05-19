@@ -1,9 +1,12 @@
 package Delfinen.Coach;
 
 import Delfinen.Member.Competitor;
+import Delfinen.Member.Member;
+import Delfinen.Member.NonCompetitor;
 import Delfinen.PrintMenuInterface;
 import Delfinen.UIMain;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UICoach extends UIMain implements PrintMenuInterface {
@@ -11,7 +14,7 @@ public class UICoach extends UIMain implements PrintMenuInterface {
   private Scanner sc = new Scanner(System.in);
 
 
-  public void printHeader(){
+  public void printHeader() {
     System.out.println("\n*** Trænerens forside ***");
   }
 
@@ -19,10 +22,10 @@ public class UICoach extends UIMain implements PrintMenuInterface {
   public void printMenuOptions() {
     System.out.println("1: Top 5 præstationer junior - to be implemented");
     System.out.println("2: Top 5 præstationer senior - to be implemented");
-    System.out.println("3. Oprette et nyt stævne - to be implemented");
-    System.out.println("4: Opret en ny træning - to be implemented");
-    System.out.println("5: Gå tilbage til hovedmenu");
-    System.out.println("0: Afslut program"); // tilføj til switch i controller
+    System.out.println("3: Opret en ny træning");
+    System.out.println("4: Oprette et nyt stævne - to be implemented");
+    System.out.println("5: Vis ALLE tider");
+    System.out.println("0: Gå tilbage til hovedmenu");
   }
 
   public int inputMembernumber() {
@@ -57,4 +60,15 @@ public class UICoach extends UIMain implements PrintMenuInterface {
     competitor.setPersonalBestYear(year);
     System.out.println("Nyt træningsresultat er registreret til " + competitor.getName());
   }
+
+  public void printAllCompetitors(ArrayList<Competitor> memberListCompetitor) {
+
+    System.out.println("\nKlubben konkurrencemedlemmer:");
+    for (Competitor competitor : memberListCompetitor) {
+      System.out.printf("""
+          Navn: %s MedlemsNummer: %s Bedste træningstid: %d:%d Dato: %d/%d
+          """, competitor.getName(), competitor.getMemberNumber(), competitor.getPersonalBestTrainingTimeMinutes(), competitor.getPersonalBestTrainingTimeSeconds(), competitor.getPersonalBestMonth(), competitor.getPersonalBestYear());
+    }
+  }
+
 }

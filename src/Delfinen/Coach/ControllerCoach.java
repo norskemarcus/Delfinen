@@ -33,9 +33,9 @@ public class ControllerCoach {
       switch (uiCoach.inputNumber()) {
         case 1 -> System.out.println("Se bedste resultater for kvinder (Med flere valg)"); //Skal være metoder til UI
         case 2 -> System.out.println("Se bedste resultater for Mænd (vælg senere mellem senior og junior , måske senere konkurrence?)");
-        case 3 -> createNewTraining();
-        case 4 -> System.out.println("Metode til at oprette en ny træning - to be implemented");
-        case 5 -> running = false;
+        case 3 -> System.out.println("Metode til at oprette en ny Konkurrence - to be implemented");
+        case 4 -> createNewTraining();
+        case 5 -> uiCoach.printAllCompetitors(memberList.getAllCompetitors());
         case 0 -> saveAndReturnToMainMenu();
         default -> uiCoach.printErrorMessage();
       }
