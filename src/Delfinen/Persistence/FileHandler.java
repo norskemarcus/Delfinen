@@ -1,17 +1,20 @@
 package Delfinen.Persistence;
 
-import Delfinen.Member.Competitor; //TODO: Peter?
-import Delfinen.Member.NonCompetitor;
-import Delfinen.Member.SwimmingDisciplins;
+import Delfinen.Member.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class FileHandler {
+
+  private BestResultTraining bestResultTraining;
+  private BestResultCompetition bestResultCompetition;
+
 
   public ArrayList<NonCompetitor> loadNonCompetitors() {
 
@@ -65,10 +68,17 @@ public class FileHandler {
         Integer personalBestMonthCompetition = Integer.parseInt(line.next());
         Integer personalBestYearCompetition = Integer.parseInt(line.next());
 
-        Competitor competitor = new Competitor(name,memberNumber,age,email,isMembershipPaid,gender, swimmingDisciplin,
-            personalBestTrainingTimeMinutes, personalBestTrainingTimeSeconds, personalBestMonthTraining, personalBestYearTraining,
-            personalBestCompetitionTimeMinutes, personalBestCompetitionTimeSeconds, personalBestMonthCompetition,
+        bestResultTraining = new BestResultTraining(personalBestCompetitionTimeMinutes,
+            personalBestCompetitionTimeSeconds,personalBestMonthTraining,
+            personalBestYearTraining);
+
+        bestResultCompetition = new BestResultCompetition(personalBestCompetitionTimeMinutes,
+            personalBestCompetitionTimeSeconds,personalBestMonthCompetition,
             personalBestYearCompetition);
+
+        System.out.println(bestResultTraining.toString());
+
+        Competitor competitor = new Competitor(name,memberNumber,age,email,isMembershipPaid,gender, swimmingDisciplin, bestResultTraining,bestResultCompetition);
         competitorList.add(competitor);
 
       }
@@ -126,21 +136,21 @@ public class FileHandler {
         out.print(";");
         out.print(competitor.getSwimmingDisciplin());
         out.print(";");
-        out.print(competitor.getPersonalBestTrainingTimeMinutes());
+        out.print(competitor.getBestResultTraining().getPersonalBestTrainingTimeMinutes());
         out.print(";");
-        out.print(competitor.getPersonalBestTrainingTimeSeconds());
+        out.print(competitor.getBestResultTraining().getPersonalBestTrainingTimeSeconds());
         out.print(";");
-        out.print(competitor.getPersonalBestTrainingMonth());
+        out.print(competitor.getBestResultTraining().getPersonalBestTrainingMonth());
         out.print(";");
-        out.print(competitor.getPersonalBestTrainingYear());
+        out.print(competitor.getBestResultTraining().getPersonalBestTrainingYear());
         out.print(";");
-        out.print(competitor.getPersonalBestCompetitionTimeMinutes());
+        out.print(competitor.getBestResultCompetition().getPersonalBestCompetitionTimeMinutes());
         out.print(";");
-        out.print(competitor.getPersonalBestCompetitionTimeSeconds());
+        out.print(competitor.getBestResultCompetition().getPersonalBestCompetitionTimeSeconds());
         out.print(";");
-        out.print(competitor.getPersonalBestCompetitionMonth());
+        out.print(competitor.getBestResultCompetition().getPersonalBestCompetitionMonth());
         out.print(";");
-        out.print(competitor.getPersonalBestCompetitionYear());
+        out.print(competitor.getBestResultCompetition().getPersonalBestCompetitionYear());
         out.print("\n");
       }
 

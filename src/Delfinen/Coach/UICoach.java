@@ -52,10 +52,10 @@ public class UICoach extends UIMain implements PrintMenuInterface {
     Integer month = inputInteger(1,12);
     System.out.print("Hvilken år er resultatet opnået (fx.22): ");
     Integer year = inputInteger(0,99);
-    competitor.setPersonalBestTrainingTimeSeconds(secondNumber);
-    competitor.setPersonalBestTrainingTimeMinutes(minutNumber);
-    competitor.setPersonalBestTrainingMonth(month);
-    competitor.setPersonalBestTrainingYear(year);
+    competitor.getBestResultTraining().setPersonalBestTrainingTimeSeconds(secondNumber);
+    competitor.getBestResultTraining().setPersonalBestTrainingTimeMinutes(minutNumber);
+    competitor.getBestResultTraining().setPersonalBestTrainingMonth(month);
+    competitor.getBestResultTraining().setPersonalBestTrainingYear(year);
     System.out.println("Nyt træningsresultat er registreret til " + competitor.getName());
   }
   public void createNewCompetitionResult(Competitor competitor) {
@@ -67,10 +67,10 @@ public class UICoach extends UIMain implements PrintMenuInterface {
     Integer month = inputInteger(1,12);
     System.out.print("Hvilken år er resultatet opnået (fx.22): ");
     Integer year = inputInteger(0,99);
-    competitor.setPersonalBestTrainingTimeSeconds(secondNumber);
-    competitor.setPersonalBestTrainingTimeMinutes(minutNumber);
-    competitor.setPersonalBestTrainingMonth(month);
-    competitor.setPersonalBestTrainingYear(year);
+    competitor.getBestResultTraining().setPersonalBestTrainingTimeSeconds(secondNumber);
+    competitor.getBestResultTraining().setPersonalBestTrainingTimeMinutes(minutNumber);
+    competitor.getBestResultTraining().setPersonalBestTrainingMonth(month);
+    competitor.getBestResultTraining().setPersonalBestTrainingYear(year);
     System.out.println("Nyt træningsresultat er registreret til " + competitor.getName());
   }
 
@@ -99,15 +99,21 @@ public class UICoach extends UIMain implements PrintMenuInterface {
 
     System.out.println("\nKlubben konkurrencemedlemmer:");
     for (Competitor competitor : memberListCompetitor) {
-      int year = 0;
-      if (competitor.getPersonalBestTrainingYear() < 10) {
+
+      int minutes = competitor.getBestResultTraining().getPersonalBestTrainingTimeMinutes();
+      int seconds = competitor.getBestResultTraining().getPersonalBestTrainingTimeSeconds();
+      int month = competitor.getBestResultTraining().getPersonalBestTrainingMonth();
+      int year = competitor.getBestResultCompetition().getPersonalBestCompetitionYear();
+
+      if (year < 10) {
+
         System.out.printf("""
           Navn: %s MedlemsNummer: %s Bedste træningstid: %d:%d Dato: %d/200%d
-          """, competitor.getName(), competitor.getMemberNumber(), competitor.getPersonalBestTrainingTimeMinutes(), competitor.getPersonalBestTrainingTimeSeconds(), competitor.getPersonalBestTrainingMonth(), competitor.getPersonalBestTrainingYear());
+          """, competitor.getName(), competitor.getMemberNumber(), minutes, seconds, month, year);
       } else {
         System.out.printf("""
             Navn: %s MedlemsNummer: %s Bedste træningstid: %d:%d Dato: %d/20%d
-            """, competitor.getName(), competitor.getMemberNumber(), competitor.getPersonalBestTrainingTimeMinutes(), competitor.getPersonalBestTrainingTimeSeconds(), competitor.getPersonalBestTrainingMonth(), competitor.getPersonalBestTrainingYear());
+            """, competitor.getName(), competitor.getMemberNumber(), minutes, seconds, month, year);
       }
     }
   }

@@ -18,7 +18,7 @@ class CompetitorTest {
   @Test
   void createNewMember(){
     //arrange
-    Competitor sebastian = new Competitor("Sebastian", 20220001, 19, "seb@gmail.com", true, "M", SwimmingDisciplins.CRAWL,null,null,null,null, null,null,null,null);
+    Competitor sebastian = new Competitor("Sebastian", 20220001, 19, "seb@gmail.com", true, "M", SwimmingDisciplins.CRAWL);
     MemberList memberList = new MemberList();
     //act
     //memberList.getAllNonCompetitors().add(sebastian);
