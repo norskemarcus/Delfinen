@@ -1,14 +1,12 @@
 package Delfinen.Persistence;
 
 import Delfinen.Member.Competitor; //TODO: Peter?
-import Delfinen.Member.Member;
 import Delfinen.Member.NonCompetitor;
 import Delfinen.Member.SwimmingDisciplins;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
-import java.io.Serial;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
@@ -125,9 +123,9 @@ public class FileHandler {
         out.print(";");
         out.print(competitor.getPersonalBestTrainingTimeSeconds());
         out.print(";");
-        out.print(competitor.getPersonalBestMonth());
+        out.print(competitor.getPersonalBestTrainingMonth());
         out.print(";");
-        out.print(competitor.getPersonalBestYear());
+        out.print(competitor.getPersonalBestTrainingYear());
         out.print("\n");
       }
 

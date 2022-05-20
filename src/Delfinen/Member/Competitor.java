@@ -11,8 +11,8 @@ public class Competitor extends Member {
   private PersonalBestEvent trainingEvent;
   private Integer personalBestTrainingTimeMinutes;
   private Integer personalBestTrainingTimeSeconds;
-  private Integer personalBestMonth;
-  private Integer personalBestYear;
+  private Integer personalBestTrainingMonth;
+  private Integer personalBestTrainingYear;
 
 
   public Competitor(String name, Integer memberNumber, Integer age, String email, boolean isMembershipPaid, String gender, SwimmingDisciplins swimmingDisciplin, Integer personalBestTrainingTimeMinutes, Integer personalBestTrainingTimeSeconds, Integer personalBestMonth, Integer personalBestYear) {
@@ -22,25 +22,25 @@ public class Competitor extends Member {
     this.trainingEvent = PersonalBestEvent.TRÆNING;
     this.personalBestTrainingTimeMinutes = personalBestTrainingTimeMinutes;
     this.personalBestTrainingTimeSeconds = personalBestTrainingTimeSeconds;
-    this.personalBestMonth = personalBestMonth;
-    this.personalBestYear = personalBestYear;
+    this.personalBestTrainingMonth = personalBestMonth;
+    this.personalBestTrainingYear = personalBestYear;
 
   }
 
-  public void setPersonalBestMonth(Integer personalBestMonth) {
-    this.personalBestMonth = personalBestMonth;
+  public void setPersonalBestTrainingMonth(Integer personalBestTrainingMonth) {
+    this.personalBestTrainingMonth = personalBestTrainingMonth;
   }
 
-  public void setPersonalBestYear(Integer personalBestYear) {
-    this.personalBestYear = personalBestYear;
+  public void setPersonalBestTrainingYear(Integer personalBestTrainingYear) {
+    this.personalBestTrainingYear = personalBestTrainingYear;
   }
 
-  public Integer getPersonalBestMonth() {
-    return personalBestMonth;
+  public Integer getPersonalBestTrainingMonth() {
+    return personalBestTrainingMonth;
   }
 
-  public Integer getPersonalBestYear() {
-    return personalBestYear;
+  public Integer getPersonalBestTrainingYear() {
+    return personalBestTrainingYear;
   }
 
   public void setPersonalBestTrainingTimeMinutes(Integer personalBestTrainingTimeMinutes) {

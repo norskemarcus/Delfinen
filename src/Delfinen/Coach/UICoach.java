@@ -20,8 +20,8 @@ public class UICoach extends UIMain implements PrintMenuInterface {
   public void printMenuOptions() {
     System.out.println("1: Top 5 præstationer junior - to be implemented");
     System.out.println("2: Top 5 præstationer senior - to be implemented");
-    System.out.println("3: Opret en ny træning");
-    System.out.println("4: Oprette et nyt stævne - to be implemented");
+    System.out.println("3: Oprette et nyt stævne - to be implemented");
+    System.out.println("4: Opret en ny træning");
     System.out.println("5: Vis ALLE tider");
     System.out.println("0: Gå tilbage til hovedmenu");
   }
@@ -54,8 +54,8 @@ public class UICoach extends UIMain implements PrintMenuInterface {
     Integer year = inputInteger(0,99);
     competitor.setPersonalBestTrainingTimeSeconds(secondNumber);
     competitor.setPersonalBestTrainingTimeMinutes(minutNumber);
-    competitor.setPersonalBestMonth(month);
-    competitor.setPersonalBestYear(year);
+    competitor.setPersonalBestTrainingMonth(month);
+    competitor.setPersonalBestTrainingYear(year);
     System.out.println("Nyt træningsresultat er registreret til " + competitor.getName());
   }
 
@@ -85,14 +85,14 @@ public class UICoach extends UIMain implements PrintMenuInterface {
     System.out.println("\nKlubben konkurrencemedlemmer:");
     for (Competitor competitor : memberListCompetitor) {
       int year = 0;
-      if (competitor.getPersonalBestYear() < 10) {
+      if (competitor.getPersonalBestTrainingYear() < 10) {
         System.out.printf("""
           Navn: %s MedlemsNummer: %s Bedste træningstid: %d:%d Dato: %d/200%d
-          """, competitor.getName(), competitor.getMemberNumber(), competitor.getPersonalBestTrainingTimeMinutes(), competitor.getPersonalBestTrainingTimeSeconds(), competitor.getPersonalBestMonth(), competitor.getPersonalBestYear());
+          """, competitor.getName(), competitor.getMemberNumber(), competitor.getPersonalBestTrainingTimeMinutes(), competitor.getPersonalBestTrainingTimeSeconds(), competitor.getPersonalBestTrainingMonth(), competitor.getPersonalBestTrainingYear());
       } else {
         System.out.printf("""
             Navn: %s MedlemsNummer: %s Bedste træningstid: %d:%d Dato: %d/20%d
-            """, competitor.getName(), competitor.getMemberNumber(), competitor.getPersonalBestTrainingTimeMinutes(), competitor.getPersonalBestTrainingTimeSeconds(), competitor.getPersonalBestMonth(), competitor.getPersonalBestYear());
+            """, competitor.getName(), competitor.getMemberNumber(), competitor.getPersonalBestTrainingTimeMinutes(), competitor.getPersonalBestTrainingTimeSeconds(), competitor.getPersonalBestTrainingMonth(), competitor.getPersonalBestTrainingYear());
       }
     }
   }
