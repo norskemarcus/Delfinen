@@ -33,7 +33,7 @@ public class ControllerCoach {
       switch (uiCoach.inputNumber()) {
         case 1 -> System.out.println("Se bedste resultater for kvinder (Med flere valg)"); //Skal være metoder til UI
         case 2 -> System.out.println("Se bedste resultater for Mænd (vælg senere mellem senior og junior , måske senere konkurrence?)");
-        case 3 -> System.out.println("Metode til at oprette en ny Konkurrence - to be implemented");
+        case 3 -> createNewCompetition();
         case 4 -> createNewTraining();
         case 5 -> uiCoach.printAllCompetitors(memberList.getAllCompetitors());
         case 0 -> saveAndReturnToMainMenu();
@@ -43,6 +43,16 @@ public class ControllerCoach {
   }
 
   public void createNewTraining(){
+    int membernumber = uiCoach.inputMembernumber();
+    Competitor competitor = (Competitor) memberList.findSpecifikMemberByMemberNumber(membernumber);
+    if(competitor != null) {
+      uiCoach.createNewTrainingResult(competitor);
+    } else {
+      uiCoach.memberNotFound();
+    }
+  }
+
+  public void createNewCompetition(){
     int membernumber = uiCoach.inputMembernumber();
     Competitor competitor = (Competitor) memberList.findSpecifikMemberByMemberNumber(membernumber);
     if(competitor != null) {

@@ -58,10 +58,17 @@ public class FileHandler {
         SwimmingDisciplins swimmingDisciplin = SwimmingDisciplins.valueOf(line.next());
         Integer personalBestTrainingTimeMinutes = Integer.parseInt(line.next());
         Integer personalBestTrainingTimeSeconds = Integer.parseInt(line.next());
-        Integer personalBestMonth = Integer.parseInt(line.next());
-        Integer personalBestYear = Integer.parseInt(line.next());
-//        boolean isActive = Boolean.parseBoolean(line.next());
-        Competitor competitor = new Competitor(name,memberNumber,age,email,isMembershipPaid,gender, swimmingDisciplin, personalBestTrainingTimeMinutes, personalBestTrainingTimeSeconds, personalBestMonth, personalBestYear);
+        Integer personalBestMonthTraining = Integer.parseInt(line.next());
+        Integer personalBestYearTraining = Integer.parseInt(line.next());
+        Integer personalBestCompetitionTimeMinutes = Integer.parseInt(line.next());
+        Integer personalBestCompetitionTimeSeconds = Integer.parseInt(line.next());
+        Integer personalBestMonthCompetition = Integer.parseInt(line.next());
+        Integer personalBestYearCompetition = Integer.parseInt(line.next());
+
+        Competitor competitor = new Competitor(name,memberNumber,age,email,isMembershipPaid,gender, swimmingDisciplin,
+            personalBestTrainingTimeMinutes, personalBestTrainingTimeSeconds, personalBestMonthTraining, personalBestYearTraining,
+            personalBestCompetitionTimeMinutes, personalBestCompetitionTimeSeconds, personalBestMonthCompetition,
+            personalBestYearCompetition);
         competitorList.add(competitor);
 
       }
@@ -126,6 +133,14 @@ public class FileHandler {
         out.print(competitor.getPersonalBestTrainingMonth());
         out.print(";");
         out.print(competitor.getPersonalBestTrainingYear());
+        out.print(";");
+        out.print(competitor.getPersonalBestCompetitionTimeMinutes());
+        out.print(";");
+        out.print(competitor.getPersonalBestCompetitionTimeSeconds());
+        out.print(";");
+        out.print(competitor.getPersonalBestCompetitionMonth());
+        out.print(";");
+        out.print(competitor.getPersonalBestCompetitionYear());
         out.print("\n");
       }
 

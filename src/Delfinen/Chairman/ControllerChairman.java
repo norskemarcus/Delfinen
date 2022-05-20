@@ -93,7 +93,7 @@ public class ControllerChairman {
             if (member instanceof Competitor) {
               member.setEmail(uiChairman.newMail()); //TODO: ekstra feauture at tjekke om en mail allerede findes?
             } else {
-              member.setEmail(uiChairman.newMail());
+              member.setEmail(uiChairman.newMail()); //Lidt i tvivl om hvorfor det her virker
             }
             uiChairman.printInfoOfEditMail(member.getName(), member.getEmail());
             editEmailIsRunning = false;
@@ -208,7 +208,7 @@ public class ControllerChairman {
     String gender = uiChairman.addGenderToNewCompetitor();
     SwimmingDisciplins swimmingDisciplin = null; //TODO coach skal gøre dette?
 
-    Competitor competitor = new Competitor(name, memberNumber, age, email, isMembershipPaid, gender, swimmingDisciplin,null,null,null,null);
+    Competitor competitor = new Competitor(name, memberNumber, age, email, isMembershipPaid, gender, swimmingDisciplin,null,null,null,null,null,null,null,null);
     memberLists.getAllCompetitors().add(competitor);
     //TODO: remove nonCompetitor from the other memberlist
 

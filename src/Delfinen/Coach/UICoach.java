@@ -58,6 +58,21 @@ public class UICoach extends UIMain implements PrintMenuInterface {
     competitor.setPersonalBestTrainingYear(year);
     System.out.println("Nyt træningsresultat er registreret til " + competitor.getName());
   }
+  public void createNewCompetitionResult(Competitor competitor) {
+    System.out.print("Indput resultatets minuttal: ");
+    Integer minutNumber = inputInteger(0,59);
+    System.out.print("Indput resultatets sekundtal: ");
+    Integer secondNumber = inputInteger(0,59);
+    System.out.print("Hvilken måned er resultatet opnået (1-12): ");
+    Integer month = inputInteger(1,12);
+    System.out.print("Hvilken år er resultatet opnået (fx.22): ");
+    Integer year = inputInteger(0,99);
+    competitor.setPersonalBestTrainingTimeSeconds(secondNumber);
+    competitor.setPersonalBestTrainingTimeMinutes(minutNumber);
+    competitor.setPersonalBestTrainingMonth(month);
+    competitor.setPersonalBestTrainingYear(year);
+    System.out.println("Nyt træningsresultat er registreret til " + competitor.getName());
+  }
 
   private Integer inputInteger(int min, int max) {
     int number = -1;
