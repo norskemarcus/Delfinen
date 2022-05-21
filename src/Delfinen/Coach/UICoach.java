@@ -4,6 +4,7 @@ import Delfinen.Member.Competitor;
 import Delfinen.PrintMenuInterface;
 import Delfinen.UIMain;
 
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -67,11 +68,11 @@ public class UICoach extends UIMain implements PrintMenuInterface {
     Integer month = inputInteger(1,12);
     System.out.print("Hvilken år er resultatet opnået (fx.22): ");
     Integer year = inputInteger(0,99);
-    competitor.getBestResultTraining().setPersonalBestTrainingTimeSeconds(secondNumber);
-    competitor.getBestResultTraining().setPersonalBestTrainingTimeMinutes(minutNumber);
-    competitor.getBestResultTraining().setPersonalBestTrainingMonth(month);
-    competitor.getBestResultTraining().setPersonalBestTrainingYear(year);
-    System.out.println("Nyt træningsresultat er registreret til " + competitor.getName());
+    competitor.getBestResultCompetition().setPersonalBestCompetitionTimeSeconds(secondNumber);
+    competitor.getBestResultCompetition().setPersonalBestCompetitionTimeMinutes(minutNumber);
+    competitor.getBestResultCompetition().setPersonalBestCompetitionMonth(month);
+    competitor.getBestResultCompetition().setPersonalBestCompetitionYear(year);
+    System.out.println("Nyt konkurrenceresultat er registreret til " + competitor.getName());
   }
 
   private Integer inputInteger(int min, int max) {

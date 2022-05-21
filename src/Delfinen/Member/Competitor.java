@@ -1,11 +1,8 @@
 package Delfinen.Member;
 
-import Delfinen.Coach.PersonalBestEvent;
-
 public class Competitor extends Member {
 
   private String gender; //TODO: Det findes kun 2 konkurrenceklasser: M / F. Fejlmelding
-
   private SwimmingDisciplins swimmingDisciplin;
   private BestResultCompetition bestResultCompetition;
   private BestResultTraining bestResultTraining;
@@ -26,12 +23,12 @@ public class Competitor extends Member {
     this.personalBestCompetitionMonth = personalBestMonthCompetition;
     this.personalBestCompetitionYear = personalBestYearCompetition;
   }*/
-
-  public Competitor(String name, Integer memberNumber, Integer age, String email, boolean isMembershipPaid, String gender, SwimmingDisciplins swimmingDisciplin){
-    super(name, memberNumber, age, email, isMembershipPaid);
-    this.gender = gender;
-    this.swimmingDisciplin = swimmingDisciplin;
-  }
+//
+//  public Competitor(String name, Integer memberNumber, Integer age, String email, boolean isMembershipPaid, String gender, SwimmingDisciplins swimmingDisciplin){
+//    super(name, memberNumber, age, email, isMembershipPaid);
+//    this.gender = gender;
+//    this.swimmingDisciplin = swimmingDisciplin;
+//  }
 
   public Competitor(String name, Integer memberNumber, Integer age, String email, boolean isMembershipPaid, String gender, SwimmingDisciplins swimmingDisciplin, BestResultTraining bestResultTraining, BestResultCompetition bestResultCompetition){
     super(name, memberNumber, age, email, isMembershipPaid);

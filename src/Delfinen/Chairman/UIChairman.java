@@ -224,7 +224,10 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
       }
     }
 
-    Competitor competitor = new Competitor(name, memberNumber, age, email, isMembershipPaid, gender, swimmingDisciplin);
+    BestResultCompetition bestResultCompetition = new BestResultCompetition(0,0,0,0);
+    BestResultTraining bestResultTraining = new BestResultTraining(0,0,0,0);
+
+    Competitor competitor = new Competitor(name, memberNumber, age, email, isMembershipPaid, gender, swimmingDisciplin, bestResultTraining,bestResultCompetition);
     System.out.println("\nNy konkurrencesvømmer lagt ind i systemet:");
     printMember(competitor);
     return competitor;

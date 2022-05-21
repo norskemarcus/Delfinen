@@ -56,7 +56,7 @@ public class ControllerCoach {
     int membernumber = uiCoach.inputMembernumber();
     Competitor competitor = (Competitor) memberList.findSpecifikMemberByMemberNumber(membernumber);
     if(competitor != null) {
-      uiCoach.createNewTrainingResult(competitor);
+      uiCoach.createNewCompetitionResult(competitor);
     } else {
       uiCoach.memberNotFound();
     }
