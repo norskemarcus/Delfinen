@@ -1,12 +1,8 @@
 package Delfinen.Treasurer;
 
-import Delfinen.Member.Competitor;
 import Delfinen.Member.Member;
-import Delfinen.Member.NonCompetitor;
 import Delfinen.PrintMenuInterface;
 import Delfinen.UIMain;
-
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UITreasurer extends UIMain implements PrintMenuInterface {
@@ -14,10 +10,8 @@ public class UITreasurer extends UIMain implements PrintMenuInterface {
 
   public void printMenuOptions() {
     System.out.println("1: Se forventeligt kontingentbudget");
-    System.out.println("2: Medlemmer i restance - to be implemented");
+    System.out.println("2: Vis medlemmer i restance");
     System.out.println("3: Ændre restance for medlem");
-    System.out.println("2: Medlemmer i restance");
-    System.out.println("3: Ændre restance for medlem - to be implemented");
     System.out.println("0: Gem og gå tilbage til hovedmenu");
   }
 
@@ -41,7 +35,7 @@ public class UITreasurer extends UIMain implements PrintMenuInterface {
   }
 
   public void printExpectedAnnualSum(double expectedSum) {
-    System.out.println("Forventet årligt indkomst: " + expectedSum + " kr.");
+    System.out.println("\nForventet årligt indkomst: " + expectedSum + " kr.");
   }
 
   public int inputMembernumber() {
