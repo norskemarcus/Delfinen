@@ -4,7 +4,6 @@ import Delfinen.Member.Competitor;
 import Delfinen.PrintMenuInterface;
 import Delfinen.UIMain;
 
-import java.time.Year;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,11 +18,11 @@ public class UICoach extends UIMain implements PrintMenuInterface {
 
   @Override
   public void printMenuOptions() {
-    System.out.println("1: Top 5 præstationer junior - to be implemented");
-    System.out.println("2: Top 5 præstationer senior - to be implemented");
-    System.out.println("3: Oprette et nyt stævne - to be implemented");
+    System.out.println("1: Top 5 præstationer kvinder - to be implemented");
+    System.out.println("2: Top 5 præstationer mænd - to be implemented");
+    System.out.println("3: Oprette et nyt stævne");
     System.out.println("4: Opret en ny træning");
-    System.out.println("5: Vis ALLE tider");
+    System.out.println("5: Vis alle træningstider"); //TODO: Sortering ind her?
     System.out.println("0: Gå tilbage til hovedmenu");
   }
 
@@ -104,7 +103,7 @@ public class UICoach extends UIMain implements PrintMenuInterface {
       int minutes = competitor.getBestResultTraining().getPersonalBestTrainingTimeMinutes();
       int seconds = competitor.getBestResultTraining().getPersonalBestTrainingTimeSeconds();
       int month = competitor.getBestResultTraining().getPersonalBestTrainingMonth();
-      int year = competitor.getBestResultCompetition().getPersonalBestCompetitionYear();
+      int year = competitor.getBestResultCompetition().getPersonalBestCompetitionYear(); //TODO: Er dette korrekt?
 
       if (year < 10) {
 
@@ -119,4 +118,35 @@ public class UICoach extends UIMain implements PrintMenuInterface {
     }
   }
 
+  public void printMenuJrSr() {
+    System.out.println("");
+    System.out.println("1: Junior");
+    System.out.println("2: Senior");
+  }
+
+  public void printMenuDisciplines() {
+    System.out.println("");
+    System.out.println("1: Bryst");
+    System.out.println("2: Crawl");
+    System.out.println("3: Rygcrawl");
+    System.out.println("4: Butterfly");
+  }
+
+  public void printTop5Chest(ArrayList<Competitor> allCompetitors) {
+    System.out.println("");
+    System.out.println("Her kommer en liste over de top 5 bedste brystsvømmere");
+
+  }
+
+  public void printTop5Crawl(ArrayList<Competitor> allCompetitors) {
+    System.out.println("Her kommer en liste over de top 5 bedste crawl");
+  }
+
+  public void printTop5BackCrawl(ArrayList<Competitor> allCompetitors) {
+    System.out.println("Her kommer en liste over de top 5 bedste rygcrawl");
+  }
+
+  public void printTop5Butterfly(ArrayList<Competitor> allCompetitors) {
+    System.out.println("Her kommer en liste over de top 5 bedste butterfly");
+  }
 }
