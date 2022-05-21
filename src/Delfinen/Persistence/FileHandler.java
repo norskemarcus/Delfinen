@@ -12,11 +12,7 @@ import java.util.Scanner;
 
 public class FileHandler {
 
-  private BestResultTraining bestResultTraining;
-  private BestResultCompetition bestResultCompetition;
-
-
-  public ArrayList<NonCompetitor> loadNonCompetitors() {
+   public ArrayList<NonCompetitor> loadNonCompetitors() {
 
     ArrayList<NonCompetitor> nonCompetitorList = new ArrayList<NonCompetitor>();
 
@@ -26,14 +22,14 @@ public class FileHandler {
       while (fileScanner.hasNextLine()) {
         String lineInput = fileScanner.nextLine();
         Scanner line = new Scanner(lineInput).useDelimiter(";").useLocale(Locale.ENGLISH);
-    String name = line.next();
-    int memberNumber = Integer.parseInt(line.next());
-    int age = Integer.parseInt(line.next());
-    String email = line.next();
-    boolean isMembershipPaid = Boolean.parseBoolean(line.next());
-    boolean isActive = Boolean.parseBoolean(line.next());
-    NonCompetitor nonCompetitor = new NonCompetitor(name, memberNumber, age, email, isMembershipPaid, isActive);
-    nonCompetitorList.add(nonCompetitor);
+        String name = line.next();
+        int memberNumber = Integer.parseInt(line.next());
+        int age = Integer.parseInt(line.next());
+        String email = line.next();
+        boolean isMembershipPaid = Boolean.parseBoolean(line.next());
+        boolean isActive = Boolean.parseBoolean(line.next());
+        NonCompetitor nonCompetitor = new NonCompetitor(name, memberNumber, age, email, isMembershipPaid, isActive);
+        nonCompetitorList.add(nonCompetitor);
       }
     } catch (FileNotFoundException fnfe) {
       System.err.println("File not found");
@@ -68,19 +64,16 @@ public class FileHandler {
         Integer personalBestMonthCompetition = Integer.parseInt(line.next());
         Integer personalBestYearCompetition = Integer.parseInt(line.next());
 
-        bestResultTraining = new BestResultTraining(personalBestCompetitionTimeMinutes,
-            personalBestCompetitionTimeSeconds,personalBestMonthTraining,
+        BestResultTraining bestResultTraining = new BestResultTraining(personalBestCompetitionTimeMinutes,
+            personalBestCompetitionTimeSeconds, personalBestMonthTraining,
             personalBestYearTraining);
 
-        bestResultCompetition = new BestResultCompetition(personalBestCompetitionTimeMinutes,
-            personalBestCompetitionTimeSeconds,personalBestMonthCompetition,
+        BestResultCompetition bestResultCompetition = new BestResultCompetition(personalBestCompetitionTimeMinutes,
+            personalBestCompetitionTimeSeconds, personalBestMonthCompetition,
             personalBestYearCompetition);
 
-        System.out.println(bestResultTraining.toString());
-
-        Competitor competitor = new Competitor(name,memberNumber,age,email,isMembershipPaid,gender, swimmingDisciplin, bestResultTraining,bestResultCompetition);
+        Competitor competitor = new Competitor(name, memberNumber, age, email, isMembershipPaid, gender, swimmingDisciplin, bestResultTraining, bestResultCompetition);
         competitorList.add(competitor);
-
       }
     } catch (FileNotFoundException fnfe) {
       System.err.println("File not found");

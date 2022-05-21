@@ -45,14 +45,4 @@ public class BestResultTraining {
   public void setPersonalBestTrainingYear(Integer personalBestTrainingYear) {
     this.personalBestTrainingYear = personalBestTrainingYear;
   }
-
-  @Override
-  public String toString() {
-    return "BestResultTraining{" +
-        "personalBestTrainingTimeMinutes=" + personalBestTrainingTimeMinutes +
-        ", personalBestTrainingTimeSeconds=" + personalBestTrainingTimeSeconds +
-        ", personalBestTrainingMonth=" + personalBestTrainingMonth +
-        ", personalBestTrainingYear=" + personalBestTrainingYear +
-        '}';
-  }
 }

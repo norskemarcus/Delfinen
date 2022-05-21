@@ -37,6 +37,8 @@ public class Competitor extends Member {
     super(name, memberNumber, age, email, isMembershipPaid);
     this.gender = gender;
     this.swimmingDisciplin = swimmingDisciplin;
+    this.bestResultCompetition = bestResultCompetition;
+    this.bestResultTraining = bestResultTraining;
   }
 
   public BestResultCompetition getBestResultCompetition() {
