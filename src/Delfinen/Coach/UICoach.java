@@ -132,10 +132,10 @@ public class UICoach extends UIMain implements PrintMenuInterface {
     System.out.println("4: Butterfly");
   }
 
-  public void printTop5List(ArrayList<Competitor> allCompetitors) {
-
-    for (int i = 0; i < allCompetitors.size(); i++) {
-      Competitor competitor = allCompetitors.get(i);
+  public void printTop5List(ArrayList<Competitor> allTrainingTimes, ArrayList<Competitor> allCompetitionTimes) {
+    System.out.println("Top 5 træningstider:");
+    for (int i = 0; i < allTrainingTimes.size(); i++) {
+      Competitor competitor = allTrainingTimes.get(i);
       Integer minutes =  competitor.getBestResultTraining().getPersonalBestTrainingTimeMinutes();
       Integer seconds = competitor.getBestResultTraining().getPersonalBestTrainingTimeSeconds();
       Integer month = competitor.getBestResultTraining().getPersonalBestTrainingMonth();
@@ -145,6 +145,19 @@ public class UICoach extends UIMain implements PrintMenuInterface {
           %d. Medlemsnummer: %d, %s, Tid: %d:%d, Dato:%d/%d
           """, i+1, competitor.getMemberNumber(), competitor.getName(),minutes, seconds, month, year);
           }
+
+    System.out.println("Top 5 konkurrencetider:");
+    for (int i = 0; i < allCompetitionTimes.size(); i++) {
+      Competitor competitor = allCompetitionTimes.get(i);
+      Integer minutes =  competitor.getBestResultCompetition().getPersonalBestCompetitionTimeMinutes();
+      Integer seconds = competitor.getBestResultCompetition().getPersonalBestCompetitionTimeSeconds();
+      Integer month = competitor.getBestResultCompetition().getPersonalBestCompetitionMonth();
+      Integer year = competitor.getBestResultCompetition().getPersonalBestCompetitionYear();
+
+      System.out.printf("""
+          %d. Medlemsnummer: %d, %s, Tid: %d:%d, Dato:%d/%d
+          """, i+1, competitor.getMemberNumber(), competitor.getName(),minutes, seconds, month, year);
+    }
 
   }
 

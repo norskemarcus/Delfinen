@@ -65,26 +65,28 @@ public class ControllerCoach {
     while (running) {
       uiCoach.printMenuDisciplines();
 
-      Comparator<Competitor> comparator = new Top5ListTrainingComparator();
-      Collections.sort(memberList.getAllCompetitors(), comparator);
-
       switch (uiCoach.inputNumber()) {
 
         case 1 -> {
+
+          ArrayList<Competitor> top5Competition = memberList.createTop5ListCompetition(gender, SwimmingDisciplin.BRYST, age);
           ArrayList<Competitor> top5Training = memberList.createTop5ListTraining(gender, SwimmingDisciplin.BRYST, age);
-          uiCoach.printTop5List(top5Training);
+          uiCoach.printTop5List(top5Training, top5Competition);
         }
         case 2 -> {
+          ArrayList<Competitor> top5Competition = memberList.createTop5ListCompetition(gender, SwimmingDisciplin.CRAWL, age);
           ArrayList<Competitor> top5Training = memberList.createTop5ListTraining(gender, SwimmingDisciplin.CRAWL, age);
-          uiCoach.printTop5List(top5Training);
+          uiCoach.printTop5List(top5Training, top5Competition);
         }
         case 3 -> {
+          ArrayList<Competitor> top5Competition = memberList.createTop5ListCompetition(gender, SwimmingDisciplin.RYGCRAWL, age);
           ArrayList<Competitor> top5Training = memberList.createTop5ListTraining(gender, SwimmingDisciplin.RYGCRAWL, age);
-          uiCoach.printTop5List(top5Training);
+          uiCoach.printTop5List(top5Training, top5Competition);
         }
         case 4 ->{
+          ArrayList<Competitor> top5Competition = memberList.createTop5ListCompetition(gender, SwimmingDisciplin.BUTTERFLY, age);
           ArrayList<Competitor> top5Training = memberList.createTop5ListTraining(gender, SwimmingDisciplin.BUTTERFLY, age);
-          uiCoach.printTop5List(top5Training);
+          uiCoach.printTop5List(top5Training, top5Competition);
         }
         case 0 -> saveAndReturnToMainMenu();
         default -> uiCoach.printErrorMessage();
