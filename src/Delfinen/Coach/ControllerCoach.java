@@ -2,7 +2,13 @@ package Delfinen.Coach;
 
 import Delfinen.Member.Competitor;
 import Delfinen.Member.MemberList;
+import Delfinen.Member.SwimmingDisciplin;
+import Delfinen.Member.Top5ListTrainingComparator;
 import Delfinen.Persistence.FileHandler;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class ControllerCoach {
 
@@ -31,7 +37,8 @@ public class ControllerCoach {
       uiCoach.printMenuOptions();
 
       switch (uiCoach.inputNumber()) {
-        case 1, 2 -> menuSwimmers();
+        case 1 -> menuSwimmers("K");
+        case 2 -> menuSwimmers("M");
         case 3 -> createNewCompetition();
         case 4 -> createNewTraining();
         case 5 -> uiCoach.printAllCompetitors(memberList.getAllCompetitors());
@@ -41,27 +48,44 @@ public class ControllerCoach {
     }
   }
 
-  public void menuSwimmers() {
+  public void menuSwimmers(String gender) {
     while (running) {
       uiCoach.printMenuJrSr();
 
       switch (uiCoach.inputNumber()) {
-        case 1, 2 -> menuSwimmingDisciplin();
+        case 1 -> menuSwimmingDisciplin(gender, 17); //junior
+        case 2 -> menuSwimmingDisciplin(gender, 18); //senior
         case 0 -> saveAndReturnToMainMenu();
         default -> uiCoach.printErrorMessage();
       }
     }
   }
 
-  public void menuSwimmingDisciplin(){
+  public void menuSwimmingDisciplin(String gender, int age){
     while (running) {
       uiCoach.printMenuDisciplines();
 
+      Comparator<Competitor> comparator = new Top5ListTrainingComparator();
+      Collections.sort(memberList.getAllCompetitors(), comparator);
+
       switch (uiCoach.inputNumber()) {
-        case 1 -> uiCoach.printTop5Chest(memberList.getAllCompetitors());
-        case 2 -> uiCoach.printTop5Crawl(memberList.getAllCompetitors());
-        case 3 -> uiCoach.printTop5BackCrawl(memberList.getAllCompetitors());
-        case 4 -> uiCoach.printTop5Butterfly(memberList.getAllCompetitors());
+
+        case 1 -> {
+          ArrayList<Competitor> top5Training = memberList.createTop5ListTraining(gender, SwimmingDisciplin.BRYST, age);
+          uiCoach.printTop5List(top5Training);
+        }
+        case 2 -> {
+          ArrayList<Competitor> top5Training = memberList.createTop5ListTraining(gender, SwimmingDisciplin.CRAWL, age);
+          uiCoach.printTop5List(top5Training);
+        }
+        case 3 -> {
+          ArrayList<Competitor> top5Training = memberList.createTop5ListTraining(gender, SwimmingDisciplin.RYGCRAWL, age);
+          uiCoach.printTop5List(top5Training);
+        }
+        case 4 ->{
+          ArrayList<Competitor> top5Training = memberList.createTop5ListTraining(gender, SwimmingDisciplin.BUTTERFLY, age);
+          uiCoach.printTop5List(top5Training);
+        }
         case 0 -> saveAndReturnToMainMenu();
         default -> uiCoach.printErrorMessage();
       }
@@ -80,8 +104,8 @@ public class ControllerCoach {
   }
 
   public void createNewCompetition(){
-    int membernumber = uiCoach.inputMembernumber();
-    Competitor competitor = (Competitor) memberList.findSpecifikMemberByMemberNumber(membernumber);
+    int memberNumber = uiCoach.inputMembernumber();
+    Competitor competitor = (Competitor) memberList.findSpecifikMemberByMemberNumber(memberNumber);
     if(competitor != null) {
       uiCoach.createNewCompetitionResult(competitor);
     } else {

@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -54,7 +53,7 @@ public class FileHandler {
         int age = Integer.parseInt(line.next());
         String email = line.next();
         boolean isMembershipPaid = Boolean.parseBoolean(line.next());
-        SwimmingDisciplins swimmingDisciplin = SwimmingDisciplins.valueOf(line.next());
+        SwimmingDisciplin swimmingDisciplin = SwimmingDisciplin.valueOf(line.next());
         Integer personalBestTrainingTimeMinutes = Integer.parseInt(line.next());
         Integer personalBestTrainingTimeSeconds = Integer.parseInt(line.next());
         Integer personalBestMonthTraining = Integer.parseInt(line.next());

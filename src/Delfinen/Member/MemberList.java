@@ -86,6 +86,28 @@ public class MemberList {
     this.allCompetitors = theNewListOfCompetitors;
   }
 
+  public ArrayList<Competitor> createTop5ListTraining(String gender, SwimmingDisciplin swimmingDisciplin, Integer age){
+    ArrayList<Competitor> top5Training = new ArrayList<>();
 
+    for (int i = 0; i < allCompetitors.size();i++) {
+      Competitor temp = allCompetitors.get(i);
+      boolean isCorrectAge = temp.getAge() >= 18;
+
+      if (age < 18){
+        isCorrectAge = temp.getAge() < 18;
+      }
+
+      SwimmingDisciplin disciplin = temp.getSwimmingDisciplin();
+
+      if(temp.getGender().equals(gender) && disciplin.equals(swimmingDisciplin) && isCorrectAge){
+        top5Training.add(temp);
+      }
+      if(top5Training.size() == 5){
+        i = allCompetitors.size();
+
+      }
+    }
+    return top5Training;
+  }
 
 }

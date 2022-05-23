@@ -4,7 +4,6 @@ import Delfinen.Member.*;
 import Delfinen.Persistence.FileHandler;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class ControllerChairman {
   private final UIChairman uiChairman = new UIChairman();
@@ -206,7 +205,7 @@ public class ControllerChairman {
     String email = nonCompetitor.getEmail();
     boolean isMembershipPaid = nonCompetitor.isMembershipPaid();
     String gender = uiChairman.addGenderToNewCompetitor();
-    SwimmingDisciplins swimmingDisciplin = null; //TODO coach skal gøre dette?
+    SwimmingDisciplin swimmingDisciplin = null; //TODO coach skal gøre dette?
 
 //    Competitor competitor = new Competitor(name, memberNumber, age, email, isMembershipPaid, gender, swimmingDisciplin);
 //    memberLists.getAllCompetitors().add(competitor);

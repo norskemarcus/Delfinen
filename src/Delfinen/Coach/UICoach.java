@@ -18,11 +18,11 @@ public class UICoach extends UIMain implements PrintMenuInterface {
 
   @Override
   public void printMenuOptions() {
-    System.out.println("1: Top 5 præstationer kvinder - to be implemented");
-    System.out.println("2: Top 5 præstationer mænd - to be implemented");
-    System.out.println("3: Oprette et nyt stævne");
-    System.out.println("4: Opret en ny træning");
-    System.out.println("5: Vis alle træningstider"); //TODO: Sortering ind her?
+    System.out.println("1: Top 5 præstationer kvinder");
+    System.out.println("2: Top 5 præstationer mænd");
+    System.out.println("3: Opret en ny stævnetid");
+    System.out.println("4: Opret en ny træningstid");
+    System.out.println("5: Vis alle træningstider"); //TODO: Sorteringsmenu ind her?
     System.out.println("0: Gå tilbage til hovedmenu");
   }
 
@@ -132,9 +132,19 @@ public class UICoach extends UIMain implements PrintMenuInterface {
     System.out.println("4: Butterfly");
   }
 
-  public void printTop5Chest(ArrayList<Competitor> allCompetitors) {
-    System.out.println("");
-    System.out.println("Her kommer en liste over de top 5 bedste brystsvømmere");
+  public void printTop5List(ArrayList<Competitor> allCompetitors) {
+
+    for (int i = 0; i < allCompetitors.size(); i++) {
+      Competitor competitor = allCompetitors.get(i);
+      Integer minutes =  competitor.getBestResultTraining().getPersonalBestTrainingTimeMinutes();
+      Integer seconds = competitor.getBestResultTraining().getPersonalBestTrainingTimeSeconds();
+      Integer month = competitor.getBestResultTraining().getPersonalBestTrainingMonth();
+      Integer year = competitor.getBestResultTraining().getPersonalBestTrainingYear();
+
+      System.out.printf("""
+          %d. Medlemsnummer: %d, %s, Tid: %d:%d, Dato:%d/%d
+          """, i+1, competitor.getMemberNumber(), competitor.getName(),minutes, seconds, month, year);
+          }
 
   }
 

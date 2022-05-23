@@ -202,7 +202,7 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
         isMembershipPaid = false;
       }
     }
-    SwimmingDisciplins swimmingDisciplin = null;
+    SwimmingDisciplin swimmingDisciplin = null;
     int inputDisciplin = 0;
 
     while (!(inputDisciplin > 0 && inputDisciplin < 5)) {
@@ -216,10 +216,10 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
       inputDisciplin = sc.nextInt();
 
       switch (inputDisciplin){
-        case 1 -> swimmingDisciplin = SwimmingDisciplins.BRYST;
-        case 2 -> swimmingDisciplin = SwimmingDisciplins.CRAWL;
-        case 3 -> swimmingDisciplin = SwimmingDisciplins.RYGCRAWL;
-        case 4 -> swimmingDisciplin = SwimmingDisciplins.BUTTERFLY;
+        case 1 -> swimmingDisciplin = SwimmingDisciplin.BRYST;
+        case 2 -> swimmingDisciplin = SwimmingDisciplin.CRAWL;
+        case 3 -> swimmingDisciplin = SwimmingDisciplin.RYGCRAWL;
+        case 4 -> swimmingDisciplin = SwimmingDisciplin.BUTTERFLY;
         default -> printErrorMessage();
       }
     }

@@ -4,7 +4,6 @@ package Delfinen;
 
 //import static org.junit.jupiter.api.Assertions.*;
 
-import Delfinen.Coach.PersonalBestEvent;
 import Delfinen.Member.*;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +14,7 @@ class CompetitorTest {
   @Test
   void createNewMember(){
     //arrange
-    Competitor sebastian = new Competitor("Sebastian", 20220001, 19, "seb@gmail.com", true, "M", SwimmingDisciplins.CRAWL, new BestResultTraining(1,1,1,1), new BestResultCompetition(1,1,1,1));
+    Competitor sebastian = new Competitor("Sebastian", 20220001, 19, "seb@gmail.com", true, "M", SwimmingDisciplin.CRAWL, new BestResultTraining(1,1,1,1), new BestResultCompetition(1,1,1,1));
     MemberList memberList = new MemberList();
     //act
     //memberList.getAllNonCompetitors().add(sebastian);

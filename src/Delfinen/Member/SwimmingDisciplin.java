@@ -1,5 +1,5 @@
 package Delfinen.Member;
 
-public enum SwimmingDisciplins {
+public enum SwimmingDisciplin {
   BRYST, CRAWL, RYGCRAWL, BUTTERFLY
 }
