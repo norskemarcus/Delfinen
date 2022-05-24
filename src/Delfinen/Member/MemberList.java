@@ -97,6 +97,9 @@ public class MemberList {
 
     for (int i = 0; i < allCompetitors.size();i++) {
       Competitor temp = allCompetitors.get(i);
+      int checkSec = temp.getBestResultTraining().getPersonalBestTrainingTimeMinutes();
+      int checkMin = temp.getBestResultTraining().getPersonalBestTrainingTimeSeconds();
+      int checkTime = checkSec+checkMin;
       SwimmingDisciplin disciplin = temp.getSwimmingDisciplin();
       boolean isCorrectAge = temp.getAge() >= 18;
 
@@ -104,7 +107,7 @@ public class MemberList {
         isCorrectAge = temp.getAge() < 18;
       }
 
-      if(temp.getGender().equals(gender) && disciplin.equals(swimmingDisciplin) && isCorrectAge){
+      if(temp.getGender().equals(gender) && disciplin.equals(swimmingDisciplin) && isCorrectAge && checkTime != 0){
         top5Training.add(temp);
       }
       if(top5Training.size() == 5){
@@ -123,6 +126,9 @@ public class MemberList {
 
     for (int i = 0; i < allCompetitors.size();i++) {
       Competitor temp = allCompetitors.get(i);
+      int checkSec = temp.getBestResultCompetition().getPersonalBestCompetitionTimeMinutes();
+      int checkMin = temp.getBestResultCompetition().getPersonalBestCompetitionTimeSeconds();
+      int checkTimeLegit = checkSec+checkMin;
       boolean isCorrectAge = temp.getAge() >= 18;
 
       if (age < 18){
@@ -131,7 +137,7 @@ public class MemberList {
 
       SwimmingDisciplin disciplin = temp.getSwimmingDisciplin();
 
-      if(temp.getGender().equals(gender) && disciplin.equals(swimmingDisciplin) && isCorrectAge){
+      if(temp.getGender().equals(gender) && disciplin.equals(swimmingDisciplin) && isCorrectAge && checkTimeLegit != 0){
         top5Competition.add(temp);
       }
       if(top5Competition.size() == 5){
