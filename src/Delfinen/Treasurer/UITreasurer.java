@@ -11,7 +11,7 @@ public class UITreasurer extends UIMain implements PrintMenuInterface {
   public void printMenuOptions() {
     System.out.println("1: Se forventeligt kontingentbudget");
     System.out.println("2: Vis medlemmer i restance");
-    System.out.println("3: Ændre restance for medlem");
+    System.out.println("3: Betaling af medlemskontingent");
     System.out.println("0: Gem og gå tilbage til hovedmenu");
   }
 
@@ -19,7 +19,7 @@ public class UITreasurer extends UIMain implements PrintMenuInterface {
     System.out.println("\n*** Kassererens forside ***");
   }
 
-  public void displayMember(Member member) { //TODO: Skal denne fremvisning differentieres afhængig af, om man er kasserer og formand?
+  public void displayMember(Member member) {
 
     if (member == null) {
       System.out.println("\nIntet medlem blev ikke fundet ud indtastede oplysninger.\n");
@@ -53,8 +53,8 @@ public class UITreasurer extends UIMain implements PrintMenuInterface {
 
   public void changePaymentOptions(Member member) {
     System.out.println("Hvad skal restance forholdet sættes til, for medlem: " + member.getName() + " , medlemsnummer: " + member.getMemberNumber() + "?");
-    System.out.println("1: Medlem er i restance");
-    System.out.println("2: Medlem er ikke i restance");
+    System.out.println("1: Medlem har ikke betalt kontingent");
+    System.out.println("2: Medlem har betalt kontingent");
     System.out.println("0: Tilbage til Menuen");
   }
 

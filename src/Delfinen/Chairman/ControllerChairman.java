@@ -46,7 +46,7 @@ public class ControllerChairman {
     boolean runningAddMember = true;
 
     while (runningAddMember) {
-      System.out.println(""); //TODO: Test om det virker - marcus
+      System.out.println("");
       uiChairman.printMemberMenu();
 
       switch (uiChairman.inputNumber()) {
@@ -73,7 +73,7 @@ public class ControllerChairman {
     running = false;
   }
 
-  private void editMembers() {
+  private void editMembers() { //TODO: Lave undermenu hvor man kan vælge at ændre et medlems status fra motion til konkurrencesvømmer?
     editEmail();
   }
 
@@ -92,7 +92,7 @@ public class ControllerChairman {
             if (member instanceof Competitor) {
               member.setEmail(uiChairman.newMail()); //TODO: ekstra feauture at tjekke om en mail allerede findes?
             } else {
-              member.setEmail(uiChairman.newMail()); //Lidt i tvivl om hvorfor det her virker
+              member.setEmail(uiChairman.newMail());
             }
             uiChairman.printInfoOfEditMail(member.getName(), member.getEmail());
             editEmailIsRunning = false;
@@ -151,7 +151,7 @@ public class ControllerChairman {
     int answer = -1;
 
     while (runningDeleteMember && answer != 0) {
-      System.out.println("0 for at gå tilbage til menuen..."); // TODO: Skal slettes, når gruppen har set det
+      System.out.println("0 for at gå tilbage til menuen...");
       answer = uiChairman.inputMembernumber();
       Member member = memberLists.findSpecifikMemberByMemberNumber(answer);
 
