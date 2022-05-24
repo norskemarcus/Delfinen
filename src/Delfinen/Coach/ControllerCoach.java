@@ -36,9 +36,12 @@ public class ControllerCoach {
       uiCoach.printHeader();
       uiCoach.printMenuOptions();
 
+      final String GENDER_FEMALE = "K";
+      final String GENDER_MALE = "M";
+
       switch (uiCoach.inputNumber()) {
-        case 1 -> menuSwimmers("K");
-        case 2 -> menuSwimmers("M");
+        case 1 -> menuSwimmers(GENDER_FEMALE);
+        case 2 -> menuSwimmers(GENDER_MALE);
         case 3 -> createNewCompetition();
         case 4 -> createNewTraining();
         case 5 -> uiCoach.printAllCompetitors(memberList.getAllCompetitors());
@@ -52,9 +55,12 @@ public class ControllerCoach {
     while (running) {
       uiCoach.printMenuJrSr();
 
+      final int AGE_JUNIOR = 17;
+      final int AGE_SENIOR = 18;
+
       switch (uiCoach.inputNumber()) {
-        case 1 -> menuSwimmingDisciplin(gender, 17); //junior
-        case 2 -> menuSwimmingDisciplin(gender, 18); //senior
+        case 1 -> menuSwimmingDisciplin(gender, AGE_JUNIOR);
+        case 2 -> menuSwimmingDisciplin(gender, AGE_SENIOR);
         case 0 -> saveAndReturnToMainMenu();
         default -> uiCoach.printErrorMessage();
       }

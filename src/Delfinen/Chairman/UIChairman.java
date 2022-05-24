@@ -179,6 +179,7 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
 
 
   public Competitor addCompetitorMember(Integer memberNumber) {
+    Scanner sc = new Scanner(System.in);
     System.out.println("\nOpret ny konkurrencesvømmer. Tast ind stamoplysninger:");
     System.out.print("Navn: ");
     String name = sc.nextLine();
@@ -187,7 +188,7 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
     String gender = "";
     while (!gender.equals("M") && !gender.equals("K")) {
       System.out.print("Køn (M/K): ");
-      gender = sc.nextLine();
+      gender = sc.nextLine().toUpperCase();
     }
     int age = Integer.parseInt(ageString);
     System.out.print("Email: ");

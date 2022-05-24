@@ -97,13 +97,12 @@ public class MemberList {
 
     for (int i = 0; i < allCompetitors.size();i++) {
       Competitor temp = allCompetitors.get(i);
+      SwimmingDisciplin disciplin = temp.getSwimmingDisciplin();
       boolean isCorrectAge = temp.getAge() >= 18;
 
       if (age < 18){
         isCorrectAge = temp.getAge() < 18;
       }
-
-      SwimmingDisciplin disciplin = temp.getSwimmingDisciplin();
 
       if(temp.getGender().equals(gender) && disciplin.equals(swimmingDisciplin) && isCorrectAge){
         top5Training.add(temp);
