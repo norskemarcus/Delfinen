@@ -4,6 +4,8 @@ import Delfinen.Member.*;
 import Delfinen.Persistence.FileHandler;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class ControllerChairman {
   private final UIChairman uiChairman = new UIChairman();
@@ -107,6 +109,9 @@ public class ControllerChairman {
 
 
   private void showMembers() {
+    Comparator<Competitor> comparator = new MemberNumberComparator();
+    Collections.sort(memberLists.getAllCompetitors(), comparator);
+
     uiChairman.printAllMembers(memberLists.getAllNonCompetitors(), memberLists.getAllCompetitors());
   }
 
@@ -196,22 +201,7 @@ public class ControllerChairman {
     membershipCounter();
   }
 
-  public void changeMemberToCompetitor(NonCompetitor nonCompetitor) {
-    //Competitor(String name, Integer memberNumber, Integer age, String email, boolean isMembershipPaid, String gender)
-    // Finde objektet ved at søge på medlemsnummer?
-    String name = nonCompetitor.getName();
-    Integer memberNumber = nonCompetitor.getMemberNumber();
-    Integer age = nonCompetitor.getAge();
-    String email = nonCompetitor.getEmail();
-    boolean isMembershipPaid = nonCompetitor.isMembershipPaid();
-    String gender = uiChairman.addGenderToNewCompetitor();
-    SwimmingDisciplin swimmingDisciplin = null; //TODO coach skal gøre dette?
 
-//    Competitor competitor = new Competitor(name, memberNumber, age, email, isMembershipPaid, gender, swimmingDisciplin);
-//    memberLists.getAllCompetitors().add(competitor);
-    //TODO: remove nonCompetitor from the other memberlist
-
-  }
 
   public MemberList getMemberLists() {
     return memberLists;

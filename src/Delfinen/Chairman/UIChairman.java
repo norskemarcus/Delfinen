@@ -233,11 +233,7 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
     return competitor;
   }
 
-  public String addGenderToNewCompetitor() {
-    System.out.println("I hvilken kønskategori skal vedkommende konkurrere i? (M/K)");
-    String gender = sc.nextLine();
-    return gender;
-  }
+
 
   public void printMemberFoundByMembernumber(Member member) {
     if (member == null) {

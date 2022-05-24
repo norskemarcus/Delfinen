@@ -1,6 +1,7 @@
 package Delfinen.Coach;
 
 import Delfinen.Member.Competitor;
+import Delfinen.Member.SwimmingDisciplin;
 import Delfinen.PrintMenuInterface;
 import Delfinen.UIMain;
 
@@ -74,7 +75,7 @@ public class UICoach extends UIMain implements PrintMenuInterface {
     System.out.println("Nyt konkurrenceresultat er registreret til " + competitor.getName());
   }
 
-  private Integer inputInteger(int min, int max) {
+  protected Integer inputInteger(int min, int max) {
     int number = -1;
     while (number < min || number > max) {
       String memberNumberString = sc.nextLine();
@@ -166,15 +167,14 @@ public class UICoach extends UIMain implements PrintMenuInterface {
 
   }
 
-  public void printTop5Crawl(ArrayList<Competitor> allCompetitors) {
-    System.out.println("Her kommer en liste over de top 5 bedste crawl");
+  public String addGenderToNewCompetitor() {
+    System.out.println("I hvilken kønskategori skal vedkommende konkurrere i? (M/K)");
+    String gender = sc.nextLine();
+    return gender;
   }
 
-  public void printTop5BackCrawl(ArrayList<Competitor> allCompetitors) {
-    System.out.println("Her kommer en liste over de top 5 bedste rygcrawl");
-  }
-
-  public void printTop5Butterfly(ArrayList<Competitor> allCompetitors) {
-    System.out.println("Her kommer en liste over de top 5 bedste butterfly");
+  public void showDisciplinesOptions() {
+    System.out.println("Hvilken svømmedisciplin skal medlemmet tilføjes til?");
+    System.out.println("1) Bryst\n2) Ryg\n3) Crawl\n4) Butterfly");
   }
 }
