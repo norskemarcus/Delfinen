@@ -126,7 +126,6 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
           Navn: %s  Medlemsnummer: %d  Email: %s  Alder:  %d år  restance: %s
           """, member.getName(), member.getMemberNumber(), member.getEmail(), member.getAge(), member.isMembershipPaid());
     }
-
   }
 
   public void printMemberMenu(){

@@ -16,6 +16,8 @@ public class ControllerCoach {
   private MemberList memberList = new MemberList();
   private FileHandler fileHandler = new FileHandler();
   private boolean running = true;
+  boolean runningDisciplines;
+  boolean runningAge;
 
   private void saveAndReturnToMainMenu() {
     fileHandler.saveAllNonCompetitorsToFile(memberList.getAllNonCompetitors());
@@ -30,6 +32,8 @@ public class ControllerCoach {
   }
 
   public void menuCoach() {
+
+    running = true;
 
     while (running) {
 
@@ -52,7 +56,8 @@ public class ControllerCoach {
   }
 
   public void menuSwimmers(String gender) {
-    while (running) {
+    runningAge = true;
+    while (runningAge) {
       uiCoach.printMenuJrSr();
 
       final int AGE_JUNIOR = 17;
@@ -61,14 +66,17 @@ public class ControllerCoach {
       switch (uiCoach.inputNumber()) {
         case 1 -> menuSwimmingDisciplin(gender, AGE_JUNIOR);
         case 2 -> menuSwimmingDisciplin(gender, AGE_SENIOR);
-        case 0 -> saveAndReturnToMainMenu();
+        case 3 -> runningAge = false;
         default -> uiCoach.printErrorMessage();
       }
     }
   }
 
   public void menuSwimmingDisciplin(String gender, int age){
-    while (running) {
+
+    runningDisciplines = true;
+
+    while (runningDisciplines) {
       uiCoach.printMenuDisciplines();
 
       switch (uiCoach.inputNumber()) {
@@ -94,7 +102,12 @@ public class ControllerCoach {
           ArrayList<Competitor> top5Training = memberList.createTop5ListTraining(gender, SwimmingDisciplin.BUTTERFLY, age);
           uiCoach.printTop5List(top5Training, top5Competition);
         }
-        case 0 -> saveAndReturnToMainMenu();
+        case 5 -> runningDisciplines = false;
+
+        case 0 -> {
+          runningAge = false;
+          runningDisciplines = false;
+        }
         default -> uiCoach.printErrorMessage();
       }
     }

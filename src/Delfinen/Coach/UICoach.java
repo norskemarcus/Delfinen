@@ -122,6 +122,8 @@ public class UICoach extends UIMain implements PrintMenuInterface {
     System.out.println("");
     System.out.println("1: Junior");
     System.out.println("2: Senior");
+    System.out.println("3: Forrige menu");
+
   }
 
   public void printMenuDisciplines() {
@@ -130,6 +132,9 @@ public class UICoach extends UIMain implements PrintMenuInterface {
     System.out.println("2: Crawl");
     System.out.println("3: Rygcrawl");
     System.out.println("4: Butterfly");
+    System.out.println("5: Forrige menu");
+    System.out.println("0: Trænerens forside");
+
   }
 
   public void printTop5List(ArrayList<Competitor> allTrainingTimes, ArrayList<Competitor> allCompetitionTimes) {

@@ -11,7 +11,7 @@ class ControllerTreasurerTest {
   void testUnder18() {
     // Arrange
     ControllerTreasurer controllerTreasurer = new ControllerTreasurer();
-    NonCompetitor nonCompetitor = new NonCompetitor("Daniel", 1009, 17, "dan@iel.dk", true, true);
+    NonCompetitor nonCompetitor = new NonCompetitor("Daniel", 1009, -1, "dan@iel.dk", true, true);
 
     // Act
     double expected = 1000;
