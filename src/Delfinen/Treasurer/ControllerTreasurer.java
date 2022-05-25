@@ -77,20 +77,25 @@ public class ControllerTreasurer {
     double seniorDiscount = 0.75;
     int age = member.getAge();
 
-    if (member instanceof NonCompetitor) {
-      if (!((NonCompetitor) member).isActive()) {
-        return 500;
+    if (age < 0 || age > 113) {
+      throw new  IllegalArgumentException();
+    }
+
+      if (member instanceof NonCompetitor) {
+        if (!((NonCompetitor) member).isActive()) {
+          return 500;
+        }
+      }
+
+      if (age < 18) {
+        return 1000;
+      } else if (age < 65) {
+        return adultMembershipCost;
+      } else {
+        return adultMembershipCost * seniorDiscount;
       }
     }
 
-    if (age < 18) {
-      return 1000;
-    } else if (age < 65) {
-      return adultMembershipCost;
-    } else {
-      return adultMembershipCost * seniorDiscount;
-    }
-  }
 
   private void changeMembershipPaymentStatus() {
     int membernumber = uiTreasurer.inputMembernumber();

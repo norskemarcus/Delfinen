@@ -1,4 +1,4 @@
-package Delfinen;
+package Delfinen.Main;
 
 public class Main {
 

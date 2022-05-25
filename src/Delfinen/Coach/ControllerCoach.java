@@ -3,9 +3,8 @@ package Delfinen.Coach;
 import Delfinen.Member.*;
 import Delfinen.Persistence.FileHandler;
 import Delfinen.Member.NonCompetitor;
+
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 public class ControllerCoach {
 
@@ -70,7 +69,7 @@ public class ControllerCoach {
     }
   }
 
-  public void menuSwimmingDisciplin(String gender, int age){
+  public void menuSwimmingDisciplin(String gender, int age) {
 
     runningDisciplines = true;
 
@@ -95,7 +94,7 @@ public class ControllerCoach {
           ArrayList<Competitor> top5Training = memberList.createTop5ListTraining(gender, SwimmingDisciplin.RYGCRAWL, age);
           uiCoach.printTop5List(top5Training, top5Competition);
         }
-        case 4 ->{
+        case 4 -> {
           ArrayList<Competitor> top5Competition = memberList.createTop5ListCompetition(gender, SwimmingDisciplin.BUTTERFLY, age);
           ArrayList<Competitor> top5Training = memberList.createTop5ListTraining(gender, SwimmingDisciplin.BUTTERFLY, age);
           uiCoach.printTop5List(top5Training, top5Competition);
@@ -112,38 +111,40 @@ public class ControllerCoach {
   }
 
 
-  public void createNewTraining(){
+  public void createNewTraining() {
     int membernumber = uiCoach.inputMembernumber();
     Competitor competitor = (Competitor) memberList.findSpecifikMemberByMemberNumber(membernumber);
-    if(competitor != null) {
+    if (competitor != null) {
       uiCoach.createNewTrainingResult(competitor);
     } else {
       uiCoach.memberNotFound();
     }
   }
 
-  public void createNewCompetition(){
+  public void createNewCompetition() {
     int memberNumber = uiCoach.inputMembernumber();
     Competitor competitor = (Competitor) memberList.findSpecifikMemberByMemberNumber(memberNumber);
-    if(competitor != null) {
+    if (competitor != null) {
       uiCoach.createNewCompetitionResult(competitor);
     } else {
       uiCoach.memberNotFound();
     }
   }
 
-  public void changeMemberToCompetitor(){
+  public void changeMemberToCompetitor() {
     int memberNumber = uiCoach.inputMembernumber();
     Member member = memberList.findSpecifikMemberByMemberNumber(memberNumber);
-    if(member instanceof NonCompetitor nonCompetitor) {
-      createCompetitorFromNonCompetitor(nonCompetitor);
+    if (member instanceof NonCompetitor nonCompetitor) {
+      uiCoach.printMemberToChange(member);
+      if (uiCoach.confirmEditMember(member.getName())) {
+        createCompetitorFromNonCompetitor(nonCompetitor);
+      }
     } else if (member instanceof Competitor) {
       uiCoach.printNotCorrectMemberType(member.getName());
-    } else{
+    } else {
       uiCoach.memberNotFound();
     }
   }
-
 
 
   public void createCompetitorFromNonCompetitor(NonCompetitor nonCompetitor) {
@@ -156,19 +157,19 @@ public class ControllerCoach {
     String gender = uiCoach.addGenderToNewCompetitor();
     SwimmingDisciplin swimmingDisciplin = null;
     uiCoach.showDisciplinesOptions();
-    int choice = uiCoach.inputInteger(1,4);
-    switch (choice){
-    case 1 -> swimmingDisciplin = SwimmingDisciplin.BRYST;
-    case 2 -> swimmingDisciplin = SwimmingDisciplin.CRAWL;
-    case 3 -> swimmingDisciplin = SwimmingDisciplin.RYGCRAWL;
-    case 4 -> swimmingDisciplin = SwimmingDisciplin.BUTTERFLY;
+    int choice = uiCoach.inputInteger(1, 4);
+    switch (choice) {
+      case 1 -> swimmingDisciplin = SwimmingDisciplin.BRYST;
+      case 2 -> swimmingDisciplin = SwimmingDisciplin.CRAWL;
+      case 3 -> swimmingDisciplin = SwimmingDisciplin.RYGCRAWL;
+      case 4 -> swimmingDisciplin = SwimmingDisciplin.BUTTERFLY;
 
     }
 
-    BestResultCompetition bestResultCompetition = new BestResultCompetition(0,0,0,0);
-    BestResultTraining bestResultTraining = new BestResultTraining(0,0,0,0);
+    BestResultCompetition bestResultCompetition = new BestResultCompetition(0, 0, 0, 0);
+    BestResultTraining bestResultTraining = new BestResultTraining(0, 0, 0, 0);
 
-Competitor competitor = new Competitor(name, memberNumber, age, email, isMembershipPaid, gender, swimmingDisciplin, bestResultTraining, bestResultCompetition);
+    Competitor competitor = new Competitor(name, memberNumber, age, email, isMembershipPaid, gender, swimmingDisciplin, bestResultTraining, bestResultCompetition);
     memberList.getAllCompetitors().add(competitor);
     memberList.getAllNonCompetitors().remove(nonCompetitor);
     //TODO: remove nonCompetitor from the other memberlist
