@@ -4,7 +4,7 @@ public abstract class Member {
 
   protected String name;
   protected Integer memberNumber;
-  protected Integer age; //TODO fødselsdato eller fødselsår? reverse til format 850115?
+  protected Integer age;
   protected String email;
   protected boolean isMembershipPaid;
 
