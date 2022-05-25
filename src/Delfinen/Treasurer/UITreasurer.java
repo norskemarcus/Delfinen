@@ -5,7 +5,7 @@ import Delfinen.PrintMenuInterface;
 import Delfinen.UIMain;
 import java.util.Scanner;
 
-public class UITreasurer extends UIMain implements PrintMenuInterface {
+public class UITreasurer extends UIMain {
   private Scanner sc = new Scanner(System.in);
 
   public void printMenuOptions() {
