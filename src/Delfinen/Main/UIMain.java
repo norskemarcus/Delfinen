@@ -1,4 +1,6 @@
-package Delfinen;
+package Delfinen.Main;
+
+import Delfinen.Main.PrintMenuInterface;
 
 import java.util.Scanner;
 

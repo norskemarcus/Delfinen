@@ -1,9 +1,9 @@
 package Delfinen.Coach;
 
 import Delfinen.Member.Competitor;
-import Delfinen.Member.SwimmingDisciplin;
-import Delfinen.PrintMenuInterface;
-import Delfinen.UIMain;
+import Delfinen.Main.PrintMenuInterface;
+import Delfinen.Main.UIMain;
+import Delfinen.Member.Member;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -47,28 +47,29 @@ public class UICoach extends UIMain implements PrintMenuInterface {
 
   public void createNewTrainingResult(Competitor competitor) {
     System.out.print("Indput resultatets minuttal: ");
-    Integer minutNumber = inputInteger(0,59);
+    Integer minutNumber = inputInteger(0, 59);
     System.out.print("Indput resultatets sekundtal: ");
-    Integer secondNumber = inputInteger(0,59);
+    Integer secondNumber = inputInteger(0, 59);
     System.out.print("Hvilken måned er resultatet opnået (1-12): ");
-    Integer month = inputInteger(1,12);
+    Integer month = inputInteger(1, 12);
     System.out.print("Hvilken år er resultatet opnået (fx.22): ");
-    Integer year = inputInteger(0,99);
+    Integer year = inputInteger(0, 99);
     competitor.getBestResultTraining().setPersonalBestTrainingTimeSeconds(secondNumber);
     competitor.getBestResultTraining().setPersonalBestTrainingTimeMinutes(minutNumber);
     competitor.getBestResultTraining().setPersonalBestTrainingMonth(month);
     competitor.getBestResultTraining().setPersonalBestTrainingYear(year);
     System.out.println("Nyt træningsresultat er registreret til " + competitor.getName());
   }
+
   public void createNewCompetitionResult(Competitor competitor) {
     System.out.print("Indput resultatets minuttal: ");
-    Integer minutNumber = inputInteger(0,59);
+    Integer minutNumber = inputInteger(0, 59);
     System.out.print("Indput resultatets sekundtal: ");
-    Integer secondNumber = inputInteger(0,59);
+    Integer secondNumber = inputInteger(0, 59);
     System.out.print("Hvilken måned er resultatet opnået (1-12): ");
-    Integer month = inputInteger(1,12);
+    Integer month = inputInteger(1, 12);
     System.out.print("Hvilken år er resultatet opnået (fx.22): ");
-    Integer year = inputInteger(0,99);
+    Integer year = inputInteger(0, 99);
     competitor.getBestResultCompetition().setPersonalBestCompetitionTimeSeconds(secondNumber);
     competitor.getBestResultCompetition().setPersonalBestCompetitionTimeMinutes(minutNumber);
     competitor.getBestResultCompetition().setPersonalBestCompetitionMonth(month);
@@ -81,18 +82,18 @@ public class UICoach extends UIMain implements PrintMenuInterface {
     while (number < min || number > max) {
       String memberNumberString = sc.nextLine();
       while (memberNumberString.length() > 2 || memberNumberString.isEmpty()) {
-      System.out.print("Ugyldig indtastning. Indtast igen: ");
-      memberNumberString = sc.nextLine();
-    }
+        System.out.print("Ugyldig indtastning. Indtast igen: ");
+        memberNumberString = sc.nextLine();
+      }
 
-    try {
-      number = Integer.parseInt(memberNumberString);
-    } catch (NumberFormatException n) {
-      System.out.print("Indtastning må kun være tal: ");
-    }
-    if (number < min || number > max) {
-      System.out.print("Ugyldig indtastning. Prøv igen: ");
-    }
+      try {
+        number = Integer.parseInt(memberNumberString);
+      } catch (NumberFormatException n) {
+        System.out.print("Indtastning må kun være tal: ");
+      }
+      if (number < min || number > max) {
+        System.out.print("Ugyldig indtastning. Prøv igen: ");
+      }
     }
     return number;
   }
@@ -110,8 +111,8 @@ public class UICoach extends UIMain implements PrintMenuInterface {
       if (year < 10) {
 
         System.out.printf("""
-          Navn: %s MedlemsNummer: %s Bedste træningstid: %d:%d Dato: %d/200%d
-          """, competitor.getName(), competitor.getMemberNumber(), minutes, seconds, month, year);
+            Navn: %s MedlemsNummer: %s Bedste træningstid: %d:%d Dato: %d/200%d
+            """, competitor.getName(), competitor.getMemberNumber(), minutes, seconds, month, year);
       } else {
         System.out.printf("""
             Navn: %s MedlemsNummer: %s Bedste træningstid: %d:%d Dato: %d/20%d
@@ -143,27 +144,27 @@ public class UICoach extends UIMain implements PrintMenuInterface {
     System.out.println("Top 5 træningstider:");
     for (int i = 0; i < allTrainingTimes.size(); i++) {
       Competitor competitor = allTrainingTimes.get(i);
-      Integer minutes =  competitor.getBestResultTraining().getPersonalBestTrainingTimeMinutes();
+      Integer minutes = competitor.getBestResultTraining().getPersonalBestTrainingTimeMinutes();
       Integer seconds = competitor.getBestResultTraining().getPersonalBestTrainingTimeSeconds();
       Integer month = competitor.getBestResultTraining().getPersonalBestTrainingMonth();
       Integer year = competitor.getBestResultTraining().getPersonalBestTrainingYear();
 
       System.out.printf("""
           %d. Medlemsnummer: %d, %s, Tid: %d:%d, Dato:%d/%d
-          """, i+1, competitor.getMemberNumber(), competitor.getName(),minutes, seconds, month, year);
-          }
+          """, i + 1, competitor.getMemberNumber(), competitor.getName(), minutes, seconds, month, year);
+    }
 
     System.out.println("Top 5 konkurrencetider:");
     for (int i = 0; i < allCompetitionTimes.size(); i++) {
       Competitor competitor = allCompetitionTimes.get(i);
-      Integer minutes =  competitor.getBestResultCompetition().getPersonalBestCompetitionTimeMinutes();
+      Integer minutes = competitor.getBestResultCompetition().getPersonalBestCompetitionTimeMinutes();
       Integer seconds = competitor.getBestResultCompetition().getPersonalBestCompetitionTimeSeconds();
       Integer month = competitor.getBestResultCompetition().getPersonalBestCompetitionMonth();
       Integer year = competitor.getBestResultCompetition().getPersonalBestCompetitionYear();
 
       System.out.printf("""
           %d. Medlemsnummer: %d, %s, Tid: %d:%d, Dato:%d/%d
-          """, i+1, competitor.getMemberNumber(), competitor.getName(),minutes, seconds, month, year);
+          """, i + 1, competitor.getMemberNumber(), competitor.getName(), minutes, seconds, month, year);
     }
 
   }
@@ -182,4 +183,30 @@ public class UICoach extends UIMain implements PrintMenuInterface {
   public void printNotCorrectMemberType(String name) {
     System.out.println(name + " er allerede en konkurrencesvømmer");
   }
+
+  public void printMemberToChange(Member member) {
+    System.out.printf("""
+        Navn: %s  Medlemsnummer: %d  Email: %s  Alder:  %d år
+        """, member.getName(), member.getMemberNumber(), member.getEmail(), member.getAge());
+  }
+
+  public boolean confirmEditMember(String name) {
+    System.out.println("Er du sikker på, at du vil konvertere " + name + " til konkurrencesvømmer? j/n");
+
+    String areYouSure = "";
+    while (!areYouSure.equals("j") && !areYouSure.equals("n")) {
+      Scanner sc = new Scanner(System.in);
+      areYouSure = sc.nextLine().toLowerCase();
+      if (areYouSure.equals("j")) {
+        return true;
+      }
+      if (areYouSure.equals("n")) {
+        return false;
+      }
+
+
+    }
+    return true;
+  }
 }
+

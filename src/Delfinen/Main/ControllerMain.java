@@ -1,4 +1,4 @@
-package Delfinen;
+package Delfinen.Main;
 
 import Delfinen.Chairman.ControllerChairman;
 import Delfinen.Coach.ControllerCoach;

@@ -1,8 +1,8 @@
 package Delfinen.Chairman;
 
 import Delfinen.Member.*;
-import Delfinen.PrintMenuInterface;
-import Delfinen.UIMain;
+import Delfinen.Main.PrintMenuInterface;
+import Delfinen.Main.UIMain;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -277,7 +277,6 @@ public class UIChairman extends UIMain implements PrintMenuInterface {
   public void printInfoOfDeletedMember(String name, Integer memberNumber) {
     System.out.println("Medlem " + name + " med medlemsnummer " + memberNumber + " er blevet slettet fra systemet");
   }
-
 
 }
 

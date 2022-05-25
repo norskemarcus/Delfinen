@@ -1,8 +1,7 @@
 package Delfinen.Treasurer;
 
 import Delfinen.Member.Member;
-import Delfinen.PrintMenuInterface;
-import Delfinen.UIMain;
+import Delfinen.Main.UIMain;
 import java.util.Scanner;
 
 public class UITreasurer extends UIMain {
