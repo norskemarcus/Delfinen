@@ -146,6 +146,8 @@ public class FileHandler {
         out.print("\n");
       }
 
+      out.close();
+
     } catch (FileNotFoundException fnfe) {
       System.err.println("Fil ikke fundet");
     }

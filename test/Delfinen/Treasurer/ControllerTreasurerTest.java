@@ -77,4 +77,28 @@ class ControllerTreasurerTest {
     assertEquals(expected,actual,01);
   }
 
+  @Test
+  void testAgeNegative() {
+    //Arrange
+    ControllerTreasurer controllerTreasurer = new ControllerTreasurer();
+    NonCompetitor nonCompetitor = new NonCompetitor("Marcus", 1100, -1,"marcus@norge.dk",true, true);
+
+
+    //Act/assert
+    assertThrows(IllegalArgumentException.class,()->controllerTreasurer.calculateMembershipCost(nonCompetitor));
+
+  }
+
+  @Test
+  void testAgeTooHigh() {
+    //Arrange
+    ControllerTreasurer controllerTreasurer = new ControllerTreasurer();
+    NonCompetitor nonCompetitor = new NonCompetitor("Marcus", 1100, 114,"marcus@norge.dk",true, true);
+
+
+    //Act/assert
+    assertThrows(IllegalArgumentException.class,()->controllerTreasurer.calculateMembershipCost(nonCompetitor));
+
+  }
+
 }
