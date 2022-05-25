@@ -2,7 +2,6 @@ package Delfinen.Coach;
 
 import Delfinen.Member.*;
 import Delfinen.Persistence.FileHandler;
-import Delfinen.Member.NonCompetitor;
 
 import java.util.ArrayList;
 
@@ -44,8 +43,7 @@ public class ControllerCoach {
         case 2 -> menuSwimmers(GENDER_MALE);
         case 3 -> createNewCompetition();
         case 4 -> createNewTraining();
-        case 5 -> uiCoach.printAllCompetitors(memberList.getAllCompetitors());
-        case 6 -> changeMemberToCompetitor();
+        case 5 -> changeMemberToCompetitor();
         case 0 -> saveAndReturnToMainMenu();
         default -> uiCoach.printErrorMessage();
       }

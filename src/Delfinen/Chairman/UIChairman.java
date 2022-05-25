@@ -1,13 +1,12 @@
 package Delfinen.Chairman;
 
 import Delfinen.Member.*;
-import Delfinen.Main.PrintMenuInterface;
 import Delfinen.Main.UIMain;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class UIChairman extends UIMain implements PrintMenuInterface {
+public class UIChairman extends UIMain {
 
   private final Scanner sc = new Scanner(System.in);
 

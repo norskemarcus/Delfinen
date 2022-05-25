@@ -182,7 +182,6 @@ public class ControllerChairman {
     }
   }
 
-
   // motionssvømmer
   public void addNonCompetitorMember() {
     NonCompetitor newNonCompetitorMember = uiChairman.addNonCompetitorMember(memberNumber);
@@ -201,9 +200,4 @@ public class ControllerChairman {
     membershipCounter();
   }
 
-
-
-  public MemberList getMemberLists() {
-    return memberLists;
-  }
 }

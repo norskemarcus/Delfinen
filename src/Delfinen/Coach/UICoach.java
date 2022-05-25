@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class UICoach extends UIMain implements PrintMenuInterface {
 
-  private Scanner sc = new Scanner(System.in);
+  private final Scanner sc = new Scanner(System.in);
 
 
   public void printHeader() {
@@ -23,8 +23,7 @@ public class UICoach extends UIMain implements PrintMenuInterface {
     System.out.println("2: Top 5 præstationer mænd");
     System.out.println("3: Opret en ny stævnetid");
     System.out.println("4: Opret en ny træningstid");
-    System.out.println("5: Vis alle træningstider");
-    System.out.println("6: Konverter en motionssvømmer til konkurrencesvømmer");
+    System.out.println("5: Konverter en motionssvømmer til konkurrencesvømmer");
     System.out.println("0: Gå tilbage til hovedmenu");
   }
 
@@ -96,29 +95,6 @@ public class UICoach extends UIMain implements PrintMenuInterface {
       }
     }
     return number;
-  }
-
-  public void printAllCompetitors(ArrayList<Competitor> memberListCompetitor) {
-
-    System.out.println("\nKlubben konkurrencemedlemmer:");
-    for (Competitor competitor : memberListCompetitor) {
-
-      int minutes = competitor.getBestResultTraining().getPersonalBestTrainingTimeMinutes();
-      int seconds = competitor.getBestResultTraining().getPersonalBestTrainingTimeSeconds();
-      int month = competitor.getBestResultTraining().getPersonalBestTrainingMonth();
-      int year = competitor.getBestResultCompetition().getPersonalBestCompetitionYear(); //TODO: Er dette korrekt?
-
-      if (year < 10) {
-
-        System.out.printf("""
-            Navn: %s MedlemsNummer: %s Bedste træningstid: %d:%d Dato: %d/200%d
-            """, competitor.getName(), competitor.getMemberNumber(), minutes, seconds, month, year);
-      } else {
-        System.out.printf("""
-            Navn: %s MedlemsNummer: %s Bedste træningstid: %d:%d Dato: %d/20%d
-            """, competitor.getName(), competitor.getMemberNumber(), minutes, seconds, month, year);
-      }
-    }
   }
 
   public void printMenuJrSr() {

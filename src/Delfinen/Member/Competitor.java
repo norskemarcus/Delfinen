@@ -2,34 +2,10 @@ package Delfinen.Member;
 
 public class Competitor extends Member {
 
-  private String gender; //TODO: Det findes kun 2 konkurrenceklasser: M / F. Fejlmelding
-  private SwimmingDisciplin swimmingDisciplin;
-  private BestResultCompetition bestResultCompetition;
-  private BestResultTraining bestResultTraining;
-
-
-
-/*  public Competitor(String name, Integer memberNumber, Integer age, String email, boolean isMembershipPaid, String gender, SwimmingDisciplins swimmingDisciplin,
-                    Integer personalBestTrainingTimeMinutes, Integer personalBestTrainingTimeSeconds, Integer personalBestTrainingMonth, Integer personalBestTrainingYear,
-                    Integer personalBestCompetitionTimeMinutes, Integer personalBestCompetitionTimeSeconds, Integer personalBestMonthCompetition, Integer personalBestYearCompetition) {
-    super(name, memberNumber, age, email, isMembershipPaid);
-    this.gender = gender;
-    this.swimmingDisciplin = swimmingDisciplin;
-    this.personalBestTrainingTimeMinutes = personalBestTrainingTimeMinutes;
-    this.personalBestTrainingTimeSeconds = personalBestTrainingTimeSeconds;
-    this.personalBestTrainingMonth = personalBestTrainingMonth;
-    this.personalBestTrainingYear = personalBestTrainingYear;
-    this.personalBestCompetitionTimeMinutes = personalBestCompetitionTimeMinutes;
-    this.personalBestCompetitionTimeSeconds = personalBestCompetitionTimeSeconds;
-    this.personalBestCompetitionMonth = personalBestMonthCompetition;
-    this.personalBestCompetitionYear = personalBestYearCompetition;
-  }*/
-//
-//  public Competitor(String name, Integer memberNumber, Integer age, String email, boolean isMembershipPaid, String gender, SwimmingDisciplins swimmingDisciplin){
-//    super(name, memberNumber, age, email, isMembershipPaid);
-//    this.gender = gender;
-//    this.swimmingDisciplin = swimmingDisciplin;
-//  }
+  private final String gender; //TODO: Det findes kun 2 konkurrenceklasser: M / F. Fejlmelding
+  private final SwimmingDisciplin swimmingDisciplin;
+  private final BestResultCompetition bestResultCompetition;
+  private final BestResultTraining bestResultTraining;
 
   public Competitor(String name, Integer memberNumber, Integer age, String email, boolean isMembershipPaid, String gender, SwimmingDisciplin swimmingDisciplin, BestResultTraining bestResultTraining, BestResultCompetition bestResultCompetition){
     super(name, memberNumber, age, email, isMembershipPaid);
@@ -50,11 +26,6 @@ public class Competitor extends Member {
   public SwimmingDisciplin getSwimmingDisciplin() {
     return swimmingDisciplin;
   }
-
-  public void setSwimmingDisciplin(SwimmingDisciplin swimmingDisciplin) {
-    this.swimmingDisciplin = swimmingDisciplin;
-  }
-
 
   public String getGender() {
     return gender;
