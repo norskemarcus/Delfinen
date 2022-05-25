@@ -101,6 +101,7 @@ public class FileHandler {
         out.print(member.isActive());
         out.print("\n");
       }
+      out.close();
 
     } catch (FileNotFoundException fnfe) {
       System.err.println("Fil ikke fundet");

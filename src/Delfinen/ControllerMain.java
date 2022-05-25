@@ -8,7 +8,7 @@ public class ControllerMain {
   private ControllerChairman cChairman = new ControllerChairman();
   private ControllerTreasurer cTreasurer = new ControllerTreasurer();
   private ControllerCoach cCoach = new ControllerCoach();
-  private UIMain uiMain = new UIMain();
+  private UIMain uiMain = new UIMain ();
   private boolean running = true;
 
 

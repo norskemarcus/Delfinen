@@ -6,7 +6,6 @@ public class UIMain implements PrintMenuInterface {
   Scanner sc = new Scanner(System.in);
 
 
-
   public void printMenuOptions(){
     System.out.println();
     System.out.println("***DELFINENS MEDLEMSDATABASE***");

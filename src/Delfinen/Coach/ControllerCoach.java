@@ -2,7 +2,7 @@ package Delfinen.Coach;
 
 import Delfinen.Member.*;
 import Delfinen.Persistence.FileHandler;
-
+import Delfinen.Member.NonCompetitor;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -134,10 +134,12 @@ public class ControllerCoach {
 
   public void changeMemberToCompetitor(){
     int memberNumber = uiCoach.inputMembernumber();
-    NonCompetitor nonCompetitor = (NonCompetitor) memberList.findSpecifikMemberByMemberNumber(memberNumber);
-    if(nonCompetitor != null) {
+    Member member = memberList.findSpecifikMemberByMemberNumber(memberNumber);
+    if(member instanceof NonCompetitor nonCompetitor) {
       createCompetitorFromNonCompetitor(nonCompetitor);
-    } else {
+    } else if (member instanceof Competitor) {
+      uiCoach.printNotCorrectMemberType(member.getName());
+    } else{
       uiCoach.memberNotFound();
     }
   }

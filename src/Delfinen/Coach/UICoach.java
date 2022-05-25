@@ -23,7 +23,8 @@ public class UICoach extends UIMain implements PrintMenuInterface {
     System.out.println("2: Top 5 præstationer mænd");
     System.out.println("3: Opret en ny stævnetid");
     System.out.println("4: Opret en ny træningstid");
-    System.out.println("5: Vis alle træningstider"); //TODO: Sorteringsmenu ind her?
+    System.out.println("5: Vis alle træningstider");
+    System.out.println("6: Konverter en motionssvømmer til konkurrencesvømmer");
     System.out.println("0: Gå tilbage til hovedmenu");
   }
 
@@ -176,5 +177,9 @@ public class UICoach extends UIMain implements PrintMenuInterface {
   public void showDisciplinesOptions() {
     System.out.println("Hvilken svømmedisciplin skal medlemmet tilføjes til?");
     System.out.println("1) Bryst\n2) Ryg\n3) Crawl\n4) Butterfly");
+  }
+
+  public void printNotCorrectMemberType(String name) {
+    System.out.println(name + " er allerede en konkurrencesvømmer");
   }
 }
