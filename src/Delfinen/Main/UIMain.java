@@ -5,7 +5,7 @@ import Delfinen.Main.PrintMenuInterface;
 import java.util.Scanner;
 
 public class UIMain implements PrintMenuInterface {
-  Scanner sc = new Scanner(System.in);
+  final Scanner sc = new Scanner(System.in);
 
 
   public void printMenuOptions(){

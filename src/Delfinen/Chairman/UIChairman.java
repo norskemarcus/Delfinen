@@ -66,21 +66,6 @@ public class UIChairman extends UIMain {
     return number;
   }
 
-  public void displayMember(Member member) { //TODO: Skal denne fremvisning differentieres afhængig af, om man er kasserer og formand?
-
-    if (member == null) {
-      System.out.println("\nIntet medlem blev ikke fundet ud indtastede oplysninger.\n");
-    } else {
-      System.out.printf("""
-                    
-          Fundet medlem:
-          Navn:   %s  Medlemsnummer: %d Email: %s
-          Alder:  %d år  restance: %s
-                    
-          """, member.getName(), member.getMemberNumber(), member.getEmail(), member.getAge(), member.isMembershipPaid());
-    }
-  }
-
   public void printFoundMembersBySearch(ArrayList<Member> members) {
 
     if (members.isEmpty()) {

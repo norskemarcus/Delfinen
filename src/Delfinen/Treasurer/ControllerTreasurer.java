@@ -6,9 +6,9 @@ import Delfinen.Member.NonCompetitor;
 import Delfinen.Persistence.FileHandler;
 
 public class ControllerTreasurer {
-  private UITreasurer uiTreasurer = new UITreasurer();
-  private MemberList memberList = new MemberList();
-  private FileHandler fileHandler = new FileHandler();
+  private final UITreasurer uiTreasurer = new UITreasurer();
+  private final MemberList memberList = new MemberList();
+  private final FileHandler fileHandler = new FileHandler();
   private boolean running = true;
 
 

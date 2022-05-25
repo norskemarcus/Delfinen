@@ -5,10 +5,10 @@ import Delfinen.Coach.ControllerCoach;
 import Delfinen.Treasurer.ControllerTreasurer;
 
 public class ControllerMain {
-  private ControllerChairman cChairman = new ControllerChairman();
-  private ControllerTreasurer cTreasurer = new ControllerTreasurer();
-  private ControllerCoach cCoach = new ControllerCoach();
-  private UIMain uiMain = new UIMain ();
+  private final ControllerChairman cChairman = new ControllerChairman();
+  private final ControllerTreasurer cTreasurer = new ControllerTreasurer();
+  private final ControllerCoach cCoach = new ControllerCoach();
+  private final UIMain uiMain = new UIMain ();
   private boolean running = true;
 
 

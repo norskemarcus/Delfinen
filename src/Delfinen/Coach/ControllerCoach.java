@@ -7,9 +7,9 @@ import java.util.ArrayList;
 
 public class ControllerCoach {
 
-  private UICoach uiCoach = new UICoach();
-  private MemberList memberList = new MemberList();
-  private FileHandler fileHandler = new FileHandler();
+  private final UICoach uiCoach = new UICoach();
+  private final MemberList memberList = new MemberList();
+  private final FileHandler fileHandler = new FileHandler();
   private boolean running = true;
   boolean runningDisciplines;
   boolean runningAge;
