@@ -75,7 +75,7 @@ public class ControllerChairman {
     running = false;
   }
 
-  private void editMembers() { //TODO: Lave undermenu hvor man kan vælge at ændre et medlems status fra motion til konkurrencesvømmer?
+  private void editMembers() {
     editEmail();
   }
 
